@@ -26,7 +26,9 @@
                                  :settings {:fennel {:workspace {:library (vim.api.nvim_list_runtime_paths)}
                                                      :diagnostics {:globals [:vim]}}}}})))
       (lspconfig.fennel_language_server.setup {})
-      (lspconfig.lua_ls.setup {}))))
+      (lspconfig.lua_ls.setup {})
+      (lspconfig.elixirls.setup {})
+      (lspconfig.erlangls.setup {}))))
 
 (fn config-rose-pine [plugin opts]
   (vim.cmd "set background=dark")

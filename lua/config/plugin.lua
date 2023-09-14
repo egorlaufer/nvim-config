@@ -31,7 +31,9 @@ local function config_nvim_lspconfig(plugin, opts)
       end
     end
     lspconfig.fennel_language_server.setup({})
-    return lspconfig.lua_ls.setup({})
+    lspconfig.lua_ls.setup({})
+    lspconfig.elixirls.setup({})
+    return lspconfig.erlangls.setup({})
   else
     return nil
   end
