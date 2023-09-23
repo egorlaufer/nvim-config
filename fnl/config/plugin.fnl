@@ -27,7 +27,7 @@
                                                      :diagnostics {:globals [:vim]}}}}})))
       (lspconfig.fennel_language_server.setup {})
       (lspconfig.lua_ls.setup {})
-      (lspconfig.elixirls.setup {})
+      (lspconfig.elixirls.setup {:cmd [:elixir-ls]})
       (lspconfig.erlangls.setup {}))))
 
 (fn config-rose-pine [plugin opts]
@@ -303,10 +303,11 @@
         (ok2? fos-formatters) (pcall #(require :format-on-save.formatters))]
     (let [tempfile (fn [] (.. (vim.fn.expand "%") :.formatter-temp))
           fnlcmd [:fnlfmt :--fix "%"]
-          fnlfmt (fos-formatters.shell {:cmd fnlcmd : tempfile})]
+          fnlfmt (fos-formatters.shell {:cmd fnlcmd : tempfile})
+          mixformat (fos-formatters.shell {:cmd [:mix :format "%"] : tempfile})]
       (when (and ok1? ok2?)
         (fos.setup {:exclude_path_patterns [:/node_modules/]
-                    :formatter_by_ft {:fennel fnlfmt}
+                    :formatter_by_ft {:fennel fnlfmt :elixir mixformat}
                     :experiments {:partial_update :diff}})))))
 
 (let [(ok? lazy) (pcall #(require :lazy))]
@@ -317,7 +318,7 @@
                   :config (try config-conjure)
                   :lazy true}
                  {1 :neovim/nvim-lspconfig
-                  :ft [:fennel :lua]
+                  :ft [:fennel :lua :erlang :elixir]
                   :config (try config-nvim-lspconfig)
                   :dependencies [[:ray-x/lsp_signature.nvim]]
                   :lazy true}
