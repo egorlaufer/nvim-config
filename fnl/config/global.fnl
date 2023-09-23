@@ -20,3 +20,4 @@
 (vim.cmd "set list")
 (vim.cmd "set wrap")
 (vim.cmd "set nomodeline")
+(vim.cmd "set guifont=Iosevka\\ Nerd\\ Font\\ Mono:h13")
