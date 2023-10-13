@@ -7,6 +7,7 @@ local function config_conjure(plugin, opts)
   ok_3f, conjure = pcall(_1_)
   if ok_3f then
     vim.g["conjure#filetype#fennel"] = "conjure.client.fennel.stdio"
+    vim.g["conjure#extract#tree_sitter#enabled"] = true
     return nil
   else
     return nil
@@ -33,7 +34,8 @@ local function config_nvim_lspconfig(plugin, opts)
     lspconfig.fennel_language_server.setup({})
     lspconfig.lua_ls.setup({})
     lspconfig.elixirls.setup({cmd = {"elixir-ls"}})
-    return lspconfig.erlangls.setup({})
+    lspconfig.erlangls.setup({})
+    return lspconfig.rust_analyzer.setup({})
   else
     return nil
   end
@@ -69,62 +71,13 @@ local function config_leap(plugin, opts)
 end
 local function config_cmp(plugin, opts)
   vim.o.completeopt = "menuone,noselect"
-  local symbols_map = {{word = ":alpha", label = "\206\177 alpha", insertText = "\206\177", filterText = ":alpha"}, {word = ":Alpha", label = "\206\145 Alpha", insertText = "\206\177", filterText = ":Alpha"}, {word = ":beta", label = "\206\178 beta", insertText = "\206\178", filterText = ":beta"}, {word = ":Beta", label = "\206\146 Beta", insertText = "\206\146", filterText = ":Beta"}, {word = ":gamma", label = "\206\179 gamma", insertText = "\206\179", filterText = ":gamma"}, {word = ":Gamma", label = "\206\147 Gamma", inertText = "\206\147", filterText = ":Gamma"}, {word = ":delta", label = "\206\180 delta", insertText = "\206\180", filterText = ":delta"}, {word = ":Delta", label = "\206\148 Delta", insertText = "\206\148", filterText = ":Delta"}, {word = ":epsilon", label = "\206\181 epsilon", insertText = "\206\181", filterText = ":epsilon"}, {word = ":Epsilon", label = "\206\149 Epsilon", insertText = "\206\149", filterText = ":Epsilon"}, {word = ":zeta", label = "\206\182 zeta", insertText = "\206\182", filterText = ":zeta"}, {word = ":Zeta", label = "\206\150 Zeta", insertText = "\206\150", filterText = ":Zeta"}, {word = ":eta", label = "\206\183 eta", insertText = "\206\183", filterText = ":eta"}, {word = ":Eta", label = "\206\151 Eta", insertText = "\206\151", filterText = ":Eta"}, {word = ":theta", label = "\206\184 theta", insertText = "\206\184", filterText = ":theta"}, {word = ":Theta", label = "\206\152 Theta", insertText = "\206\152", filterText = ":Theta"}, {word = ":iota", label = "\206\185 iota", insertText = "\206\185", filterText = ":iota"}, {word = ":Iota", label = "\206\153 Iota", insertText = "\206\153", filterText = ":Iota"}, {word = ":kappa", label = "\206\186 kappa", insertText = "\206\186", filterText = ":kappa"}, {word = ":Kappa", label = "\206\154 Kappa", insertText = "\206\154", filterText = ":Kappa"}, {word = ":lambda", label = "\206\187 lambda", insertText = "\206\187", filterText = ":lambda"}, {word = ":Lambda", label = "\206\155 Lambda", insertText = "\206\155", filterText = ":Lambda"}, {word = ":mu", label = "\206\188 mu", insertText = "\206\188", filterText = ":mu"}, {word = ":Mu", label = "\206\156 Mu", insertText = "\206\156", filterText = ":Mu"}, {word = ":nu", label = "\206\189 nu", insertText = "\206\189", filterText = ":nu"}, {word = ":Nu", label = "\206\157 Nu", insertText = "\206\157", filterText = ":Nu"}, {word = ":xi", label = "\206\190 xi", insertText = "\206\190", filterText = ":xi"}, {word = ":Xi", label = "\206\158 Xi", insertText = "\206\158", filterText = ":Xi"}, {word = ":omicron", label = "\206\191 omicron", insertText = "\206\191", filterText = ":omicron"}, {word = ":Omicron", label = "\206\159 Omicron", insertText = "\206\159", filterText = ":Omicron"}, {word = ":pi", label = "\207\128 pi", insertText = "\207\128", filterText = ":pi"}, {word = ":Pi", label = "\206\160 Pi", insertText = "\206\160", filterText = ":Pi"}, {word = ":rho", label = "\207\129 rho", insertText = "\207\129", filterText = ":rho"}, {word = ":Rho", label = "\206\161 Rho", insertText = "\206\161", filterText = ":Rho"}, {word = ":sigma", label = "\207\131 sigma", insertText = "\207\131", filterText = ":sigma"}, {word = ":Sigma", label = "\206\163 Sigma", insertText = "\206\163", filterText = ":Sigma"}, {word = ":tau", label = "\207\132 tau", insertText = "\207\132", filterText = ":tau"}, {word = ":Tau", label = "\206\164 Tau", insertText = "\206\164", filterText = ":Tau"}, {word = ":upsilon", label = "\207\133 upsilon", insertText = "\207\133", filterText = ":upsilon"}, {word = ":Upsilon", label = "\206\165 Upsilon", insertText = "\206\165", filterText = ":Upsilon"}, {word = ":phi", label = "\206\166 phi", insertText = "\206\166", filterText = ":phi"}, {word = ":Phi", label = "\206\166 Phi", insertText = "\206\166", filterText = ":Phi"}, {word = ":chi", label = "\207\135 chi", insertText = "\207\135", filterText = ":chi"}, {word = ":Chi", label = "\206\167 Chi", insertText = "\206\167", filterText = ":Chi"}, {word = ":psi", label = "\207\136 psi", insertText = "\207\136", filterText = ":psi"}, {word = ":Psi", label = "\206\168 Psi", insertText = "\206\168", filterText = ":Psi"}, {word = ":omega", label = "\207\137 omega", insertText = "\207\137", filterText = ":omega"}, {word = ":Omega", label = "\206\169 Omega", insertText = "\206\169", filterText = "Omega:"}, {word = ":lozenge", label = "\226\151\138 lozenge", insertText = "\226\151\138", filterText = ":lozenge"}}
-  local greek_source_option
-  local function _11_(_, params)
-    local params0
-    if params then
-      params0 = params
-    else
-      params0 = {option = {}}
-    end
-    return vim.tbl_extend("force", {insert = false}, (params0).option)
-  end
-  greek_source_option = _11_
-  local greek_source_trigger
-  local function _13_()
-    return {":"}
-  end
-  greek_source_trigger = _13_
-  local greek_source_complete
-  local function _14_(self, params, callback)
-    local params0
-    if params then
-      params0 = params
-    else
-      params0 = {}
-    end
-    if (self.option(params0)).insert then
-      if not self.insert_items then
-        local function _16_(item)
-          item["word"] = nil
-          return item
-        end
-        self["insert_items"] = vim.tbl_map(_16_, symbols_map)
-      else
-      end
-      return callback(self.insert_items)
-    else
-      if not self.commit_items then
-        self["commit_items"] = symbols_map
-      else
-      end
-      return callback(self.commit_items)
-    end
-  end
-  greek_source_complete = _14_
-  local greek_source
-  local function greek_source_new()
-    return {option = greek_source_option, get_trigger_characters = greek_source_trigger, complete = greek_source_complete, commit_items = nil, insert_items = nil, new = greek_source_new}
-  end
-  greek_source = greek_source_new()
   local ok_3f, cmp = nil, nil
-  local function _20_()
+  local function _11_()
     return require("cmp")
   end
-  ok_3f, cmp = pcall(_20_)
+  ok_3f, cmp = pcall(_11_)
   if ok_3f then
-    cmp.register_source("greek", greek_source)
+    cmp.register_source("greek", __fnl_global__greek_2dsource)
     cmp.setup({sources = {{name = "conjure"}, {name = "nvim_lsp"}, {name = "buffer"}, {name = "path"}, {name = "greek"}, {name = "rg", keyword_length = 5, option = {debounce = 1000}}, {name = "nvim_lua"}}, view = {entries = "native"}, mapping = cmp.mapping.preset.insert({["<C-b>"] = cmp.mapping.scroll_docs(-4), ["<C-f>"] = cmp.mapping.scroll_docs(4), ["<C-Space>"] = cmp.mapping.complete(), ["<C-e>"] = cmp.mapping.abort(), ["<CR>"] = cmp.mapping.confirm({select = false})})})
     return cmp.setup.filetype("gitcommit", {sources = {{name = "cmp_git"}, {name = "path"}, {name = "buffer"}, {name = "rg", keyword_length = 5, option = {debounce = 1000}}}})
   else
@@ -133,36 +86,36 @@ local function config_cmp(plugin, opts)
 end
 local function config_format_on_save(plugin, opts)
   local ok1_3f, fos = nil, nil
-  local function _22_()
+  local function _13_()
     return require("format-on-save")
   end
-  ok1_3f, fos = pcall(_22_)
+  ok1_3f, fos = pcall(_13_)
   local ok2_3f, fos_formatters = nil, nil
-  local function _23_()
+  local function _14_()
     return require("format-on-save.formatters")
   end
-  ok2_3f, fos_formatters = pcall(_23_)
+  ok2_3f, fos_formatters = pcall(_14_)
   local tempfile
-  local function _24_()
+  local function _15_()
     return (vim.fn.expand("%") .. ".formatter-temp")
   end
-  tempfile = _24_
+  tempfile = _15_
   local fnlcmd = {"fnlfmt", "--fix", "%"}
   local fnlfmt = fos_formatters.shell({cmd = fnlcmd, tempfile = tempfile})
   local mixformat = fos_formatters.shell({cmd = {"mix", "format", "%"}, tempfile = tempfile})
   if (ok1_3f and ok2_3f) then
-    return fos.setup({exclude_path_patterns = {"/node_modules/"}, formatter_by_ft = {fennel = fnlfmt, elixir = mixformat}, experiments = {partial_update = "diff"}})
+    return fos.setup({exclude_path_patterns = {"/node_modules/"}, formatter_by_ft = {fennel = fnlfmt, elixir = mixformat, rust = fos_formatters.lsp}, experiments = {partial_update = "diff"}})
   else
     return nil
   end
 end
 local ok_3f, lazy = nil, nil
-local function _26_()
+local function _17_()
   return require("lazy")
 end
-ok_3f, lazy = pcall(_26_)
+ok_3f, lazy = pcall(_17_)
 if ok_3f then
-  local function _27_()
+  local function _18_()
     local ok_3f_2_auto, _res_3_auto = pcall(config_conjure)
     if ok_3f_2_auto then
       return false
@@ -171,7 +124,7 @@ if ok_3f then
       return true
     end
   end
-  local function _29_()
+  local function _20_()
     local ok_3f_2_auto, _res_3_auto = pcall(config_nvim_lspconfig)
     if ok_3f_2_auto then
       return false
@@ -180,7 +133,7 @@ if ok_3f then
       return true
     end
   end
-  local function _31_()
+  local function _22_()
     local ok_3f_2_auto, _res_3_auto = pcall(config_rose_pine)
     if ok_3f_2_auto then
       return false
@@ -189,7 +142,7 @@ if ok_3f then
       return true
     end
   end
-  local function _33_()
+  local function _24_()
     local ok_3f_2_auto, _res_3_auto = pcall(config_leap)
     if ok_3f_2_auto then
       return false
@@ -198,7 +151,7 @@ if ok_3f then
       return true
     end
   end
-  local function _35_()
+  local function _26_()
     local ok_3f_2_auto, _res_3_auto = pcall(config_treesitter)
     if ok_3f_2_auto then
       return false
@@ -207,7 +160,7 @@ if ok_3f then
       return true
     end
   end
-  local function _37_()
+  local function _28_()
     local ok_3f_2_auto, _res_3_auto = pcall(config_cmp)
     if ok_3f_2_auto then
       return false
@@ -216,7 +169,7 @@ if ok_3f then
       return true
     end
   end
-  local function _39_()
+  local function _30_()
     local ok_3f_2_auto, _res_3_auto = pcall(config_format_on_save)
     if ok_3f_2_auto then
       return false
@@ -225,7 +178,7 @@ if ok_3f then
       return true
     end
   end
-  return lazy.setup({{"Olical/nfnl", ft = "fennel", lazy = true}, {"Olical/conjure", ft = "fennel", config = _27_, lazy = true}, {"neovim/nvim-lspconfig", ft = {"fennel", "lua", "erlang", "elixir"}, config = _29_, dependencies = {{"ray-x/lsp_signature.nvim"}}, lazy = true}, {"rose-pine/neovim", config = _31_, lazy = false}, {"ggandor/leap.nvim", config = _33_, lazy = false}, {"nvim-treesitter/nvim-treesitter", ft = {"fennel", "lua"}, config = _35_, lazy = true}, {"nvim-lualine/lualine.nvim", opts = {}, lazy = false}, {"mbbill/undotree", cmd = {"UndoTreeToggle", "UndoTreeHide", "UndoTreeShow", "UndoTreeFocus"}, lazy = true, opts = {}}, {"hrsh7th/nvim-cmp", dependencies = {{"PaterJason/cmp-conjure"}, {"hrsh7th/cmp-buffer"}, {"hrsh7th/cmp-cmdline"}, {"hrsh7th/cmp-nvim-lsp"}, {"hrsh7th/cmp-path"}, {"hrsh7th/cmp-omni"}, {"hrsh7th/cmp-nvim-lua"}}, config = _37_, lazy = false}, {"elentok/format-on-save.nvim", config = _39_, lazy = false}, {"folke/which-key.nvim", opts = {}, lazy = false}, {"nvim-telescope/telescope.nvim", cmd = "Telescope", dependencies = {{"nvim-lua/popup.nvim"}, {"nvim-lua/plenary.nvim"}, {"nvim-telescope/telescope-symbols.nvim"}, {"nvim-telescope/telescope-ui-select.nvim"}, {"barrett-ruth/telescope-http.nvim"}, {"danielvolchek/tailiscope.nvim"}, {"nvim-telescope/telescope-dap.nvim"}, {"nvim-treesitter/nvim-treesitter"}}}, {"https://gitlab.com/HiPhish/rainbow-delimiters.nvim", lazy = false}, {"tpope/vim-commentary"}, {"tpope/vim-fugitive"}, {"tpope/vim-surround"}, {"NMAC427/guess-indent.nvim", lazy = false}, {"jdhao/whitespace.nvim", lazy = false}, {"kyazdani42/nvim-tree.lua", cmd = {"NvimTreeToggle", "NvimTreeClipboard", "NvimTreeClose", "NvimTreeCollapse", "NvimTreeCollapseKeepBuffers", "NvimTreeFindFile", "NvimTreeFindFileToggle", "NvimTreeFocus", "NvimTreeOpen", "NvimTreeRefresh", "NvimTreeResize", "NvimTreeToggle"}, lazy = true, opts = {}}, {"mfussenegger/nvim-dap"}, {"rcarriga/nvim-dap-ui"}, {"simrat39/rust-tools.nvim", dependencies = {{"nvim-lua/plenary.nvim"}}}, {"akinsho/toggleterm.nvim"}, {"rose-pine/neovim", lazy = false}, {"terryma/vim-expand-region"}})
+  return lazy.setup({{"Olical/nfnl", ft = "fennel", lazy = true}, {"Olical/conjure", ft = "fennel", config = _18_, lazy = true}, {"neovim/nvim-lspconfig", ft = {"fennel", "lua", "erlang", "elixir", "rust"}, config = _20_, dependencies = {{"ray-x/lsp_signature.nvim"}}, lazy = true}, {"rose-pine/neovim", config = _22_, lazy = false}, {"ggandor/leap.nvim", config = _24_, lazy = false}, {"nvim-treesitter/nvim-treesitter", ft = {"fennel", "lua", "rust"}, config = _26_, lazy = true}, {"nvim-lualine/lualine.nvim", opts = {}, lazy = false}, {"mbbill/undotree", cmd = {"UndoTreeToggle", "UndoTreeHide", "UndoTreeShow", "UndoTreeFocus"}, lazy = true, opts = {}}, {"hrsh7th/nvim-cmp", dependencies = {{"PaterJason/cmp-conjure"}, {"hrsh7th/cmp-buffer"}, {"hrsh7th/cmp-cmdline"}, {"hrsh7th/cmp-nvim-lsp"}, {"hrsh7th/cmp-path"}, {"hrsh7th/cmp-omni"}, {"hrsh7th/cmp-nvim-lua"}}, config = _28_, lazy = false}, {"elentok/format-on-save.nvim", config = _30_, lazy = false}, {"folke/which-key.nvim", opts = {}, lazy = false}, {"nvim-telescope/telescope.nvim", cmd = "Telescope", dependencies = {{"nvim-lua/popup.nvim"}, {"nvim-lua/plenary.nvim"}, {"nvim-telescope/telescope-symbols.nvim"}, {"nvim-telescope/telescope-ui-select.nvim"}, {"barrett-ruth/telescope-http.nvim"}, {"danielvolchek/tailiscope.nvim"}, {"nvim-telescope/telescope-dap.nvim"}, {"nvim-treesitter/nvim-treesitter"}}}, {"https://gitlab.com/HiPhish/rainbow-delimiters.nvim", lazy = false}, {"tpope/vim-commentary"}, {"tpope/vim-fugitive"}, {"tpope/vim-surround"}, {"NMAC427/guess-indent.nvim", lazy = false}, {"jdhao/whitespace.nvim", lazy = false}, {"kyazdani42/nvim-tree.lua", cmd = {"NvimTreeToggle", "NvimTreeClipboard", "NvimTreeClose", "NvimTreeCollapse", "NvimTreeCollapseKeepBuffers", "NvimTreeFindFile", "NvimTreeFindFileToggle", "NvimTreeFocus", "NvimTreeOpen", "NvimTreeRefresh", "NvimTreeResize", "NvimTreeToggle"}, lazy = true, opts = {}}, {"mfussenegger/nvim-dap"}, {"rcarriga/nvim-dap-ui"}, {"simrat39/rust-tools.nvim", dependencies = {{"nvim-lua/plenary.nvim"}}}, {"akinsho/toggleterm.nvim"}, {"rose-pine/neovim", lazy = false}, {"terryma/vim-expand-region"}})
 else
   return nil
 end
