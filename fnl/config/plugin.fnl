@@ -51,7 +51,6 @@
   (set vim.o.completeopt "menuone,noselect")
   (let [(ok? cmp) (pcall #(require :cmp))]
     (when ok?
-      (cmp.register_source :greek greek-source)
       (cmp.setup {:sources [{:name :conjure}
                             {:name :nvim_lsp}
                             {:name :buffer}
