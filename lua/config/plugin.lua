@@ -108,13 +108,21 @@ local function config_format_on_save(plugin, opts)
     return nil
   end
 end
+local function config_idris(plugin, opts)
+  local ok_3f, idris = nil, nil
+  local function _17_()
+    return require("idris2")
+  end
+  ok_3f, idris = pcall(_17_)
+  return idris.setup({})
+end
 local ok_3f, lazy = nil, nil
-local function _17_()
+local function _18_()
   return require("lazy")
 end
-ok_3f, lazy = pcall(_17_)
+ok_3f, lazy = pcall(_18_)
 if ok_3f then
-  local function _18_()
+  local function _19_()
     local ok_3f_2_auto, _res_3_auto = pcall(config_conjure)
     if ok_3f_2_auto then
       return false
@@ -123,7 +131,7 @@ if ok_3f then
       return true
     end
   end
-  local function _20_()
+  local function _21_()
     local ok_3f_2_auto, _res_3_auto = pcall(config_nvim_lspconfig)
     if ok_3f_2_auto then
       return false
@@ -132,7 +140,7 @@ if ok_3f then
       return true
     end
   end
-  local function _22_()
+  local function _23_()
     local ok_3f_2_auto, _res_3_auto = pcall(config_rose_pine)
     if ok_3f_2_auto then
       return false
@@ -141,7 +149,7 @@ if ok_3f then
       return true
     end
   end
-  local function _24_()
+  local function _25_()
     local ok_3f_2_auto, _res_3_auto = pcall(config_leap)
     if ok_3f_2_auto then
       return false
@@ -150,7 +158,7 @@ if ok_3f then
       return true
     end
   end
-  local function _26_()
+  local function _27_()
     local ok_3f_2_auto, _res_3_auto = pcall(config_treesitter)
     if ok_3f_2_auto then
       return false
@@ -159,7 +167,7 @@ if ok_3f then
       return true
     end
   end
-  local function _28_()
+  local function _29_()
     local ok_3f_2_auto, _res_3_auto = pcall(config_cmp)
     if ok_3f_2_auto then
       return false
@@ -168,7 +176,7 @@ if ok_3f then
       return true
     end
   end
-  local function _30_()
+  local function _31_()
     local ok_3f_2_auto, _res_3_auto = pcall(config_format_on_save)
     if ok_3f_2_auto then
       return false
@@ -177,7 +185,16 @@ if ok_3f then
       return true
     end
   end
-  return lazy.setup({{"Olical/nfnl", ft = "fennel", lazy = true}, {"Olical/conjure", ft = "fennel", config = _18_, lazy = true}, {"neovim/nvim-lspconfig", ft = {"fennel", "lua", "erlang", "elixir", "rust"}, config = _20_, dependencies = {{"ray-x/lsp_signature.nvim"}}, lazy = true}, {"rose-pine/neovim", config = _22_, lazy = false}, {"ggandor/leap.nvim", config = _24_, lazy = false}, {"nvim-treesitter/nvim-treesitter", ft = {"fennel", "lua", "rust"}, config = _26_, lazy = true}, {"nvim-lualine/lualine.nvim", opts = {}, lazy = false}, {"mbbill/undotree", cmd = {"UndoTreeToggle", "UndoTreeHide", "UndoTreeShow", "UndoTreeFocus"}, lazy = true, opts = {}}, {"hrsh7th/nvim-cmp", dependencies = {{"PaterJason/cmp-conjure"}, {"hrsh7th/cmp-buffer"}, {"hrsh7th/cmp-cmdline"}, {"hrsh7th/cmp-nvim-lsp"}, {"hrsh7th/cmp-path"}, {"hrsh7th/cmp-omni"}, {"hrsh7th/cmp-nvim-lua"}}, config = _28_, lazy = false}, {"elentok/format-on-save.nvim", config = _30_, lazy = false}, {"folke/which-key.nvim", opts = {}, lazy = false}, {"nvim-telescope/telescope.nvim", cmd = "Telescope", dependencies = {{"nvim-lua/popup.nvim"}, {"nvim-lua/plenary.nvim"}, {"nvim-telescope/telescope-symbols.nvim"}, {"nvim-telescope/telescope-ui-select.nvim"}, {"barrett-ruth/telescope-http.nvim"}, {"danielvolchek/tailiscope.nvim"}, {"nvim-telescope/telescope-dap.nvim"}, {"nvim-treesitter/nvim-treesitter"}}}, {"https://gitlab.com/HiPhish/rainbow-delimiters.nvim", lazy = false}, {"tpope/vim-commentary"}, {"tpope/vim-fugitive"}, {"tpope/vim-surround"}, {"NMAC427/guess-indent.nvim", lazy = false}, {"jdhao/whitespace.nvim", lazy = false}, {"kyazdani42/nvim-tree.lua", cmd = {"NvimTreeToggle", "NvimTreeClipboard", "NvimTreeClose", "NvimTreeCollapse", "NvimTreeCollapseKeepBuffers", "NvimTreeFindFile", "NvimTreeFindFileToggle", "NvimTreeFocus", "NvimTreeOpen", "NvimTreeRefresh", "NvimTreeResize", "NvimTreeToggle"}, lazy = true, opts = {}}, {"mfussenegger/nvim-dap"}, {"rcarriga/nvim-dap-ui"}, {"simrat39/rust-tools.nvim", dependencies = {{"nvim-lua/plenary.nvim"}}}, {"akinsho/toggleterm.nvim"}, {"rose-pine/neovim", lazy = false}, {"terryma/vim-expand-region"}})
+  local function _33_()
+    local ok_3f_2_auto, _res_3_auto = pcall(config_idris)
+    if ok_3f_2_auto then
+      return false
+    else
+      print(("Failed configuring: " .. "config-idris"))
+      return true
+    end
+  end
+  return lazy.setup({{"Olical/nfnl", ft = "fennel", lazy = true}, {"Olical/conjure", ft = "fennel", config = _19_, lazy = true}, {"neovim/nvim-lspconfig", ft = {"fennel", "lua", "erlang", "elixir", "rust", "idris2"}, config = _21_, dependencies = {{"ray-x/lsp_signature.nvim"}}, lazy = true}, {"rose-pine/neovim", config = _23_, lazy = false}, {"ggandor/leap.nvim", config = _25_, lazy = false}, {"nvim-treesitter/nvim-treesitter", ft = {"fennel", "lua", "rust", "erlang", "elixir", "idris2"}, config = _27_, lazy = true}, {"nvim-lualine/lualine.nvim", opts = {}, lazy = false}, {"mbbill/undotree", cmd = {"UndoTreeToggle", "UndoTreeHide", "UndoTreeShow", "UndoTreeFocus"}, lazy = true, opts = {}}, {"hrsh7th/nvim-cmp", dependencies = {{"PaterJason/cmp-conjure"}, {"hrsh7th/cmp-buffer"}, {"hrsh7th/cmp-cmdline"}, {"hrsh7th/cmp-nvim-lsp"}, {"hrsh7th/cmp-path"}, {"hrsh7th/cmp-omni"}, {"hrsh7th/cmp-nvim-lua"}}, config = _29_, lazy = false}, {"elentok/format-on-save.nvim", config = _31_, lazy = false}, {"folke/which-key.nvim", opts = {}, lazy = false}, {"nvim-telescope/telescope.nvim", cmd = "Telescope", dependencies = {{"nvim-lua/popup.nvim"}, {"nvim-lua/plenary.nvim"}, {"nvim-telescope/telescope-symbols.nvim"}, {"nvim-telescope/telescope-ui-select.nvim"}, {"barrett-ruth/telescope-http.nvim"}, {"danielvolchek/tailiscope.nvim"}, {"nvim-telescope/telescope-dap.nvim"}, {"nvim-treesitter/nvim-treesitter"}}}, {"https://gitlab.com/HiPhish/rainbow-delimiters.nvim", lazy = false}, {"tpope/vim-commentary"}, {"tpope/vim-fugitive"}, {"tpope/vim-surround"}, {"NMAC427/guess-indent.nvim", lazy = false}, {"jdhao/whitespace.nvim", lazy = false}, {"kyazdani42/nvim-tree.lua", cmd = {"NvimTreeToggle", "NvimTreeClipboard", "NvimTreeClose", "NvimTreeCollapse", "NvimTreeCollapseKeepBuffers", "NvimTreeFindFile", "NvimTreeFindFileToggle", "NvimTreeFocus", "NvimTreeOpen", "NvimTreeRefresh", "NvimTreeResize", "NvimTreeToggle"}, lazy = true, opts = {}}, {"mfussenegger/nvim-dap"}, {"rcarriga/nvim-dap-ui"}, {"simrat39/rust-tools.nvim", dependencies = {{"nvim-lua/plenary.nvim"}}}, {"akinsho/toggleterm.nvim", cmd = {"ToggleTerm"}}, {"rose-pine/neovim", lazy = false}, {"terryma/vim-expand-region", lazy = false}, {"MunifTanjim/nui.nvim", lazy = false}, {"ShinKage/idris2-nvim", requires = {"neovim/nvim-lspconfig", "MunifTanjim/nui.nvim"}, ft = {"idris2"}, config = _33_}})
 else
   return nil
 end

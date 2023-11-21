@@ -88,6 +88,10 @@
                                       :rust fos-formatters.lsp}
                     :experiments {:partial_update :diff}})))))
 
+(fn config-idris [plugin opts]
+  (let [(ok? idris) (pcall #(require :idris2))]
+    (idris.setup {})))
+
 (let [(ok? lazy) (pcall #(require :lazy))]
   (when ok?
     (lazy.setup [{1 :Olical/nfnl :ft :fennel :lazy true}
@@ -96,7 +100,7 @@
                   :config (try config-conjure)
                   :lazy true}
                  {1 :neovim/nvim-lspconfig
-                  :ft [:fennel :lua :erlang :elixir :rust]
+                  :ft [:fennel :lua :erlang :elixir :rust :idris2]
                   :config (try config-nvim-lspconfig)
                   :dependencies [[:ray-x/lsp_signature.nvim]]
                   :lazy true}
@@ -105,7 +109,7 @@
                   :lazy false}
                  {1 :ggandor/leap.nvim :config (try config-leap) :lazy false}
                  {1 :nvim-treesitter/nvim-treesitter
-                  :ft [:fennel :lua :rust]
+                  :ft [:fennel :lua :rust :erlang :elixir :idris2]
                   :config (try config-treesitter)
                   :lazy true}
                  {1 :nvim-lualine/lualine.nvim :lazy false :opts {}}
@@ -166,6 +170,11 @@
                  {1 :rcarriga/nvim-dap-ui}
                  {1 :simrat39/rust-tools.nvim
                   :dependencies [[:nvim-lua/plenary.nvim]]}
-                 {1 :akinsho/toggleterm.nvim}
+                 {1 :akinsho/toggleterm.nvim :cmd [:ToggleTerm]}
                  {1 :rose-pine/neovim :lazy false}
-                 {1 :terryma/vim-expand-region}])))
+                 {1 :terryma/vim-expand-region :lazy false}
+                 {1 :MunifTanjim/nui.nvim :lazy false}
+                 {1 :ShinKage/idris2-nvim
+                  :requires [:neovim/nvim-lspconfig :MunifTanjim/nui.nvim]
+                  :ft [:idris2]
+                  :config (try config-idris)}])))
