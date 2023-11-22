@@ -6,7 +6,6 @@
                             {:name :nvim_lsp}
                             {:name :buffer}
                             {:name :path}
-                            {:name :greek}
                             {:name :rg
                              :keyword_length 5
                              :option {:debounce 1000}}
