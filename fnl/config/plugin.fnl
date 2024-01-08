@@ -57,14 +57,15 @@
                  {1 :folke/which-key.nvim :lazy false :opts {}}
                  {1 :nvim-telescope/telescope.nvim
                   :cmd :Telescope
+                  :config (mod :config.plugin.telescope)
                   :dependencies [[:nvim-lua/popup.nvim]
                                  [:nvim-lua/plenary.nvim]
-                                 [:nvim-telescope/telescope-symbols.nvim]
                                  [:nvim-telescope/telescope-ui-select.nvim]
                                  [:barrett-ruth/telescope-http.nvim]
-                                 [:danielvolchek/tailiscope.nvim]
                                  [:nvim-telescope/telescope-dap.nvim]
-                                 [:nvim-treesitter/nvim-treesitter]]}
+                                 [:nvim-treesitter/nvim-treesitter]
+                                 [:natecraddock/telescope-zf-native.nvim]
+                                 [:debugloop/telescope-undo.nvim]]}
                  {1 "https://gitlab.com/HiPhish/rainbow-delimiters.nvim"
                   :lazy false}
                  {1 :tpope/vim-commentary}
