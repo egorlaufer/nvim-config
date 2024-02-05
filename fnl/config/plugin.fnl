@@ -99,4 +99,6 @@
                  {1 :ShinKage/idris2-nvim
                   :requires [:neovim/nvim-lspconfig :MunifTanjim/nui.nvim]
                   :ft [:idris2]
-                  :config (mod :config.plugin.idris2)}])))
+                  :config (mod :config.plugin.idris2)}
+                 {1 :tpope/vim-characterize :lazy false}
+                 {1 :airblade/vim-rooter :lazy false}])))

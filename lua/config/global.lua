@@ -22,4 +22,12 @@ vim.cmd("set list")
 vim.cmd("set wrap")
 vim.cmd("set nomodeline")
 vim.cmd("set guifont=Iosevka\\ Nerd\\ Font\\ Mono:h14")
-return vim.cmd("set splitright")
+vim.cmd("set splitright")
+local function _1_()
+  return print("Have a fantastic file edit! \240\159\152\152")
+end
+vim.defer_fn(_1_, 1000)
+local function _2_()
+  return pcall(vim.cmd, "NeovideFocus")
+end
+return vim.defer_fn(_2_, 200)
