@@ -22,3 +22,6 @@
 (vim.cmd "set nomodeline")
 (vim.cmd "set guifont=Iosevka\\ Nerd\\ Font\\ Mono:h14")
 (vim.cmd "set splitright")
+
+(vim.defer_fn (fn [] (print "Have a fantastic file edit! 😘")) 1000)
+(vim.defer_fn (fn [] (pcall vim.cmd :NeovideFocus)) 200)
