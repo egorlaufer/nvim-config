@@ -11,6 +11,10 @@
                              :option {:debounce 1000}}
                             {:name :nvim_lua}]
                   :view {:entries :native}
+                  :snippet {:expand (fn [args]
+                                      (let [(ok? luasnip) (pcall #(require :luasnip))]
+                                        (when ok?
+                                          (luasnip.lsp_expand args.body))))}
                   :mapping (cmp.mapping.preset.insert {:<C-b> (cmp.mapping.scroll_docs -4)
                                                        :<C-f> (cmp.mapping.scroll_docs 4)
                                                        :<C-Space> (cmp.mapping.complete)
@@ -25,3 +29,4 @@
                                       :option {:debounce 1000}}]}))))
 
 {: config}
+

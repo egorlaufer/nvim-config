@@ -21,6 +21,7 @@
 (set-normal-telescope :<leader>fh :help_tags :ivy)
 (set-normal-telescope :<leader>fj :jumplist :ivy)
 (set-normal-telescope :<leader>fk :keymaps :ivy)
+(set-normal-telescope :<leader>fl :live_grep :ivy)
 (set-normal-telescope :<leader>fm :man_pages :ivy)
 (set-normal-telescope :<leader>fn :resume :ivy)
 (set-normal-telescope :<leader>fo :oldfiles :ivy)
