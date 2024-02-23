@@ -107,5 +107,6 @@
                   :ft [:idris2]
                   :config (mod :config.plugin.idris2)}
                  {1 :tpope/vim-characterize :lazy false}
-                 {1 :airblade/vim-rooter :lazy false}])))
+                 {1 :airblade/vim-rooter :lazy false}
+                 {1 :nvim-lua/plenary.nvim :lazy false}])))
 
