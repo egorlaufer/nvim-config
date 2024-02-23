@@ -51,6 +51,9 @@
 
 (set-normal-telescope :<leader>xh "http list" :ivy)
 (set-normal-telescope :<leader>xu :undo :ivy)
+(set-normal :<leader>lls ":lua vim.lsp.codelens.run()<CR>" "codelens: run")
+(set-normal :<leader>llr ":lua vim.lsp.codelens.refresh()<CR>"
+            "codelens: refresh")
 
 (set-terminal :<Esc> "<C-\\><C-n>")
 
