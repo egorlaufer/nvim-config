@@ -2,6 +2,9 @@
 local function set_normal(k, command, desc)
   return vim.keymap.set("n", k, command, {desc = desc, noremap = true, silent = true, nowait = true})
 end
+local function set_terminal(k, command, desc)
+  return vim.keymap.set("t", k, command, {desc = desc, noremap = true, silent = true, nowait = true})
+end
 local function telescope(command, theme)
   return (":Telescope " .. command .. " theme=" .. theme .. "<cr>")
 end
@@ -44,4 +47,5 @@ set_normal_telescope("<leader>gb", "git_bcommits", "ivy")
 set_normal_telescope("<leader>gh", "git_branches", "ivy")
 set_normal_telescope("<leader>gs", "git_status", "ivy")
 set_normal_telescope("<leader>xh", "http list", "ivy")
-return set_normal_telescope("<leader>xu", "undo", "ivy")
+set_normal_telescope("<leader>xu", "undo", "ivy")
+return set_terminal("<Esc>", "<C-\\><C-n>")
