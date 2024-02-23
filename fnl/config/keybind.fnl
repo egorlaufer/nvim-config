@@ -1,16 +1,20 @@
-(fn set-normal [k command desc]
-  (vim.keymap.set :n k command {: desc :noremap true :silent true :nowait true}))
+(fn set-normal [k command opts]
+  (vim.keymap.set :n k command
+                  (vim.tbl_extend :force
+                                  {:noremap true :silent true :nowait true} opts)))
 
-(fn set-terminal [k command desc]
-  (vim.keymap.set :t k command {: desc :noremap true :silent true :nowait true}))
+(fn set-terminal [k command opts]
+  (vim.keymap.set :t k command
+                  (vim.tbl_extend :force
+                                  {:noremap true :silent true :nowait true} opts)))
 
 (fn telescope [command theme]
   (.. ":Telescope " command " theme=" theme :<cr>))
 
 (fn set-normal-telescope [k command theme]
-  (set-normal k (telescope command theme) (.. "tele " command)))
+  (set-normal k (telescope command theme) {:desc (.. "tele " command)}))
 
-(set-normal :<leader>t ":NvimTreeToggle<cr>" "nvim-tree: toggle")
+(set-normal :<leader>t ":NvimTreeToggle<cr>" {:desc "nvim-tree: toggle"})
 
 (set-normal-telescope :<leader>f* :grep_string :ivy)
 (set-normal-telescope :<leader>f/ :current_buffer_fuzzy_find :ivy)
@@ -48,12 +52,14 @@
 (set-normal-telescope :<leader>gb :git_bcommits :ivy)
 (set-normal-telescope :<leader>gh :git_branches :ivy)
 (set-normal-telescope :<leader>gs :git_status :ivy)
+(set-normal :<leader>gn ":Git switch -c " {:desc "new branch" :silent false})
 
 (set-normal-telescope :<leader>xh "http list" :ivy)
 (set-normal-telescope :<leader>xu :undo :ivy)
-(set-normal :<leader>lls ":lua vim.lsp.codelens.run()<CR>" "codelens: run")
+(set-normal :<leader>lls ":lua vim.lsp.codelens.run()<CR>"
+            {:desc "codelens: run"})
 (set-normal :<leader>llr ":lua vim.lsp.codelens.refresh()<CR>"
-            "codelens: refresh")
+            {:desc "codelens: refresh"})
 
-(set-terminal :<Esc> "<C-\\><C-n>")
+(set-terminal :<Esc> "<C-\\><C-n>" {:desc "nvim-tree: toggle"})
 
