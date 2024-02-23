@@ -31,7 +31,9 @@
     (when ok?
       (let [(ok? lspconfig-configs) (pcall #(require :lspconfig.configs))
             (ok? cmp) (pcall #(require :cmp_nvim_lsp))
-            capabilities (cmp.default_capabilities (vim.lsp.protocol.make_client_capabilities))]
+            capabilities (vim.tbl_deep_extend :force
+                                              (vim.lsp.protocol.make_client_capabilities)
+                                              (cmp.default_capabilities))]
         (when ok?
           (set lspconfig-configs.fennel_language_server
                {:default_config {:cmd [:fennel-language-server]
@@ -48,6 +50,14 @@
                                    : capabilities})
         (lspconfig.erlangls.setup {:on_attach custom-attach : capabilities})
         (lspconfig.rust_analyzer.setup {:on_attach custom-attach
-                                        : capabilities})))))
+                                        : capabilities})
+        (lspconfig.tailwindcss.setup {:on_attach custom-attach
+                                      : capabilities
+                                      :filetypes [:html :elixir :eelixir :heex]
+                                      :init_options {:userLanguages {:elixir :html-eex
+                                                                     :eelixir :html-eex
+                                                                     :heex :html-eex}}
+                                      :settings {:tailwindCSS {:experimental {:classRegex ["class[:]\\s*\"([^\"]*)\""]}}}})))))
 
 {: config}
+
