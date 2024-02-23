@@ -7,6 +7,8 @@ local function config(plugin, opts)
   ok_3f, telescope = pcall(_1_)
   if ok_3f then
     telescope.load_extension("zf-native")
+    telescope.load_extension("http")
+    telescope.load_extension("undo")
     return telescope.load_extension("http")
   else
     return nil
