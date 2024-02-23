@@ -1,6 +1,9 @@
 (fn set-normal [k command desc]
   (vim.keymap.set :n k command {: desc :noremap true :silent true :nowait true}))
 
+(fn set-terminal [k command desc]
+  (vim.keymap.set :t k command {: desc :noremap true :silent true :nowait true}))
+
 (fn telescope [command theme]
   (.. ":Telescope " command " theme=" theme :<cr>))
 
@@ -48,3 +51,6 @@
 
 (set-normal-telescope :<leader>xh "http list" :ivy)
 (set-normal-telescope :<leader>xu :undo :ivy)
+
+(set-terminal :<Esc> "<C-\\><C-n>")
+
