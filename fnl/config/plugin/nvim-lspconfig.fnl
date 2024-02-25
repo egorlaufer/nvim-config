@@ -57,7 +57,8 @@
                                       :init_options {:userLanguages {:elixir :html-eex
                                                                      :eelixir :html-eex
                                                                      :heex :html-eex}}
-                                      :settings {:tailwindCSS {:experimental {:classRegex ["class[:]\\s*\"([^\"]*)\""]}}}})))))
+                                      :settings {:tailwindCSS {:experimental {:classRegex ["class[:]\\s*\"([^\"]*)\""]}}}})
+        (lspconfig.ansiblels.setup {})))))
 
 {: config}
 
