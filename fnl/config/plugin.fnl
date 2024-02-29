@@ -108,5 +108,14 @@
                   :config (mod :config.plugin.idris2)}
                  {1 :tpope/vim-characterize :lazy false}
                  {1 :airblade/vim-rooter :lazy false}
-                 {1 :nvim-lua/plenary.nvim :lazy false}])))
+                 {1 :nvim-lua/plenary.nvim :lazy false}
+                 {1 :folke/todo-comments.nvim
+                  :lazy false
+                  :dependencies [[:nvim-lua/plenary.nvim]
+                                 [:folke/trouble.nvim]]
+                  :opts {}}
+                 {1 :folke/trouble.nvim
+                  :lazy false
+                  :dependencies [[:nvim-tree/nvim-web-devicons]]
+                  :opts {}}])))
 
