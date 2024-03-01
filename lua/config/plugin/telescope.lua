@@ -9,7 +9,8 @@ local function config(plugin, opts)
     telescope.load_extension("zf-native")
     telescope.load_extension("http")
     telescope.load_extension("undo")
-    return telescope.load_extension("http")
+    telescope.load_extension("http")
+    return telescope.setup({defaults = {path_display = {truncate = 2}}})
   else
     return nil
   end
