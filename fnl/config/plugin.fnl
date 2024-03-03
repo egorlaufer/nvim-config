@@ -71,7 +71,8 @@
                                  [:nvim-telescope/telescope-dap.nvim]
                                  [:nvim-treesitter/nvim-treesitter]
                                  [:natecraddock/telescope-zf-native.nvim]
-                                 [:debugloop/telescope-undo.nvim]]}
+                                 [:debugloop/telescope-undo.nvim]
+                                 [:nvim-telescope/telescope-file-browser.nvim]]}
                  {1 :tpope/vim-commentary}
                  {1 :tpope/vim-fugitive}
                  {1 :tpope/vim-surround}

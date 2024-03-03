@@ -14,8 +14,7 @@
 (fn set-normal-telescope [k command theme]
   (set-normal k (telescope command theme) {:desc (.. "tele " command)}))
 
-(set-normal :<leader>t ":NvimTreeToggle<cr>" {:desc "nvim-tree: toggle"})
-
+(set-normal-telescope :<leader>t :file_browser :ivy)
 (set-normal-telescope :<leader>f* :grep_string :ivy)
 (set-normal-telescope :<leader>f/ :current_buffer_fuzzy_find :ivy)
 (set-normal-telescope :<leader>fa :autocommands :ivy)
@@ -58,6 +57,7 @@
 (set-normal-telescope :<leader>xu :undo :ivy)
 (set-normal :<leader>lls ":lua vim.lsp.codelens.run()<CR>"
             {:desc "codelens: run"})
+
 (set-normal :<leader>llr ":lua vim.lsp.codelens.refresh()<CR>"
             {:desc "codelens: refresh"})
 

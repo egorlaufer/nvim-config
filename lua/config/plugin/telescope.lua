@@ -6,11 +6,12 @@ local function config(plugin, opts)
   end
   ok_3f, telescope = pcall(_1_)
   if ok_3f then
+    telescope.setup({defaults = {path_display = {truncate = 2}, theme = "ivy", extensions = {file_browser = {theme = "ivy", hijack_netrw = true}}}})
     telescope.load_extension("zf-native")
     telescope.load_extension("http")
     telescope.load_extension("undo")
     telescope.load_extension("http")
-    return telescope.setup({defaults = {path_display = {truncate = 2}}})
+    return telescope.load_extension("file_browser")
   else
     return nil
   end
