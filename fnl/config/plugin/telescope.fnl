@@ -9,7 +9,8 @@
       (telescope.load_extension :http)
       (telescope.load_extension :undo)
       (telescope.load_extension :http)
-      (telescope.load_extension :file_browser))))
+      (telescope.load_extension :file_browser)
+      (telescope.load_extension :tailiscope))))
 
 {: config}
 
