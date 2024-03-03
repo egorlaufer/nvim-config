@@ -1,10 +1,10 @@
 (fn config [plugin opts]
-  (let [(ok? telescope) (pcall #(require :telescope))]
+  (let [(ok? telescope) (pcall #(require :telescope))
+        (_ok themes) (pcall #(require :telescope.themes))]
     (when ok?
-      (telescope.setup {:defaults {:path_display {:truncate 2}
-                                   :theme :ivy
-                                   :extensions {:file_browser {:theme :ivy
-                                                               :hijack_netrw true}}}})
+      (telescope.setup {:defaults (vim.tbl_extend :force (themes.get_ivy)
+                                                  {:path_display {:truncate 2}
+                                                   :extensions {:file_browser {:hijack_netrw true}}})})
       (telescope.load_extension :zf-native)
       (telescope.load_extension :http)
       (telescope.load_extension :undo)
