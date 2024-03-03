@@ -73,6 +73,11 @@
                                  [:natecraddock/telescope-zf-native.nvim]
                                  [:debugloop/telescope-undo.nvim]
                                  [:nvim-telescope/telescope-file-browser.nvim]]}
+                 {1 :pwntester/octo.nvim
+                  :config (mod :config.plugin.octo)
+                  :dependencies [[:nvim-tree/nvim-web-devicons]
+                                 [:nvim-lua/plenary.nvim]
+                                 [:nvim-telescope/telescope.nvim]]}
                  {1 :tpope/vim-commentary}
                  {1 :tpope/vim-fugitive}
                  {1 :tpope/vim-surround}

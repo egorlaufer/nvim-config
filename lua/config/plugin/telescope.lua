@@ -5,8 +5,13 @@ local function config(plugin, opts)
     return require("telescope")
   end
   ok_3f, telescope = pcall(_1_)
+  local _ok, themes = nil, nil
+  local function _2_()
+    return require("telescope.themes")
+  end
+  _ok, themes = pcall(_2_)
   if ok_3f then
-    telescope.setup({defaults = {path_display = {truncate = 2}, theme = "ivy", extensions = {file_browser = {theme = "ivy", hijack_netrw = true}}}})
+    telescope.setup({defaults = vim.tbl_extend("force", themes.get_ivy(), {path_display = {truncate = 2}, extensions = {file_browser = {hijack_netrw = true}}})})
     telescope.load_extension("zf-native")
     telescope.load_extension("http")
     telescope.load_extension("undo")
