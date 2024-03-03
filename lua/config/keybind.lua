@@ -11,7 +11,7 @@ end
 local function set_normal_telescope(k, command, theme)
   return set_normal(k, telescope(command, theme), {desc = ("tele " .. command)})
 end
-set_normal("<leader>t", ":NvimTreeToggle<cr>", {desc = "nvim-tree: toggle"})
+set_normal_telescope("<leader>t", "file_browser", "ivy")
 set_normal_telescope("<leader>f*", "grep_string", "ivy")
 set_normal_telescope("<leader>f/", "current_buffer_fuzzy_find", "ivy")
 set_normal_telescope("<leader>fa", "autocommands", "ivy")
