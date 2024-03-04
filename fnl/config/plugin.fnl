@@ -126,5 +126,6 @@
                  {1 :folke/trouble.nvim
                   :lazy false
                   :dependencies [[:nvim-tree/nvim-web-devicons]]
-                  :opts {}}])))
+                  :opts {}}
+                 {1 :doctorfree/cheatsheet.nvim :lazy false :opts {}}])))
 
