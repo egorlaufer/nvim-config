@@ -17,7 +17,8 @@ local function config(plugin, opts)
     telescope.load_extension("undo")
     telescope.load_extension("http")
     telescope.load_extension("file_browser")
-    return telescope.load_extension("tailiscope")
+    telescope.load_extension("tailiscope")
+    return telescope.load_extension("undo")
   else
     return nil
   end
