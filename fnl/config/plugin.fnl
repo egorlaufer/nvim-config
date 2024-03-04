@@ -73,7 +73,8 @@
                                  [:natecraddock/telescope-zf-native.nvim]
                                  [:debugloop/telescope-undo.nvim]
                                  [:nvim-telescope/telescope-file-browser.nvim]
-                                 [:danielvolchek/tailiscope.nvim]]}
+                                 [:danielvolchek/tailiscope.nvim]
+                                 [:benfowler/telescope-luasnip.nvim]]}
                  {1 :pwntester/octo.nvim
                   :config (mod :config.plugin.octo)
                   :dependencies [[:nvim-tree/nvim-web-devicons]
