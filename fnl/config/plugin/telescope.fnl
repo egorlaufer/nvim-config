@@ -11,6 +11,7 @@
       (telescope.load_extension :http)
       (telescope.load_extension :file_browser)
       (telescope.load_extension :tailiscope)
+      (telescope.load_extension :luasnip)
       (telescope.load_extension :undo))))
 
 {: config}

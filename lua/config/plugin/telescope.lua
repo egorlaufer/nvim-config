@@ -18,6 +18,7 @@ local function config(plugin, opts)
     telescope.load_extension("http")
     telescope.load_extension("file_browser")
     telescope.load_extension("tailiscope")
+    telescope.load_extension("luasnip")
     return telescope.load_extension("undo")
   else
     return nil
