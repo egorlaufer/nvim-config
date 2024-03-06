@@ -23,10 +23,6 @@
                   :config (mod :config.plugin.nvim-lspconfig)
                   :dependencies [[:ray-x/lsp_signature.nvim]]
                   :lazy true}
-                 {1 :rose-pine/neovim :lazy false}
-                 {1 :yorickpeterse/vim-paper
-                  :config (mod :config.plugin.colorscheme)
-                  :lazy false}
                  {1 :ggandor/leap.nvim
                   :config (mod :config.plugin.leap)
                   :lazy false}
@@ -127,5 +123,8 @@
                   :lazy false
                   :dependencies [[:nvim-tree/nvim-web-devicons]]
                   :opts {}}
-                 {1 :doctorfree/cheatsheet.nvim :lazy false :opts {}}])))
+                 {1 :doctorfree/cheatsheet.nvim :lazy false :opts {}}
+                 {1 :savq/melange-nvim
+                  :lazy false
+                  :config (mod :config.plugin.colorscheme)}])))
 
