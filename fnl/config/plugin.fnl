@@ -32,7 +32,7 @@
                   :lazy true}
                  {1 :nvim-lualine/lualine.nvim
                   :config (mod :config.plugin.lualine)
-                  :opts {:theme_light :solarized_light :theme_dark :auto}
+                  :opts {:theme_light :melange :theme_dark :melange}
                   :lazy false}
                  {1 :mbbill/undotree
                   :cmd [:UndoTreeToggle
