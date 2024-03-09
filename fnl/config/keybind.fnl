@@ -63,3 +63,5 @@
 
 (set-terminal :<Esc> "<C-\\><C-n>" {:desc "nvim-tree: toggle"})
 
+(set-normal :<leader><space> ":ToggleTerm<CR>" {:desc :toggleterm})
+
