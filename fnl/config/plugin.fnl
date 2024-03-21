@@ -35,11 +35,12 @@
                   :opts {:theme_light :melange :theme_dark :melange}
                   :lazy false}
                  {1 :mbbill/undotree
-                  :cmd [:UndoTreeToggle
-                        :UndoTreeHide
-                        :UndoTreeShow
-                        :UndoTreeFocus]
+                  :cmd [:UndotreeToggle
+                        :UndotreeHide
+                        :UndotreeShow
+                        :UndotreeFocus]
                   :lazy true
+                  :config (mod :config.plugin.undotree)
                   :opts {}}
                  {1 :hrsh7th/nvim-cmp
                   :dependencies [[:PaterJason/cmp-conjure]
@@ -127,4 +128,6 @@
                  {1 :savq/melange-nvim
                   :lazy false
                   :config (mod :config.plugin.colorscheme)}])))
+
+{}
 
