@@ -24,10 +24,7 @@ vim.cmd("set nomodeline")
 vim.cmd("set guifont=Iosevka\\ Nerd\\ Font\\ Mono:h14")
 vim.cmd("set splitright")
 local function _1_()
-  return print("Have a fantastic file edit! \240\159\152\152")
-end
-vim.defer_fn(_1_, 1000)
-local function _2_()
   return pcall(vim.cmd, "NeovideFocus")
 end
-return vim.defer_fn(_2_, 200)
+vim.defer_fn(_1_, 200)
+return {}

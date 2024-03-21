@@ -6,3 +6,5 @@
   (vim.api.nvim_create_autocmd [:TermOpen]
                                {: group :command "setlocal nospell"}))
 
+{}
+
