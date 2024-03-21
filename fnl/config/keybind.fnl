@@ -14,7 +14,6 @@
 (fn set-normal-telescope [k command theme]
   (set-normal k (telescope command theme) {:desc (.. "tele " command)}))
 
-(set-normal-telescope :<leader>t :file_browser :ivy)
 (set-normal-telescope :<leader>f* :grep_string :ivy)
 (set-normal-telescope :<leader>f/ :current_buffer_fuzzy_find :ivy)
 (set-normal-telescope :<leader>fa :autocommands :ivy)
@@ -22,7 +21,7 @@
 (set-normal-telescope :<leader>fc :commands :ivy)
 (set-normal-telescope :<leader>fch :command_history :ivy)
 (set-normal-telescope :<leader>fd :diagnostics :ivy)
-(set-normal-telescope :<leader>ff :find_files :ivy)
+(set-normal-telescope :<leader>ff :file_browser :ivy)
 (set-normal-telescope :<leader>fg :git_files :ivy)
 (set-normal-telescope :<leader>fh :help_tags :ivy)
 (set-normal-telescope :<leader>fj :jumplist :ivy)
@@ -64,4 +63,6 @@
 (set-terminal :<Esc> "<C-\\><C-n>" {:desc "nvim-tree: toggle"})
 
 (set-normal :<leader><space> ":ToggleTerm<CR>" {:desc :toggleterm})
+
+{}
 
