@@ -1,52 +1,68 @@
 -- [nfnl] Compiled from fnl/config/plugin/nvim-lspconfig.fnl by https://github.com/Olical/nfnl, do not edit.
 local function custom_attach(client, bufnr)
-  local function map(from, to)
+  local function map(mode, from, to)
     local to0 = (":" .. to .. "<cr>")
-    return vim.api.nvim_buf_set_keymap(bufnr, "n", from, to0, {noremap = true})
+    return vim.keymap.set(mode, from, to0, {buffer = bufnr, noremap = true})
   end
-  map("gd", "lua vim.lsp.buf.definition()")
-  map("gD", "lua vim.lsp.buf.declaration()")
-  map("gr", "lua vim.lsp.buf.references()")
-  map("gi", "lua vim.lsp.buf.implementation()")
-  map("K", "lua vim.lsp.buf.hover()")
-  map("<c-k>", "lua vim.lsp.buf.signature_help()")
-  map("<c-p>", "lua vim.diagnostic.goto_prev()")
-  map("<c-n>", "lua vim.diagnostic.goto_next()")
-  map("<leader>lr", "lua vim.lsp.buf.rename()")
-  map("<leader>lf", "lua vim.lsp.buf.format()")
+  local function x_map(from, to)
+    return map("x", from, to)
+  end
+  local function n_map(from, to)
+    return map("n", from, to)
+  end
+  local function map_fn(from, to_fn)
+    return vim.keymap.set("n", from, to_fn, {buffer = bufnr, noremap = true})
+  end
+  map_fn("gd", (require("telescope.builtin")).lsp_definitions)
+  map_fn("gD", vim.lsp.buf.declaration)
+  map_fn("gr", (require("telescope.builtin")).lsp_references)
+  map_fn("gI", (require("telescope.builtin")).lsp_implementations)
+  map_fn("K", vim.lsp.buf.hover)
+  map_fn("<c-k>", vim.lsp.buf.signature_help)
+  map_fn("<c-p>", vim.diagnostic.goto_prev)
+  map_fn("<c-n>", vim.diagnostic.goto_next)
+  map_fn("<leader>rn", vim.lsp.buf.rename)
+  map_fn("<leader>cf", vim.lsp.buf.format)
+  map_fn("<leader>ca", vim.lsp.buf.code_action)
+  map_fn("<leader>ds", (require("telescope.builtin")).lsp_document_symbols)
+  map_fn("<leader>ws", (require("telescope.builtin")).lsp_dynamic_workspace_symbols)
   vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifuc")
   if client.server_capabilities.document_formatting then
-    vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>F", ":lua vim.lsp.buf.formatting_sync()<cr>", {noremap = true})
+    n_map("<leader>F", "lua vim.lsp.buf.formatting_sync()")
   else
   end
   if client.server_capabilities.document_range_formatting then
-    vim.api.nvim_buf_set_keymap(bufnr, "x", "<leader>F", ":lua vim.lsp.buf.range_formatting()<cr>", {noremap = true})
+    x_map("<leader>F", "lua vim.lsp.buf.range_formatting()")
   else
   end
   if (client.name == "omnisharp") then
     client.server_capabilities["semanticTokensProvider"] = nil
-    return nil
+  else
+  end
+  if client.server_capabilities.documentHighlightProvider then
+    vim.api.nvim_create_autocmd({"CursorHold", "CursorHoldI"}, {buffer = bufnr, callback = vim.lsp.buf.document_highlight})
+    return vim.api.nvim_create_autocmd({"CursorMoved", "CursorMovedI"}, {buffer = bufnr, callback = vim.lsp.buf.clear_references})
   else
     return nil
   end
 end
 local function config(plugin, opts)
   local ok_3f, lspconfig = nil, nil
-  local function _4_()
+  local function _5_()
     return require("lspconfig")
   end
-  ok_3f, lspconfig = pcall(_4_)
+  ok_3f, lspconfig = pcall(_5_)
   if ok_3f then
     local ok_3f0, lspconfig_configs = nil, nil
-    local function _5_()
+    local function _6_()
       return require("lspconfig.configs")
     end
-    ok_3f0, lspconfig_configs = pcall(_5_)
+    ok_3f0, lspconfig_configs = pcall(_6_)
     local ok_3f1, cmp = nil, nil
-    local function _6_()
+    local function _7_()
       return require("cmp_nvim_lsp")
     end
-    ok_3f1, cmp = pcall(_6_)
+    ok_3f1, cmp = pcall(_7_)
     local capabilities = vim.tbl_deep_extend("force", vim.lsp.protocol.make_client_capabilities(), cmp.default_capabilities())
     if ok_3f1 then
       lspconfig_configs.fennel_language_server = {default_config = {cmd = {"fennel-language-server"}, filetypes = {"fennel"}, single_file_support = true, root_dir = lspconfig.util.root_pattern("fnl"), settings = {fennel = {workspace = {library = vim.api.nvim_list_runtime_paths()}, diagnostics = {globals = {"vim"}}}}}}
