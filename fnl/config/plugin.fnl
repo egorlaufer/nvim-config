@@ -53,7 +53,7 @@
                                  [:L3MON4D3/LuaSnip]
                                  [:saadparwaiz1/cmp_luasnip]]
                   :config (mod :config.plugin.cmp)
-                  :lazy false}
+                  :event :InsertEnter}
                  {1 :stevearc/conform.nvim
                   :config (mod :config.plugin.conform)
                   :lazy false}
