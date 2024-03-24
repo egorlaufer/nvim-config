@@ -1,30 +1,44 @@
 (fn custom-attach [client bufnr]
-  (fn map [from to]
+  (fn map [mode from to]
     (let [to (.. ":" to :<cr>)]
-      (vim.api.nvim_buf_set_keymap bufnr :n from to {:noremap true})))
+      (vim.keymap.set mode from to {:buffer bufnr :noremap true})))
+
+  (fn x-map [from to] (map :x from to))
+
+  (fn n-map [from to] (map :n from to))
+
+  (fn map-fn [from to-fn]
+    (vim.keymap.set :n from to-fn {:buffer bufnr :noremap true}))
 
   ;; https://www.chrisatmachine.com/Neovim/27-native-lsp/
-  (map :gd "lua vim.lsp.buf.definition()")
-  (map :gD "lua vim.lsp.buf.declaration()")
-  (map :gr "lua vim.lsp.buf.references()")
-  (map :gi "lua vim.lsp.buf.implementation()")
-  (map :K "lua vim.lsp.buf.hover()")
-  (map :<c-k> "lua vim.lsp.buf.signature_help()")
-  (map :<c-p> "lua vim.diagnostic.goto_prev()")
-  (map :<c-n> "lua vim.diagnostic.goto_next()")
-  (map :<leader>lr "lua vim.lsp.buf.rename()")
-  (map :<leader>lf "lua vim.lsp.buf.format()")
+  (map-fn :gd (. (require :telescope.builtin) :lsp_definitions))
+  (map-fn :gD vim.lsp.buf.declaration)
+  (map-fn :gr (. (require :telescope.builtin) :lsp_references))
+  (map-fn :gI (. (require :telescope.builtin) :lsp_implementations))
+  (map-fn :K vim.lsp.buf.hover)
+  (map-fn :<c-k> vim.lsp.buf.signature_help)
+  (map-fn :<c-p> vim.diagnostic.goto_prev)
+  (map-fn :<c-n> vim.diagnostic.goto_next)
+  (map-fn :<leader>rn vim.lsp.buf.rename)
+  (map-fn :<leader>cf vim.lsp.buf.format)
+  (map-fn :<leader>ca vim.lsp.buf.code_action)
+  (map-fn :<leader>ds (. (require :telescope.builtin) :lsp_document_symbols))
+  (map-fn :<leader>ws (. (require :telescope.builtin)
+                         :lsp_dynamic_workspace_symbols))
   (vim.api.nvim_buf_set_option bufnr :omnifunc "v:lua.vim.lsp.omnifuc")
   (when client.server_capabilities.document_formatting
-    (vim.api.nvim_buf_set_keymap bufnr :n :<leader>F
-                                 ":lua vim.lsp.buf.formatting_sync()<cr>"
-                                 {:noremap true}))
+    (n-map :<leader>F "lua vim.lsp.buf.formatting_sync()"))
   (when client.server_capabilities.document_range_formatting
-    (vim.api.nvim_buf_set_keymap bufnr :x :<leader>F
-                                 ":lua vim.lsp.buf.range_formatting()<cr>"
-                                 {:noremap true}))
+    (x-map :<leader>F "lua vim.lsp.buf.range_formatting()"))
   (when (= client.name :omnisharp)
-    (tset client.server_capabilities :semanticTokensProvider nil)))
+    (tset client.server_capabilities :semanticTokensProvider nil))
+  (when client.server_capabilities.documentHighlightProvider
+    (vim.api.nvim_create_autocmd [:CursorHold :CursorHoldI]
+                                 {:buffer bufnr
+                                  :callback vim.lsp.buf.document_highlight})
+    (vim.api.nvim_create_autocmd [:CursorMoved :CursorMovedI]
+                                 {:buffer bufnr
+                                  :callback vim.lsp.buf.clear_references})))
 
 (fn config [plugin opts]
   (let [(ok? lspconfig) (pcall #(require :lspconfig))]
