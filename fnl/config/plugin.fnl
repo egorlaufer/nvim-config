@@ -15,7 +15,7 @@
   (when ok?
     (lazy.setup [{1 :Olical/nfnl :ft :fennel :lazy false}
                  {1 :Olical/conjure
-                  :ft :fennel
+                  :ft [:fennel :clojure :lisp]
                   :config (mod :config.plugin.conjure)
                   :lazy true}
                  {1 :neovim/nvim-lspconfig
@@ -128,7 +128,7 @@
                  {1 :savq/melange-nvim
                   :lazy false
                   :config (mod :config.plugin.colorscheme)}
-                 {1 :gpanders/nvim-parinfer :ft [:fennel :clojure]}])))
+                 {1 :gpanders/nvim-parinfer :ft [:fennel :clojure :lisp]}])))
 
 {}
 
