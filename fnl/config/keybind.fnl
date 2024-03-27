@@ -8,11 +8,13 @@
                   (vim.tbl_extend :force
                                   {:noremap true :silent true :nowait true} opts)))
 
-(fn telescope [command]
-  (.. ":Telescope " command :<cr>))
+(fn telescope [command theme]
+  (if (not= nil theme)
+      (.. ":Telescope " command " theme=" theme :<cr>)
+      (.. ":Telescope " command :<cr>)))
 
-(fn set-normal-telescope [k command]
-  (set-normal k (telescope command) {:desc (.. "tele " command)}))
+(fn set-normal-telescope [k command theme]
+  (set-normal k (telescope command theme) {:desc (.. "tele " command)}))
 
 (set-normal-telescope :<leader>f* :grep_string)
 (set-normal-telescope :<leader>f/ :current_buffer_fuzzy_find)
@@ -48,8 +50,8 @@
 
 (set-normal-telescope :<leader>gc :git_commits)
 (set-normal-telescope :<leader>gb :git_bcommits)
-(set-normal-telescope :<leader>gh :git_branches)
-(set-normal-telescope :<leader>gs :git_status)
+(set-normal-telescope :<leader>gh :git_branches :ivy)
+(set-normal-telescope :<leader>gs :git_status :ivy)
 (set-normal :<leader>gn ":Git switch -c " {:desc "new branch" :silent false})
 
 (set-normal-telescope :<leader>xh "http list")
@@ -60,7 +62,7 @@
 (set-normal :<leader>llr ":lua vim.lsp.codelens.refresh()<CR>"
             {:desc "codelens: refresh"})
 
-(set-terminal :<Esc> "<C-\\><C-n>" {:desc "nvim-tree: toggle"})
+(set-terminal :<Esc> "<C-\\><C-n>" {:desc "term escape"})
 
 (set-normal :<leader><space> ":ToggleTerm<CR>" {:desc :toggleterm})
 

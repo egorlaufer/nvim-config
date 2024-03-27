@@ -5,11 +5,15 @@ end
 local function set_terminal(k, command, opts)
   return vim.keymap.set("t", k, command, vim.tbl_extend("force", {noremap = true, silent = true, nowait = true}, opts))
 end
-local function telescope(command)
-  return (":Telescope " .. command .. "<cr>")
+local function telescope(command, theme)
+  if (nil ~= theme) then
+    return (":Telescope " .. command .. " theme=" .. theme .. "<cr>")
+  else
+    return (":Telescope " .. command .. "<cr>")
+  end
 end
-local function set_normal_telescope(k, command)
-  return set_normal(k, telescope(command), {desc = ("tele " .. command)})
+local function set_normal_telescope(k, command, theme)
+  return set_normal(k, telescope(command, theme), {desc = ("tele " .. command)})
 end
 set_normal_telescope("<leader>f*", "grep_string")
 set_normal_telescope("<leader>f/", "current_buffer_fuzzy_find")
@@ -43,13 +47,13 @@ set_normal_telescope("<leader>lt", "lsp_type_definitions")
 set_normal_telescope("<leader>lw", "lsp_workspace_symbols")
 set_normal_telescope("<leader>gc", "git_commits")
 set_normal_telescope("<leader>gb", "git_bcommits")
-set_normal_telescope("<leader>gh", "git_branches")
-set_normal_telescope("<leader>gs", "git_status")
+set_normal_telescope("<leader>gh", "git_branches", "ivy")
+set_normal_telescope("<leader>gs", "git_status", "ivy")
 set_normal("<leader>gn", ":Git switch -c ", {desc = "new branch", silent = false})
 set_normal_telescope("<leader>xh", "http list")
 set_normal_telescope("<leader>xu", "undo")
 set_normal("<leader>lls", ":lua vim.lsp.codelens.run()<CR>", {desc = "codelens: run"})
 set_normal("<leader>llr", ":lua vim.lsp.codelens.refresh()<CR>", {desc = "codelens: refresh"})
-set_terminal("<Esc>", "<C-\\><C-n>", {desc = "nvim-tree: toggle"})
+set_terminal("<Esc>", "<C-\\><C-n>", {desc = "term escape"})
 set_normal("<leader><space>", ":ToggleTerm<CR>", {desc = "toggleterm"})
 return {}
