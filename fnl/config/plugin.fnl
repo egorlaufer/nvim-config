@@ -128,7 +128,12 @@
                  {1 :savq/melange-nvim
                   :lazy false
                   :config (mod :config.plugin.colorscheme)}
-                 {1 :gpanders/nvim-parinfer :ft [:fennel :clojure :lisp]}])))
+                 {1 :eraserhd/parinfer-rust
+                  :ft [:fennel :lisp]
+                  :build "cargo build --release"}
+                 {1 :monkoose/nvlime
+                  :ft [:lisp]
+                  :dependencies [[:monkoose/parsley]]}])))
 
 {}
 
