@@ -4,6 +4,7 @@
     (when ok?
       (let [(ok? luasnip) (pcall #(require :luasnip))]
         (when ok?
+          (set vim.g.nvlime_config {:cmp {:enabled true}})
           (cmp.setup {:sources [{:name :conjure}
                                 {:name :nvim_lsp}
                                 {:name :buffer}
@@ -39,7 +40,17 @@
                                          {:name :buffer}
                                          {:name :rg
                                           :keyword_length 5
-                                          :option {:debounce 1000}}]}))))))
+                                          :option {:debounce 1000}}]})
+          (cmp.setup.filetype :lisp
+                              {:sources [{:name :nvlime}
+                                         {:name :conjure}
+                                         {:name :nvim_lsp}
+                                         {:name :buffer}
+                                         {:name :path}
+                                         {:name :rg
+                                          :keyword_length 5
+                                          :option {:debounce 1000}}
+                                         {:name :nvim_lua}]}))))))
 
 {: config}
 
