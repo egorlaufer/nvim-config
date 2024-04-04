@@ -11,7 +11,7 @@ local function config(plugin, opts)
   end
   _ok, themes = pcall(_2_)
   if ok_3f then
-    telescope.setup({defaults = vim.tbl_extend("force", themes.get_dropdown(), {path_display = {truncate = 2}, extensions = {file_browser = {hijack_netrw = true}}})})
+    telescope.setup({defaults = vim.tbl_extend("force", themes.get_ivy(), {path_display = {truncate = 2}, extensions = {file_browser = {hijack_netrw = true}}})})
     telescope.load_extension("zf-native")
     telescope.load_extension("http")
     telescope.load_extension("undo")
