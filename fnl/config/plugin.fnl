@@ -4,16 +4,29 @@
        (let [load-and-configure# (fn [f# plugin# opts#]
                                    (let [m# (require f#)]
                                      (m#.config plugin# opts#)))
+             (fidget?# fidget#) (pcall #(require :fidget))
              (ok?# res#) (pcall load-and-configure# ,f plugin# opts#)]
          (if ok?#
-             false
              (do
-               (print (.. "Failed configuring: " ,s res#))
-               true))))))
+               (when fidget?#
+                 (fidget#.notify (.. "Loaded: " ,s)))
+               true)
+             (do
+               (if fidget?#
+                   (fidget#.notify (.. "Failed configuring: " ,s res#))
+                   (print (.. "Failed configuring: " ,s res#)))
+               false))))))
 
 (let [(ok? lazy) (pcall #(require :lazy))]
   (when ok?
     (lazy.setup [{1 :Olical/nfnl :ft :fennel :lazy false}
+                 {1 :j-hui/fidget.nvim
+                  :lazy false
+                  :opts {:progress {:poll_rate 10
+                                    :lsp {:progress_ringbuf_size 2048
+                                          :log_handler true}}
+                         :notification {:poll_rate 10
+                                        :override_vim_notify true}}}
                  {1 :Olical/conjure
                   :ft [:fennel :clojure :lisp]
                   :config (mod :config.plugin.conjure)
