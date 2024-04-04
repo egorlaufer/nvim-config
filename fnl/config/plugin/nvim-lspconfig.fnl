@@ -1,35 +1,34 @@
+(local util (require :config.util))
 (fn custom-attach [client bufnr]
-  (fn map [mode from to]
-    (let [to (.. ":" to :<cr>)]
-      (vim.keymap.set mode from to {:buffer bufnr :noremap true})))
-
-  (fn x-map [from to] (map :x from to))
-
-  (fn n-map [from to] (map :n from to))
-
-  (fn map-fn [from to-fn]
-    (vim.keymap.set :n from to-fn {:buffer bufnr :noremap true}))
-
   ;; https://www.chrisatmachine.com/Neovim/27-native-lsp/
-  (map-fn :gd (. (require :telescope.builtin) :lsp_definitions))
-  (map-fn :gD vim.lsp.buf.declaration)
-  (map-fn :gr (. (require :telescope.builtin) :lsp_references))
-  (map-fn :gI (. (require :telescope.builtin) :lsp_implementations))
-  (map-fn :K vim.lsp.buf.hover)
-  (map-fn :<c-k> vim.lsp.buf.signature_help)
-  (map-fn :<c-p> vim.diagnostic.goto_prev)
-  (map-fn :<c-n> vim.diagnostic.goto_next)
-  (map-fn :<leader>rn vim.lsp.buf.rename)
-  (map-fn :<leader>cf vim.lsp.buf.format)
-  (map-fn :<leader>ca vim.lsp.buf.code_action)
-  (map-fn :<leader>ds (. (require :telescope.builtin) :lsp_document_symbols))
-  (map-fn :<leader>ws (. (require :telescope.builtin)
-                         :lsp_dynamic_workspace_symbols))
+  (util.set-normal-telescope :gd :lsp_definitions {:buffer bufnr})
+  (util.set-normal-telescope :gD :lsp_type_definitions {:buffer bufnr})
+  (util.set-normal-telescope :gr :lsp_references {:buffer bufnr})
+  (util.set-normal-telescope :gI :lsp_implementations {:buffer bufnr})
+  (util.set-normal-telescope :<leader>ds :lsp_document_symbols {:buffer bufnr})
+  (util.set-normal-telescope :<leader>ws :lsp_dynamic_workspace_symbols
+                             {:buffer bufnr})
+  (util.set-normal :K vim.lsp.buf.hover
+                   {:desc :vim.lsp.buf.hover :buffer bufnr})
+  (util.set-normal :<c-k> vim.lsp.buf.signature_help
+                   {:desc :vim.lsp.buf.signature_help :buffer bufnr})
+  (util.set-normal :<c-p> vim.diagnostic.goto_prev
+                   {:desc :vim.diagnostic.goto_prev :buffer bufnr})
+  (util.set-normal :<c-n> vim.diagnostic.goto_next
+                   {:desc :vim.diagnostic.goto_next :buffer bufnr})
+  (util.set-normal :<leader>rn vim.lsp.buf.rename
+                   {:desc :vim.lsp.buf.rename :buffer bufnr})
+  (util.set-normal :<leader>cf vim.lsp.buf.format
+                   {:desc :vim.lsp.buf.format :buffer bufnr})
+  (util.set-normal :<leader>ca vim.lsp.buf.code_action
+                   {:desc :vim.lsp.buf.code_action :buffer bufnr})
   (vim.api.nvim_buf_set_option bufnr :omnifunc "v:lua.vim.lsp.omnifuc")
   (when client.server_capabilities.document_formatting
-    (n-map :<leader>F "lua vim.lsp.buf.formatting_sync()"))
+    (util.set-normal :<leader>F vim.lsp.buf.formatting_sync
+                     {:desc :vim.lsp.buf.formatting_sync :buffer bufnr}))
   (when client.server_capabilities.document_range_formatting
-    (x-map :<leader>F "lua vim.lsp.buf.range_formatting()"))
+    (util.set-visual :<leader>F vim.lsp.buf.range_formatting
+                     {:desc :vim.lsp.buf.range_formatting :buffer bufnr}))
   (when (= client.name :omnisharp)
     (tset client.server_capabilities :semanticTokensProvider nil))
   (when client.server_capabilities.documentHighlightProvider
