@@ -48,16 +48,9 @@
             capabilities (vim.tbl_deep_extend :force
                                               (vim.lsp.protocol.make_client_capabilities)
                                               (cmp.default_capabilities))]
-        (when ok?
-          (set lspconfig-configs.fennel_language_server
-               {:default_config {:cmd [:fennel-language-server]
-                                 :filetypes [:fennel]
-                                 :single_file_support true
-                                 :root_dir (lspconfig.util.root_pattern :fnl)
-                                 :settings {:fennel {:workspace {:library (vim.api.nvim_list_runtime_paths)}
-                                                     :diagnostics {:globals [:vim]}}}}}))
-        (lspconfig.fennel_language_server.setup {:on_attach custom-attach
-                                                 : capabilities})
+        (lspconfig.fennel_ls.setup {:on_attach custom-attach
+                                    : capabilities
+                                    :settings {:fennel-ls {:extra-globals :vim}}})
         (lspconfig.lua_ls.setup {:on_attach custom-attach : capabilities})
         (lspconfig.elixirls.setup {:cmd [:elixir-ls]
                                    :on_attach custom-attach

@@ -64,11 +64,7 @@ local function config(plugin, opts)
     end
     ok_3f1, cmp = pcall(_7_)
     local capabilities = vim.tbl_deep_extend("force", vim.lsp.protocol.make_client_capabilities(), cmp.default_capabilities())
-    if ok_3f1 then
-      lspconfig_configs.fennel_language_server = {default_config = {cmd = {"fennel-language-server"}, filetypes = {"fennel"}, single_file_support = true, root_dir = lspconfig.util.root_pattern("fnl"), settings = {fennel = {workspace = {library = vim.api.nvim_list_runtime_paths()}, diagnostics = {globals = {"vim"}}}}}}
-    else
-    end
-    lspconfig.fennel_language_server.setup({on_attach = custom_attach, capabilities = capabilities})
+    lspconfig.fennel_ls.setup({on_attach = custom_attach, capabilities = capabilities, settings = {["fennel-ls"] = {["extra-globals"] = "vim"}}})
     lspconfig.lua_ls.setup({on_attach = custom_attach, capabilities = capabilities})
     lspconfig.elixirls.setup({cmd = {"elixir-ls"}, on_attach = custom_attach, capabilities = capabilities})
     lspconfig.erlangls.setup({on_attach = custom_attach, capabilities = capabilities})
