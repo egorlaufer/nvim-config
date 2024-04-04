@@ -1,38 +1,26 @@
 -- [nfnl] Compiled from fnl/config/plugin/nvim-lspconfig.fnl by https://github.com/Olical/nfnl, do not edit.
+local util = require("config.util")
 local function custom_attach(client, bufnr)
-  local function map(mode, from, to)
-    local to0 = (":" .. to .. "<cr>")
-    return vim.keymap.set(mode, from, to0, {buffer = bufnr, noremap = true})
-  end
-  local function x_map(from, to)
-    return map("x", from, to)
-  end
-  local function n_map(from, to)
-    return map("n", from, to)
-  end
-  local function map_fn(from, to_fn)
-    return vim.keymap.set("n", from, to_fn, {buffer = bufnr, noremap = true})
-  end
-  map_fn("gd", (require("telescope.builtin")).lsp_definitions)
-  map_fn("gD", vim.lsp.buf.declaration)
-  map_fn("gr", (require("telescope.builtin")).lsp_references)
-  map_fn("gI", (require("telescope.builtin")).lsp_implementations)
-  map_fn("K", vim.lsp.buf.hover)
-  map_fn("<c-k>", vim.lsp.buf.signature_help)
-  map_fn("<c-p>", vim.diagnostic.goto_prev)
-  map_fn("<c-n>", vim.diagnostic.goto_next)
-  map_fn("<leader>rn", vim.lsp.buf.rename)
-  map_fn("<leader>cf", vim.lsp.buf.format)
-  map_fn("<leader>ca", vim.lsp.buf.code_action)
-  map_fn("<leader>ds", (require("telescope.builtin")).lsp_document_symbols)
-  map_fn("<leader>ws", (require("telescope.builtin")).lsp_dynamic_workspace_symbols)
+  util["set-normal-telescope"]("gd", "lsp_definitions", {buffer = bufnr})
+  util["set-normal-telescope"]("gD", "lsp_type_definitions", {buffer = bufnr})
+  util["set-normal-telescope"]("gr", "lsp_references", {buffer = bufnr})
+  util["set-normal-telescope"]("gI", "lsp_implementations", {buffer = bufnr})
+  util["set-normal-telescope"]("<leader>ds", "lsp_document_symbols", {buffer = bufnr})
+  util["set-normal-telescope"]("<leader>ws", "lsp_dynamic_workspace_symbols", {buffer = bufnr})
+  util["set-normal"]("K", vim.lsp.buf.hover, {desc = "vim.lsp.buf.hover", buffer = bufnr})
+  util["set-normal"]("<c-k>", vim.lsp.buf.signature_help, {desc = "vim.lsp.buf.signature_help", buffer = bufnr})
+  util["set-normal"]("<c-p>", vim.diagnostic.goto_prev, {desc = "vim.diagnostic.goto_prev", buffer = bufnr})
+  util["set-normal"]("<c-n>", vim.diagnostic.goto_next, {desc = "vim.diagnostic.goto_next", buffer = bufnr})
+  util["set-normal"]("<leader>rn", vim.lsp.buf.rename, {desc = "vim.lsp.buf.rename", buffer = bufnr})
+  util["set-normal"]("<leader>cf", vim.lsp.buf.format, {desc = "vim.lsp.buf.format", buffer = bufnr})
+  util["set-normal"]("<leader>ca", vim.lsp.buf.code_action, {desc = "vim.lsp.buf.code_action", buffer = bufnr})
   vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifuc")
   if client.server_capabilities.document_formatting then
-    n_map("<leader>F", "lua vim.lsp.buf.formatting_sync()")
+    util["set-normal"]("<leader>F", vim.lsp.buf.formatting_sync, {desc = "vim.lsp.buf.formatting_sync", buffer = bufnr})
   else
   end
   if client.server_capabilities.document_range_formatting then
-    x_map("<leader>F", "lua vim.lsp.buf.range_formatting()")
+    util["set-visual"]("<leader>F", vim.lsp.buf.range_formatting, {desc = "vim.lsp.buf.range_formatting", buffer = bufnr})
   else
   end
   if (client.name == "omnisharp") then
