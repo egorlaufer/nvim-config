@@ -1,5 +1,6 @@
 -- [nfnl] Compiled from fnl/config/plugin/nvim-lspconfig.fnl by https://github.com/Olical/nfnl, do not edit.
 local util = require("config.util")
+local mod = ...
 local function custom_attach(client, bufnr)
   util["set-normal-telescope"]("gd", "lsp_definitions", {buffer = bufnr})
   util["set-normal-telescope"]("gD", "lsp_type_definitions", {buffer = bufnr})
@@ -63,4 +64,28 @@ local function config(plugin, opts)
     return nil
   end
 end
-return {config = config}
+local function _9_(plugin_12_auto, opts_13_auto)
+  local start_14_auto = vim.loop.hrtime()
+  local fidget_3f_15_auto, fidget_16_auto = nil, nil
+  local function _10_()
+    return require("fidget")
+  end
+  fidget_3f_15_auto, fidget_16_auto = pcall(_10_)
+  local ok_3f_17_auto, res_18_auto = pcall(config, plugin_12_auto, opts_13_auto)
+  if ok_3f_17_auto then
+    if fidget_3f_15_auto then
+      local ms_19_auto = ((vim.loop.hrtime() - start_14_auto) / 1000000)
+      fidget_16_auto.notify((mod .. " in " .. ms_19_auto .. "ms"))
+    else
+    end
+    return true
+  else
+    if fidget_3f_15_auto then
+      fidget_16_auto.notify(("Failed configuring: " .. mod .. res_18_auto))
+    else
+      print(("Failed configuring: " .. mod .. res_18_auto))
+    end
+    return false
+  end
+end
+return {"neovim/nvim-lspconfig", ft = {"fennel", "lua", "erlang", "elixir", "rust", "idris2"}, config = _9_, dependencies = {{"ray-x/lsp_signature.nvim"}}, lazy = true}
