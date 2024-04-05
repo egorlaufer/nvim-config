@@ -13,10 +13,7 @@
                  (require :config.plugin.conjure)
                  (require :config.plugin.nvim-lspconfig)
                  (require :config.plugin.leap)
-                 {1 :nvim-treesitter/nvim-treesitter
-                  :ft [:fennel :lua :rust :erlang :elixir :idris2]
-                  :config (mod :config.plugin.treesitter)
-                  :lazy true}
+                 (require :config.plugin.treesitter)
                  {1 :nvim-lualine/lualine.nvim
                   :config (mod :config.plugin.lualine)
                   :opts {:theme_light :melange :theme_dark :melange}
