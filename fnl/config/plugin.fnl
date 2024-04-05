@@ -29,8 +29,7 @@
                  (require :config.plugin.nvim-tree)
                  (require :config.plugin.nvim-dap)
                  (require :config.plugin.nvim-dap-ui)
-                 {1 :simrat39/rust-tools.nvim
-                  :dependencies [[:nvim-lua/plenary.nvim]]}
+                 (require :config.plugin.rust-tools)
                  {1 :akinsho/toggleterm.nvim
                   :cmd [:ToggleTerm]
                   :config (mod :config.plugin.toggleterm)}
