@@ -43,9 +43,7 @@
                  (require :config.plugin.cheatsheet)
                  (require :config.plugin.melange)
                  (require :config.plugin.nvim-treesitter-sexp)
-                 {1 :monkoose/nvlime
-                  :ft [:lisp]
-                  :dependencies [[:monkoose/parsley]]}])))
+                 (require :config.plugin.nvlime)])))
 
 {}
 
