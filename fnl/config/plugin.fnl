@@ -42,9 +42,7 @@
                  (require :config.plugin.trouble)
                  (require :config.plugin.cheatsheet)
                  (require :config.plugin.melange)
-                 {1 :PaterJason/nvim-treesitter-sexp
-                  :ft [:fennel :clojure :lisp]
-                  :opts {}}
+                 (require :config.plugin.nvim-treesitter-sexp)
                  {1 :monkoose/nvlime
                   :ft [:lisp]
                   :dependencies [[:monkoose/parsley]]}])))
