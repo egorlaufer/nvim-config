@@ -2,7 +2,7 @@
 
 (let [(ok? lazy) (pcall #(require :lazy))]
   (when ok?
-    (lazy.setup [{1 :Olical/nfnl :ft :fennel :lazy false}
+    (lazy.setup [(require :config.plugin.nfnl)
                  (require :config.plugin.fidget)
                  (require :config.plugin.conjure)
                  (require :config.plugin.nvim-lspconfig)
