@@ -31,7 +31,7 @@
                  (require :config.plugin.nvim-dap-ui)
                  (require :config.plugin.rust-tools)
                  (require :config.plugin.toggleterm)
-                 {1 :rose-pine/neovim :lazy false}
+                 (require :config.plugin.rose-pine)
                  {1 :terryma/vim-expand-region :lazy false}
                  {1 :MunifTanjim/nui.nvim :lazy false}
                  {1 :ShinKage/idris2-nvim
