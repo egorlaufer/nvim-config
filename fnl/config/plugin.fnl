@@ -40,7 +40,7 @@
                  (require :config.plugin.plenary)
                  (require :config.plugin.todo-comments)
                  (require :config.plugin.trouble)
-                 {1 :doctorfree/cheatsheet.nvim :lazy false :opts {}}
+                 (require :config.plugin.cheatsheet)
                  {1 :savq/melange-nvim
                   :lazy false
                   :config (mod :config.plugin.colorscheme)}
