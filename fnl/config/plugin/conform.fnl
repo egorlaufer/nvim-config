@@ -1,3 +1,7 @@
+(import-macros {: lazy-config-fn} :config.init-macros)
+
+(local mod ...)
+
 (fn config [plugin opts]
   (let [(ok? con) (pcall #(require :conform))]
     (when ok?
@@ -8,5 +12,5 @@
                                      :erlang [:rebar3_fmt]}
                   :format_on_save {:timeout_ms 2000 :lsp_fallback false}}))))
 
-{: config}
+{1 :stevearc/conform.nvim :config (lazy-config-fn config mod) :lazy false}
 
