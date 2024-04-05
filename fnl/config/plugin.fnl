@@ -22,7 +22,7 @@
                  (require :config.plugin.telescope)
                  (require :config.plugin.octo)
                  (require :config.plugin.vim-commentary)
-                 {1 :tpope/vim-fugitive}
+                 (require :config.plugin.vim-fugitive)
                  {1 :tpope/vim-surround}
                  {1 :NMAC427/guess-indent.nvim :lazy false}
                  {1 :jdhao/whitespace.nvim :lazy false}
