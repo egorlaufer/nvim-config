@@ -18,7 +18,7 @@
                  (require :config.plugin.undotree)
                  (require :config.plugin.cmp)
                  (require :config.plugin.conform)
-                 {1 :folke/which-key.nvim :lazy false :opts {}}
+                 (require :config.plugin.which-key)
                  {1 :nvim-telescope/telescope.nvim
                   :cmd :Telescope
                   :config (mod :config.plugin.telescope)
