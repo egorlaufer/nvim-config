@@ -1,3 +1,7 @@
+(import-macros {: lazy-config-fn} :config.init-macros)
+
+(local mod ...)
+
 (fn config [plugin opts]
   (set vim.o.completeopt "menuone,noselect")
   (let [(ok? cmp) (pcall #(require :cmp))]
@@ -52,5 +56,16 @@
                                           :option {:debounce 1000}}
                                          {:name :nvim_lua}]}))))))
 
-{: config}
+{1 :hrsh7th/nvim-cmp
+ :dependencies [[:PaterJason/cmp-conjure]
+                [:hrsh7th/cmp-buffer]
+                [:hrsh7th/cmp-cmdline]
+                [:hrsh7th/cmp-nvim-lsp]
+                [:hrsh7th/cmp-path]
+                [:hrsh7th/cmp-omni]
+                [:hrsh7th/cmp-nvim-lua]
+                [:L3MON4D3/LuaSnip]
+                [:saadparwaiz1/cmp_luasnip]]
+ :config (lazy-config-fn config mod)
+ :event :InsertEnter}
 
