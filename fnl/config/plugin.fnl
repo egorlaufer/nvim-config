@@ -1,21 +1,4 @@
-(macro mod [f]
-  (let [s (tostring f)]
-    `(fn [plugin# opts#]
-       (let [load-and-configure# (fn [f# plugin# opts#]
-                                   (let [m# (require f#)]
-                                     (m#.config plugin# opts#)))
-             (fidget?# fidget#) (pcall #(require :fidget))
-             (ok?# res#) (pcall load-and-configure# ,f plugin# opts#)]
-         (if ok?#
-             (do
-               (when fidget?#
-                 (fidget#.notify (.. "Loaded: " ,s)))
-               true)
-             (do
-               (if fidget?#
-                   (fidget#.notify (.. "Failed configuring: " ,s res#))
-                   (print (.. "Failed configuring: " ,s res#)))
-               false))))))
+(import-macros {: mod} :config.init-macros)
 
 (let [(ok? lazy) (pcall #(require :lazy))]
   (when ok?
