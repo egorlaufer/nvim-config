@@ -27,7 +27,7 @@
                  (require :config.plugin.guess-indent)
                  (require :config.plugin.whitespace)
                  (require :config.plugin.nvim-tree)
-                 {1 :mfussenegger/nvim-dap}
+                 (require :config.plugin.nvim-dap)
                  {1 :rcarriga/nvim-dap-ui}
                  {1 :simrat39/rust-tools.nvim
                   :dependencies [[:nvim-lua/plenary.nvim]]}
