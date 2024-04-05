@@ -38,11 +38,7 @@
                  (require :config.plugin.vim-characterize)
                  (require :config.plugin.vim-rooter)
                  (require :config.plugin.plenary)
-                 {1 :folke/todo-comments.nvim
-                  :lazy false
-                  :dependencies [[:nvim-lua/plenary.nvim]
-                                 [:folke/trouble.nvim]]
-                  :opts {}}
+                 (require :config.plugin.todo-comments)
                  {1 :folke/trouble.nvim
                   :lazy false
                   :dependencies [[:nvim-tree/nvim-web-devicons]]
