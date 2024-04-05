@@ -32,7 +32,7 @@
                  (require :config.plugin.rust-tools)
                  (require :config.plugin.toggleterm)
                  (require :config.plugin.rose-pine)
-                 {1 :terryma/vim-expand-region :lazy false}
+                 (require :config.plugin.vim-expand-region)
                  {1 :MunifTanjim/nui.nvim :lazy false}
                  {1 :ShinKage/idris2-nvim
                   :requires [:neovim/nvim-lspconfig :MunifTanjim/nui.nvim]
