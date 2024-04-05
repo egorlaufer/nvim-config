@@ -24,7 +24,7 @@
                  (require :config.plugin.vim-commentary)
                  (require :config.plugin.vim-fugitive)
                  (require :config.plugin.vim-surround)
-                 {1 :NMAC427/guess-indent.nvim :lazy false}
+                 (require :config.plugin.guess-indent)
                  {1 :jdhao/whitespace.nvim :lazy false}
                  {1 :kyazdani42/nvim-tree.lua
                   :cmd [:NvimTreeToggle
