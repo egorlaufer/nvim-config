@@ -39,10 +39,7 @@
                  (require :config.plugin.vim-rooter)
                  (require :config.plugin.plenary)
                  (require :config.plugin.todo-comments)
-                 {1 :folke/trouble.nvim
-                  :lazy false
-                  :dependencies [[:nvim-tree/nvim-web-devicons]]
-                  :opts {}}
+                 (require :config.plugin.trouble)
                  {1 :doctorfree/cheatsheet.nvim :lazy false :opts {}}
                  {1 :savq/melange-nvim
                   :lazy false
