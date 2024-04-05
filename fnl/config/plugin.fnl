@@ -26,21 +26,7 @@
                  (require :config.plugin.vim-surround)
                  (require :config.plugin.guess-indent)
                  (require :config.plugin.whitespace)
-                 {1 :kyazdani42/nvim-tree.lua
-                  :cmd [:NvimTreeToggle
-                        :NvimTreeClipboard
-                        :NvimTreeClose
-                        :NvimTreeCollapse
-                        :NvimTreeCollapseKeepBuffers
-                        :NvimTreeFindFile
-                        :NvimTreeFindFileToggle
-                        :NvimTreeFocus
-                        :NvimTreeOpen
-                        :NvimTreeRefresh
-                        :NvimTreeResize
-                        :NvimTreeToggle]
-                  :lazy true
-                  :opts {}}
+                 (require :config.plugin.nvim-tree)
                  {1 :mfussenegger/nvim-dap}
                  {1 :rcarriga/nvim-dap-ui}
                  {1 :simrat39/rust-tools.nvim
