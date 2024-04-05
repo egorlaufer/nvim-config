@@ -30,9 +30,7 @@
                  (require :config.plugin.nvim-dap)
                  (require :config.plugin.nvim-dap-ui)
                  (require :config.plugin.rust-tools)
-                 {1 :akinsho/toggleterm.nvim
-                  :cmd [:ToggleTerm]
-                  :config (mod :config.plugin.toggleterm)}
+                 (require :config.plugin.toggleterm)
                  {1 :rose-pine/neovim :lazy false}
                  {1 :terryma/vim-expand-region :lazy false}
                  {1 :MunifTanjim/nui.nvim :lazy false}
