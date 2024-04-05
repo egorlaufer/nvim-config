@@ -12,9 +12,7 @@
                                         :override_vim_notify true}}}
                  (require :config.plugin.conjure)
                  (require :config.plugin.nvim-lspconfig)
-                 {1 :ggandor/leap.nvim
-                  :config (mod :config.plugin.leap)
-                  :lazy false}
+                 (require :config.plugin.leap)
                  {1 :nvim-treesitter/nvim-treesitter
                   :ft [:fennel :lua :rust :erlang :elixir :idris2]
                   :config (mod :config.plugin.treesitter)
