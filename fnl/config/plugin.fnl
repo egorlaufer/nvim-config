@@ -23,7 +23,7 @@
                  (require :config.plugin.octo)
                  (require :config.plugin.vim-commentary)
                  (require :config.plugin.vim-fugitive)
-                 {1 :tpope/vim-surround}
+                 (require :config.plugin.vim-surround)
                  {1 :NMAC427/guess-indent.nvim :lazy false}
                  {1 :jdhao/whitespace.nvim :lazy false}
                  {1 :kyazdani42/nvim-tree.lua
