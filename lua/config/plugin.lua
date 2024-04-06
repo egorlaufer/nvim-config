@@ -6,11 +6,12 @@ do
   end
   ok_3f, lazy = pcall(_1_)
   if ok_3f then
-    local function _2_(plugin_2_auto, opts_3_auto)
+    local function _2_(plugin_1_auto, opts_2_auto)
+      local start_3_auto = vim.loop.hrtime()
       local load_and_configure_4_auto
-      local function _3_(f_5_auto, plugin_2_auto0, opts_3_auto0)
+      local function _3_(f_5_auto, plugin_1_auto0, opts_2_auto0)
         local m_6_auto = require(f_5_auto)
-        return m_6_auto.config(plugin_2_auto0, opts_3_auto0)
+        return m_6_auto.config(plugin_1_auto0, opts_2_auto0)
       end
       load_and_configure_4_auto = _3_
       local fidget_3f_7_auto, fidget_8_auto = nil, nil
@@ -18,10 +19,11 @@ do
         return require("fidget")
       end
       fidget_3f_7_auto, fidget_8_auto = pcall(_4_)
-      local ok_3f_9_auto, res_10_auto = pcall(load_and_configure_4_auto, "config.plugin.conjure", plugin_2_auto, opts_3_auto)
+      local ok_3f_9_auto, res_10_auto = pcall(load_and_configure_4_auto, "config.plugin.conjure", plugin_1_auto, opts_2_auto)
       if ok_3f_9_auto then
         if fidget_3f_7_auto then
-          fidget_8_auto.notify(("Loaded: " .. "config.plugin.conjure"))
+          local ms_11_auto = ((vim.loop.hrtime() - start_3_auto) / 1000000)
+          fidget_8_auto.notify(("Loaded: " .. "config.plugin.conjure" .. " in " .. ms_11_auto .. "ms"))
         else
         end
         return true
@@ -34,11 +36,12 @@ do
         return false
       end
     end
-    local function _8_(plugin_2_auto, opts_3_auto)
+    local function _8_(plugin_1_auto, opts_2_auto)
+      local start_3_auto = vim.loop.hrtime()
       local load_and_configure_4_auto
-      local function _9_(f_5_auto, plugin_2_auto0, opts_3_auto0)
+      local function _9_(f_5_auto, plugin_1_auto0, opts_2_auto0)
         local m_6_auto = require(f_5_auto)
-        return m_6_auto.config(plugin_2_auto0, opts_3_auto0)
+        return m_6_auto.config(plugin_1_auto0, opts_2_auto0)
       end
       load_and_configure_4_auto = _9_
       local fidget_3f_7_auto, fidget_8_auto = nil, nil
@@ -46,10 +49,11 @@ do
         return require("fidget")
       end
       fidget_3f_7_auto, fidget_8_auto = pcall(_10_)
-      local ok_3f_9_auto, res_10_auto = pcall(load_and_configure_4_auto, "config.plugin.nvim-lspconfig", plugin_2_auto, opts_3_auto)
+      local ok_3f_9_auto, res_10_auto = pcall(load_and_configure_4_auto, "config.plugin.nvim-lspconfig", plugin_1_auto, opts_2_auto)
       if ok_3f_9_auto then
         if fidget_3f_7_auto then
-          fidget_8_auto.notify(("Loaded: " .. "config.plugin.nvim-lspconfig"))
+          local ms_11_auto = ((vim.loop.hrtime() - start_3_auto) / 1000000)
+          fidget_8_auto.notify(("Loaded: " .. "config.plugin.nvim-lspconfig" .. " in " .. ms_11_auto .. "ms"))
         else
         end
         return true
@@ -62,11 +66,12 @@ do
         return false
       end
     end
-    local function _14_(plugin_2_auto, opts_3_auto)
+    local function _14_(plugin_1_auto, opts_2_auto)
+      local start_3_auto = vim.loop.hrtime()
       local load_and_configure_4_auto
-      local function _15_(f_5_auto, plugin_2_auto0, opts_3_auto0)
+      local function _15_(f_5_auto, plugin_1_auto0, opts_2_auto0)
         local m_6_auto = require(f_5_auto)
-        return m_6_auto.config(plugin_2_auto0, opts_3_auto0)
+        return m_6_auto.config(plugin_1_auto0, opts_2_auto0)
       end
       load_and_configure_4_auto = _15_
       local fidget_3f_7_auto, fidget_8_auto = nil, nil
@@ -74,10 +79,11 @@ do
         return require("fidget")
       end
       fidget_3f_7_auto, fidget_8_auto = pcall(_16_)
-      local ok_3f_9_auto, res_10_auto = pcall(load_and_configure_4_auto, "config.plugin.leap", plugin_2_auto, opts_3_auto)
+      local ok_3f_9_auto, res_10_auto = pcall(load_and_configure_4_auto, "config.plugin.leap", plugin_1_auto, opts_2_auto)
       if ok_3f_9_auto then
         if fidget_3f_7_auto then
-          fidget_8_auto.notify(("Loaded: " .. "config.plugin.leap"))
+          local ms_11_auto = ((vim.loop.hrtime() - start_3_auto) / 1000000)
+          fidget_8_auto.notify(("Loaded: " .. "config.plugin.leap" .. " in " .. ms_11_auto .. "ms"))
         else
         end
         return true
@@ -90,11 +96,12 @@ do
         return false
       end
     end
-    local function _20_(plugin_2_auto, opts_3_auto)
+    local function _20_(plugin_1_auto, opts_2_auto)
+      local start_3_auto = vim.loop.hrtime()
       local load_and_configure_4_auto
-      local function _21_(f_5_auto, plugin_2_auto0, opts_3_auto0)
+      local function _21_(f_5_auto, plugin_1_auto0, opts_2_auto0)
         local m_6_auto = require(f_5_auto)
-        return m_6_auto.config(plugin_2_auto0, opts_3_auto0)
+        return m_6_auto.config(plugin_1_auto0, opts_2_auto0)
       end
       load_and_configure_4_auto = _21_
       local fidget_3f_7_auto, fidget_8_auto = nil, nil
@@ -102,10 +109,11 @@ do
         return require("fidget")
       end
       fidget_3f_7_auto, fidget_8_auto = pcall(_22_)
-      local ok_3f_9_auto, res_10_auto = pcall(load_and_configure_4_auto, "config.plugin.treesitter", plugin_2_auto, opts_3_auto)
+      local ok_3f_9_auto, res_10_auto = pcall(load_and_configure_4_auto, "config.plugin.treesitter", plugin_1_auto, opts_2_auto)
       if ok_3f_9_auto then
         if fidget_3f_7_auto then
-          fidget_8_auto.notify(("Loaded: " .. "config.plugin.treesitter"))
+          local ms_11_auto = ((vim.loop.hrtime() - start_3_auto) / 1000000)
+          fidget_8_auto.notify(("Loaded: " .. "config.plugin.treesitter" .. " in " .. ms_11_auto .. "ms"))
         else
         end
         return true
@@ -118,11 +126,12 @@ do
         return false
       end
     end
-    local function _26_(plugin_2_auto, opts_3_auto)
+    local function _26_(plugin_1_auto, opts_2_auto)
+      local start_3_auto = vim.loop.hrtime()
       local load_and_configure_4_auto
-      local function _27_(f_5_auto, plugin_2_auto0, opts_3_auto0)
+      local function _27_(f_5_auto, plugin_1_auto0, opts_2_auto0)
         local m_6_auto = require(f_5_auto)
-        return m_6_auto.config(plugin_2_auto0, opts_3_auto0)
+        return m_6_auto.config(plugin_1_auto0, opts_2_auto0)
       end
       load_and_configure_4_auto = _27_
       local fidget_3f_7_auto, fidget_8_auto = nil, nil
@@ -130,10 +139,11 @@ do
         return require("fidget")
       end
       fidget_3f_7_auto, fidget_8_auto = pcall(_28_)
-      local ok_3f_9_auto, res_10_auto = pcall(load_and_configure_4_auto, "config.plugin.lualine", plugin_2_auto, opts_3_auto)
+      local ok_3f_9_auto, res_10_auto = pcall(load_and_configure_4_auto, "config.plugin.lualine", plugin_1_auto, opts_2_auto)
       if ok_3f_9_auto then
         if fidget_3f_7_auto then
-          fidget_8_auto.notify(("Loaded: " .. "config.plugin.lualine"))
+          local ms_11_auto = ((vim.loop.hrtime() - start_3_auto) / 1000000)
+          fidget_8_auto.notify(("Loaded: " .. "config.plugin.lualine" .. " in " .. ms_11_auto .. "ms"))
         else
         end
         return true
@@ -146,11 +156,12 @@ do
         return false
       end
     end
-    local function _32_(plugin_2_auto, opts_3_auto)
+    local function _32_(plugin_1_auto, opts_2_auto)
+      local start_3_auto = vim.loop.hrtime()
       local load_and_configure_4_auto
-      local function _33_(f_5_auto, plugin_2_auto0, opts_3_auto0)
+      local function _33_(f_5_auto, plugin_1_auto0, opts_2_auto0)
         local m_6_auto = require(f_5_auto)
-        return m_6_auto.config(plugin_2_auto0, opts_3_auto0)
+        return m_6_auto.config(plugin_1_auto0, opts_2_auto0)
       end
       load_and_configure_4_auto = _33_
       local fidget_3f_7_auto, fidget_8_auto = nil, nil
@@ -158,10 +169,11 @@ do
         return require("fidget")
       end
       fidget_3f_7_auto, fidget_8_auto = pcall(_34_)
-      local ok_3f_9_auto, res_10_auto = pcall(load_and_configure_4_auto, "config.plugin.undotree", plugin_2_auto, opts_3_auto)
+      local ok_3f_9_auto, res_10_auto = pcall(load_and_configure_4_auto, "config.plugin.undotree", plugin_1_auto, opts_2_auto)
       if ok_3f_9_auto then
         if fidget_3f_7_auto then
-          fidget_8_auto.notify(("Loaded: " .. "config.plugin.undotree"))
+          local ms_11_auto = ((vim.loop.hrtime() - start_3_auto) / 1000000)
+          fidget_8_auto.notify(("Loaded: " .. "config.plugin.undotree" .. " in " .. ms_11_auto .. "ms"))
         else
         end
         return true
@@ -174,11 +186,12 @@ do
         return false
       end
     end
-    local function _38_(plugin_2_auto, opts_3_auto)
+    local function _38_(plugin_1_auto, opts_2_auto)
+      local start_3_auto = vim.loop.hrtime()
       local load_and_configure_4_auto
-      local function _39_(f_5_auto, plugin_2_auto0, opts_3_auto0)
+      local function _39_(f_5_auto, plugin_1_auto0, opts_2_auto0)
         local m_6_auto = require(f_5_auto)
-        return m_6_auto.config(plugin_2_auto0, opts_3_auto0)
+        return m_6_auto.config(plugin_1_auto0, opts_2_auto0)
       end
       load_and_configure_4_auto = _39_
       local fidget_3f_7_auto, fidget_8_auto = nil, nil
@@ -186,10 +199,11 @@ do
         return require("fidget")
       end
       fidget_3f_7_auto, fidget_8_auto = pcall(_40_)
-      local ok_3f_9_auto, res_10_auto = pcall(load_and_configure_4_auto, "config.plugin.cmp", plugin_2_auto, opts_3_auto)
+      local ok_3f_9_auto, res_10_auto = pcall(load_and_configure_4_auto, "config.plugin.cmp", plugin_1_auto, opts_2_auto)
       if ok_3f_9_auto then
         if fidget_3f_7_auto then
-          fidget_8_auto.notify(("Loaded: " .. "config.plugin.cmp"))
+          local ms_11_auto = ((vim.loop.hrtime() - start_3_auto) / 1000000)
+          fidget_8_auto.notify(("Loaded: " .. "config.plugin.cmp" .. " in " .. ms_11_auto .. "ms"))
         else
         end
         return true
@@ -202,11 +216,12 @@ do
         return false
       end
     end
-    local function _44_(plugin_2_auto, opts_3_auto)
+    local function _44_(plugin_1_auto, opts_2_auto)
+      local start_3_auto = vim.loop.hrtime()
       local load_and_configure_4_auto
-      local function _45_(f_5_auto, plugin_2_auto0, opts_3_auto0)
+      local function _45_(f_5_auto, plugin_1_auto0, opts_2_auto0)
         local m_6_auto = require(f_5_auto)
-        return m_6_auto.config(plugin_2_auto0, opts_3_auto0)
+        return m_6_auto.config(plugin_1_auto0, opts_2_auto0)
       end
       load_and_configure_4_auto = _45_
       local fidget_3f_7_auto, fidget_8_auto = nil, nil
@@ -214,10 +229,11 @@ do
         return require("fidget")
       end
       fidget_3f_7_auto, fidget_8_auto = pcall(_46_)
-      local ok_3f_9_auto, res_10_auto = pcall(load_and_configure_4_auto, "config.plugin.conform", plugin_2_auto, opts_3_auto)
+      local ok_3f_9_auto, res_10_auto = pcall(load_and_configure_4_auto, "config.plugin.conform", plugin_1_auto, opts_2_auto)
       if ok_3f_9_auto then
         if fidget_3f_7_auto then
-          fidget_8_auto.notify(("Loaded: " .. "config.plugin.conform"))
+          local ms_11_auto = ((vim.loop.hrtime() - start_3_auto) / 1000000)
+          fidget_8_auto.notify(("Loaded: " .. "config.plugin.conform" .. " in " .. ms_11_auto .. "ms"))
         else
         end
         return true
@@ -230,11 +246,12 @@ do
         return false
       end
     end
-    local function _50_(plugin_2_auto, opts_3_auto)
+    local function _50_(plugin_1_auto, opts_2_auto)
+      local start_3_auto = vim.loop.hrtime()
       local load_and_configure_4_auto
-      local function _51_(f_5_auto, plugin_2_auto0, opts_3_auto0)
+      local function _51_(f_5_auto, plugin_1_auto0, opts_2_auto0)
         local m_6_auto = require(f_5_auto)
-        return m_6_auto.config(plugin_2_auto0, opts_3_auto0)
+        return m_6_auto.config(plugin_1_auto0, opts_2_auto0)
       end
       load_and_configure_4_auto = _51_
       local fidget_3f_7_auto, fidget_8_auto = nil, nil
@@ -242,10 +259,11 @@ do
         return require("fidget")
       end
       fidget_3f_7_auto, fidget_8_auto = pcall(_52_)
-      local ok_3f_9_auto, res_10_auto = pcall(load_and_configure_4_auto, "config.plugin.telescope", plugin_2_auto, opts_3_auto)
+      local ok_3f_9_auto, res_10_auto = pcall(load_and_configure_4_auto, "config.plugin.telescope", plugin_1_auto, opts_2_auto)
       if ok_3f_9_auto then
         if fidget_3f_7_auto then
-          fidget_8_auto.notify(("Loaded: " .. "config.plugin.telescope"))
+          local ms_11_auto = ((vim.loop.hrtime() - start_3_auto) / 1000000)
+          fidget_8_auto.notify(("Loaded: " .. "config.plugin.telescope" .. " in " .. ms_11_auto .. "ms"))
         else
         end
         return true
@@ -258,11 +276,12 @@ do
         return false
       end
     end
-    local function _56_(plugin_2_auto, opts_3_auto)
+    local function _56_(plugin_1_auto, opts_2_auto)
+      local start_3_auto = vim.loop.hrtime()
       local load_and_configure_4_auto
-      local function _57_(f_5_auto, plugin_2_auto0, opts_3_auto0)
+      local function _57_(f_5_auto, plugin_1_auto0, opts_2_auto0)
         local m_6_auto = require(f_5_auto)
-        return m_6_auto.config(plugin_2_auto0, opts_3_auto0)
+        return m_6_auto.config(plugin_1_auto0, opts_2_auto0)
       end
       load_and_configure_4_auto = _57_
       local fidget_3f_7_auto, fidget_8_auto = nil, nil
@@ -270,10 +289,11 @@ do
         return require("fidget")
       end
       fidget_3f_7_auto, fidget_8_auto = pcall(_58_)
-      local ok_3f_9_auto, res_10_auto = pcall(load_and_configure_4_auto, "config.plugin.octo", plugin_2_auto, opts_3_auto)
+      local ok_3f_9_auto, res_10_auto = pcall(load_and_configure_4_auto, "config.plugin.octo", plugin_1_auto, opts_2_auto)
       if ok_3f_9_auto then
         if fidget_3f_7_auto then
-          fidget_8_auto.notify(("Loaded: " .. "config.plugin.octo"))
+          local ms_11_auto = ((vim.loop.hrtime() - start_3_auto) / 1000000)
+          fidget_8_auto.notify(("Loaded: " .. "config.plugin.octo" .. " in " .. ms_11_auto .. "ms"))
         else
         end
         return true
@@ -286,11 +306,12 @@ do
         return false
       end
     end
-    local function _62_(plugin_2_auto, opts_3_auto)
+    local function _62_(plugin_1_auto, opts_2_auto)
+      local start_3_auto = vim.loop.hrtime()
       local load_and_configure_4_auto
-      local function _63_(f_5_auto, plugin_2_auto0, opts_3_auto0)
+      local function _63_(f_5_auto, plugin_1_auto0, opts_2_auto0)
         local m_6_auto = require(f_5_auto)
-        return m_6_auto.config(plugin_2_auto0, opts_3_auto0)
+        return m_6_auto.config(plugin_1_auto0, opts_2_auto0)
       end
       load_and_configure_4_auto = _63_
       local fidget_3f_7_auto, fidget_8_auto = nil, nil
@@ -298,10 +319,11 @@ do
         return require("fidget")
       end
       fidget_3f_7_auto, fidget_8_auto = pcall(_64_)
-      local ok_3f_9_auto, res_10_auto = pcall(load_and_configure_4_auto, "config.plugin.toggleterm", plugin_2_auto, opts_3_auto)
+      local ok_3f_9_auto, res_10_auto = pcall(load_and_configure_4_auto, "config.plugin.toggleterm", plugin_1_auto, opts_2_auto)
       if ok_3f_9_auto then
         if fidget_3f_7_auto then
-          fidget_8_auto.notify(("Loaded: " .. "config.plugin.toggleterm"))
+          local ms_11_auto = ((vim.loop.hrtime() - start_3_auto) / 1000000)
+          fidget_8_auto.notify(("Loaded: " .. "config.plugin.toggleterm" .. " in " .. ms_11_auto .. "ms"))
         else
         end
         return true
@@ -314,11 +336,12 @@ do
         return false
       end
     end
-    local function _68_(plugin_2_auto, opts_3_auto)
+    local function _68_(plugin_1_auto, opts_2_auto)
+      local start_3_auto = vim.loop.hrtime()
       local load_and_configure_4_auto
-      local function _69_(f_5_auto, plugin_2_auto0, opts_3_auto0)
+      local function _69_(f_5_auto, plugin_1_auto0, opts_2_auto0)
         local m_6_auto = require(f_5_auto)
-        return m_6_auto.config(plugin_2_auto0, opts_3_auto0)
+        return m_6_auto.config(plugin_1_auto0, opts_2_auto0)
       end
       load_and_configure_4_auto = _69_
       local fidget_3f_7_auto, fidget_8_auto = nil, nil
@@ -326,10 +349,11 @@ do
         return require("fidget")
       end
       fidget_3f_7_auto, fidget_8_auto = pcall(_70_)
-      local ok_3f_9_auto, res_10_auto = pcall(load_and_configure_4_auto, "config.plugin.idris2", plugin_2_auto, opts_3_auto)
+      local ok_3f_9_auto, res_10_auto = pcall(load_and_configure_4_auto, "config.plugin.idris2", plugin_1_auto, opts_2_auto)
       if ok_3f_9_auto then
         if fidget_3f_7_auto then
-          fidget_8_auto.notify(("Loaded: " .. "config.plugin.idris2"))
+          local ms_11_auto = ((vim.loop.hrtime() - start_3_auto) / 1000000)
+          fidget_8_auto.notify(("Loaded: " .. "config.plugin.idris2" .. " in " .. ms_11_auto .. "ms"))
         else
         end
         return true
@@ -342,11 +366,12 @@ do
         return false
       end
     end
-    local function _74_(plugin_2_auto, opts_3_auto)
+    local function _74_(plugin_1_auto, opts_2_auto)
+      local start_3_auto = vim.loop.hrtime()
       local load_and_configure_4_auto
-      local function _75_(f_5_auto, plugin_2_auto0, opts_3_auto0)
+      local function _75_(f_5_auto, plugin_1_auto0, opts_2_auto0)
         local m_6_auto = require(f_5_auto)
-        return m_6_auto.config(plugin_2_auto0, opts_3_auto0)
+        return m_6_auto.config(plugin_1_auto0, opts_2_auto0)
       end
       load_and_configure_4_auto = _75_
       local fidget_3f_7_auto, fidget_8_auto = nil, nil
@@ -354,10 +379,11 @@ do
         return require("fidget")
       end
       fidget_3f_7_auto, fidget_8_auto = pcall(_76_)
-      local ok_3f_9_auto, res_10_auto = pcall(load_and_configure_4_auto, "config.plugin.colorscheme", plugin_2_auto, opts_3_auto)
+      local ok_3f_9_auto, res_10_auto = pcall(load_and_configure_4_auto, "config.plugin.colorscheme", plugin_1_auto, opts_2_auto)
       if ok_3f_9_auto then
         if fidget_3f_7_auto then
-          fidget_8_auto.notify(("Loaded: " .. "config.plugin.colorscheme"))
+          local ms_11_auto = ((vim.loop.hrtime() - start_3_auto) / 1000000)
+          fidget_8_auto.notify(("Loaded: " .. "config.plugin.colorscheme" .. " in " .. ms_11_auto .. "ms"))
         else
         end
         return true
