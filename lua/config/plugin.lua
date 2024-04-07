@@ -23,7 +23,7 @@ do
       if ok_3f_9_auto then
         if fidget_3f_7_auto then
           local ms_11_auto = ((vim.loop.hrtime() - start_3_auto) / 1000000)
-          fidget_8_auto.notify(("Loaded: " .. "config.plugin.conjure" .. " in " .. ms_11_auto .. "ms"))
+          fidget_8_auto.notify(("config.plugin.conjure" .. " in " .. ms_11_auto .. "ms"))
         else
         end
         return true
@@ -53,7 +53,7 @@ do
       if ok_3f_9_auto then
         if fidget_3f_7_auto then
           local ms_11_auto = ((vim.loop.hrtime() - start_3_auto) / 1000000)
-          fidget_8_auto.notify(("Loaded: " .. "config.plugin.nvim-lspconfig" .. " in " .. ms_11_auto .. "ms"))
+          fidget_8_auto.notify(("config.plugin.nvim-lspconfig" .. " in " .. ms_11_auto .. "ms"))
         else
         end
         return true
@@ -83,7 +83,7 @@ do
       if ok_3f_9_auto then
         if fidget_3f_7_auto then
           local ms_11_auto = ((vim.loop.hrtime() - start_3_auto) / 1000000)
-          fidget_8_auto.notify(("Loaded: " .. "config.plugin.leap" .. " in " .. ms_11_auto .. "ms"))
+          fidget_8_auto.notify(("config.plugin.leap" .. " in " .. ms_11_auto .. "ms"))
         else
         end
         return true
@@ -113,7 +113,7 @@ do
       if ok_3f_9_auto then
         if fidget_3f_7_auto then
           local ms_11_auto = ((vim.loop.hrtime() - start_3_auto) / 1000000)
-          fidget_8_auto.notify(("Loaded: " .. "config.plugin.treesitter" .. " in " .. ms_11_auto .. "ms"))
+          fidget_8_auto.notify(("config.plugin.treesitter" .. " in " .. ms_11_auto .. "ms"))
         else
         end
         return true
@@ -143,7 +143,7 @@ do
       if ok_3f_9_auto then
         if fidget_3f_7_auto then
           local ms_11_auto = ((vim.loop.hrtime() - start_3_auto) / 1000000)
-          fidget_8_auto.notify(("Loaded: " .. "config.plugin.lualine" .. " in " .. ms_11_auto .. "ms"))
+          fidget_8_auto.notify(("config.plugin.lualine" .. " in " .. ms_11_auto .. "ms"))
         else
         end
         return true
@@ -173,7 +173,7 @@ do
       if ok_3f_9_auto then
         if fidget_3f_7_auto then
           local ms_11_auto = ((vim.loop.hrtime() - start_3_auto) / 1000000)
-          fidget_8_auto.notify(("Loaded: " .. "config.plugin.undotree" .. " in " .. ms_11_auto .. "ms"))
+          fidget_8_auto.notify(("config.plugin.undotree" .. " in " .. ms_11_auto .. "ms"))
         else
         end
         return true
@@ -203,7 +203,7 @@ do
       if ok_3f_9_auto then
         if fidget_3f_7_auto then
           local ms_11_auto = ((vim.loop.hrtime() - start_3_auto) / 1000000)
-          fidget_8_auto.notify(("Loaded: " .. "config.plugin.cmp" .. " in " .. ms_11_auto .. "ms"))
+          fidget_8_auto.notify(("config.plugin.cmp" .. " in " .. ms_11_auto .. "ms"))
         else
         end
         return true
@@ -233,7 +233,7 @@ do
       if ok_3f_9_auto then
         if fidget_3f_7_auto then
           local ms_11_auto = ((vim.loop.hrtime() - start_3_auto) / 1000000)
-          fidget_8_auto.notify(("Loaded: " .. "config.plugin.conform" .. " in " .. ms_11_auto .. "ms"))
+          fidget_8_auto.notify(("config.plugin.conform" .. " in " .. ms_11_auto .. "ms"))
         else
         end
         return true
@@ -263,7 +263,7 @@ do
       if ok_3f_9_auto then
         if fidget_3f_7_auto then
           local ms_11_auto = ((vim.loop.hrtime() - start_3_auto) / 1000000)
-          fidget_8_auto.notify(("Loaded: " .. "config.plugin.telescope" .. " in " .. ms_11_auto .. "ms"))
+          fidget_8_auto.notify(("config.plugin.telescope" .. " in " .. ms_11_auto .. "ms"))
         else
         end
         return true
@@ -293,7 +293,7 @@ do
       if ok_3f_9_auto then
         if fidget_3f_7_auto then
           local ms_11_auto = ((vim.loop.hrtime() - start_3_auto) / 1000000)
-          fidget_8_auto.notify(("Loaded: " .. "config.plugin.octo" .. " in " .. ms_11_auto .. "ms"))
+          fidget_8_auto.notify(("config.plugin.octo" .. " in " .. ms_11_auto .. "ms"))
         else
         end
         return true
@@ -323,7 +323,7 @@ do
       if ok_3f_9_auto then
         if fidget_3f_7_auto then
           local ms_11_auto = ((vim.loop.hrtime() - start_3_auto) / 1000000)
-          fidget_8_auto.notify(("Loaded: " .. "config.plugin.toggleterm" .. " in " .. ms_11_auto .. "ms"))
+          fidget_8_auto.notify(("config.plugin.toggleterm" .. " in " .. ms_11_auto .. "ms"))
         else
         end
         return true
@@ -353,7 +353,7 @@ do
       if ok_3f_9_auto then
         if fidget_3f_7_auto then
           local ms_11_auto = ((vim.loop.hrtime() - start_3_auto) / 1000000)
-          fidget_8_auto.notify(("Loaded: " .. "config.plugin.idris2" .. " in " .. ms_11_auto .. "ms"))
+          fidget_8_auto.notify(("config.plugin.idris2" .. " in " .. ms_11_auto .. "ms"))
         else
         end
         return true
@@ -383,7 +383,7 @@ do
       if ok_3f_9_auto then
         if fidget_3f_7_auto then
           local ms_11_auto = ((vim.loop.hrtime() - start_3_auto) / 1000000)
-          fidget_8_auto.notify(("Loaded: " .. "config.plugin.colorscheme" .. " in " .. ms_11_auto .. "ms"))
+          fidget_8_auto.notify(("config.plugin.colorscheme" .. " in " .. ms_11_auto .. "ms"))
         else
         end
         return true

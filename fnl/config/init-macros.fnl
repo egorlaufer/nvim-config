@@ -13,7 +13,7 @@
              (do
                (when fidget?#
                  (let [ms# (/ (- (vim.loop.hrtime) start#) 1000000)]
-                   (fidget#.notify (.. "Loaded: " ,s " in " ms# :ms))))
+                   (fidget#.notify (.. ,s " in " ms# :ms))))
                true)
              (do
                (if fidget?#
