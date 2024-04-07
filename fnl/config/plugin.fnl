@@ -11,11 +11,7 @@
                          :notification {:poll_rate 10
                                         :override_vim_notify true}}}
                  (require :config.plugin.conjure)
-                 {1 :neovim/nvim-lspconfig
-                  :ft [:fennel :lua :erlang :elixir :rust :idris2]
-                  :config (mod :config.plugin.nvim-lspconfig)
-                  :dependencies [[:ray-x/lsp_signature.nvim]]
-                  :lazy true}
+                 (require :config.plugin.nvim-lspconfig)
                  {1 :ggandor/leap.nvim
                   :config (mod :config.plugin.leap)
                   :lazy false}

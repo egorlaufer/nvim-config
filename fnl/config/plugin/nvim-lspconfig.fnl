@@ -1,4 +1,8 @@
+(import-macros {: lazy-config-fn} :config.init-macros)
+
 (local util (require :config.util))
+(local mod ...)
+
 (fn custom-attach [client bufnr]
   ;; https://www.chrisatmachine.com/Neovim/27-native-lsp/
   (util.set-normal-telescope :gd :lsp_definitions {:buffer bufnr})
@@ -66,5 +70,9 @@
                                       :settings {:tailwindCSS {:experimental {:classRegex ["class[:]\\s*\"([^\"]*)\""]}}}})
         (lspconfig.ansiblels.setup {})))))
 
-{: config}
+{1 :neovim/nvim-lspconfig
+ :ft [:fennel :lua :erlang :elixir :rust :idris2]
+ :config (lazy-config-fn config mod)
+ :dependencies [[:ray-x/lsp_signature.nvim]]
+ :lazy true}
 
