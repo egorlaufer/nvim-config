@@ -10,10 +10,7 @@
                                           :log_handler true}}
                          :notification {:poll_rate 10
                                         :override_vim_notify true}}}
-                 {1 :Olical/conjure
-                  :ft [:fennel :clojure :lisp]
-                  :config (mod :config.plugin.conjure)
-                  :lazy true}
+                 (require :config.plugin.conjure)
                  {1 :neovim/nvim-lspconfig
                   :ft [:fennel :lua :erlang :elixir :rust :idris2]
                   :config (mod :config.plugin.nvim-lspconfig)
