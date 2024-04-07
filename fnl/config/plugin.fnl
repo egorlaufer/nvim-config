@@ -15,14 +15,7 @@
                  (require :config.plugin.leap)
                  (require :config.plugin.treesitter)
                  (require :config.plugin.lualine)
-                 {1 :mbbill/undotree
-                  :cmd [:UndotreeToggle
-                        :UndotreeHide
-                        :UndotreeShow
-                        :UndotreeFocus]
-                  :lazy true
-                  :config (mod :config.plugin.undotree)
-                  :opts {}}
+                 (require :config.plugin.undotree)
                  {1 :hrsh7th/nvim-cmp
                   :dependencies [[:PaterJason/cmp-conjure]
                                  [:hrsh7th/cmp-buffer]
