@@ -14,10 +14,7 @@
                  (require :config.plugin.nvim-lspconfig)
                  (require :config.plugin.leap)
                  (require :config.plugin.treesitter)
-                 {1 :nvim-lualine/lualine.nvim
-                  :config (mod :config.plugin.lualine)
-                  :opts {:theme_light :melange :theme_dark :melange}
-                  :lazy false}
+                 (require :config.plugin.lualine)
                  {1 :mbbill/undotree
                   :cmd [:UndotreeToggle
                         :UndotreeHide
