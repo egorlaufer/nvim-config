@@ -33,7 +33,7 @@
                  (require :config.plugin.toggleterm)
                  (require :config.plugin.rose-pine)
                  (require :config.plugin.vim-expand-region)
-                 {1 :MunifTanjim/nui.nvim :lazy false}
+                 (require :config.plugin.nui)
                  {1 :ShinKage/idris2-nvim
                   :requires [:neovim/nvim-lspconfig :MunifTanjim/nui.nvim]
                   :ft [:idris2]
