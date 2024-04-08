@@ -1,3 +1,7 @@
+(import-macros {: lazy-config-fn} :config.init-macros)
+
+(local mod ...)
+
 (fn config [plugin opts]
   (let [(ok? telescope) (pcall #(require :telescope))
         (_ok themes) (pcall #(require :telescope.themes))]
@@ -14,5 +18,19 @@
       (telescope.load_extension :luasnip)
       (telescope.load_extension :undo))))
 
-{: config}
+{1 :nvim-telescope/telescope.nvim
+ :cmd :Telescope
+ :config (lazy-config-fn config mod)
+ :dependencies [[:nvim-lua/popup.nvim]
+                [:nvim-lua/plenary.nvim]
+                [:nvim-telescope/telescope-ui-select.nvim]
+                [:barrett-ruth/telescope-http.nvim]
+                [:nvim-telescope/telescope-dap.nvim]
+                [:nvim-treesitter/nvim-treesitter]
+                [:natecraddock/telescope-zf-native.nvim]
+                [:debugloop/telescope-undo.nvim]
+                [:nvim-telescope/telescope-file-browser.nvim]
+                [:danielvolchek/tailiscope.nvim]
+                [:benfowler/telescope-luasnip.nvim]
+                [:debugloop/telescope-undo.nvim]]}
 

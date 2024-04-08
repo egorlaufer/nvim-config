@@ -19,21 +19,7 @@
                  (require :config.plugin.cmp)
                  (require :config.plugin.conform)
                  (require :config.plugin.which-key)
-                 {1 :nvim-telescope/telescope.nvim
-                  :cmd :Telescope
-                  :config (mod :config.plugin.telescope)
-                  :dependencies [[:nvim-lua/popup.nvim]
-                                 [:nvim-lua/plenary.nvim]
-                                 [:nvim-telescope/telescope-ui-select.nvim]
-                                 [:barrett-ruth/telescope-http.nvim]
-                                 [:nvim-telescope/telescope-dap.nvim]
-                                 [:nvim-treesitter/nvim-treesitter]
-                                 [:natecraddock/telescope-zf-native.nvim]
-                                 [:debugloop/telescope-undo.nvim]
-                                 [:nvim-telescope/telescope-file-browser.nvim]
-                                 [:danielvolchek/tailiscope.nvim]
-                                 [:benfowler/telescope-luasnip.nvim]
-                                 [:debugloop/telescope-undo.nvim]]}
+                 (require :config.plugin.telescope)
                  {1 :pwntester/octo.nvim
                   :config (mod :config.plugin.octo)
                   :dependencies [[:nvim-tree/nvim-web-devicons]
