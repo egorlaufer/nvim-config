@@ -25,7 +25,7 @@
                  (require :config.plugin.vim-fugitive)
                  (require :config.plugin.vim-surround)
                  (require :config.plugin.guess-indent)
-                 {1 :jdhao/whitespace.nvim :lazy false}
+                 (require :config.plugin.whitespace)
                  {1 :kyazdani42/nvim-tree.lua
                   :cmd [:NvimTreeToggle
                         :NvimTreeClipboard
