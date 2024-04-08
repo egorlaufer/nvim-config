@@ -41,9 +41,7 @@
                  (require :config.plugin.todo-comments)
                  (require :config.plugin.trouble)
                  (require :config.plugin.cheatsheet)
-                 {1 :savq/melange-nvim
-                  :lazy false
-                  :config (mod :config.plugin.colorscheme)}
+                 (require :config.plugin.melange)
                  {1 :PaterJason/nvim-treesitter-sexp
                   :ft [:fennel :clojure :lisp]
                   :opts {}}
