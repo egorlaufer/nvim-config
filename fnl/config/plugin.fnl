@@ -3,13 +3,7 @@
 (let [(ok? lazy) (pcall #(require :lazy))]
   (when ok?
     (lazy.setup [{1 :Olical/nfnl :ft :fennel :lazy false}
-                 {1 :j-hui/fidget.nvim
-                  :lazy false
-                  :opts {:progress {:poll_rate 10
-                                    :lsp {:progress_ringbuf_size 2048
-                                          :log_handler true}}
-                         :notification {:poll_rate 10
-                                        :override_vim_notify true}}}
+                 (require :config.plugin.fidget)
                  (require :config.plugin.conjure)
                  (require :config.plugin.nvim-lspconfig)
                  (require :config.plugin.leap)
