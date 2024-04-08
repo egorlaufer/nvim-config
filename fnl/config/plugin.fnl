@@ -17,9 +17,7 @@
                  (require :config.plugin.lualine)
                  (require :config.plugin.undotree)
                  (require :config.plugin.cmp)
-                 {1 :stevearc/conform.nvim
-                  :config (mod :config.plugin.conform)
-                  :lazy false}
+                 (require :config.plugin.conform)
                  {1 :folke/which-key.nvim :lazy false :opts {}}
                  {1 :nvim-telescope/telescope.nvim
                   :cmd :Telescope
