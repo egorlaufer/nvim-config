@@ -16,18 +16,7 @@
                  (require :config.plugin.treesitter)
                  (require :config.plugin.lualine)
                  (require :config.plugin.undotree)
-                 {1 :hrsh7th/nvim-cmp
-                  :dependencies [[:PaterJason/cmp-conjure]
-                                 [:hrsh7th/cmp-buffer]
-                                 [:hrsh7th/cmp-cmdline]
-                                 [:hrsh7th/cmp-nvim-lsp]
-                                 [:hrsh7th/cmp-path]
-                                 [:hrsh7th/cmp-omni]
-                                 [:hrsh7th/cmp-nvim-lua]
-                                 [:L3MON4D3/LuaSnip]
-                                 [:saadparwaiz1/cmp_luasnip]]
-                  :config (mod :config.plugin.cmp)
-                  :event :InsertEnter}
+                 (require :config.plugin.cmp)
                  {1 :stevearc/conform.nvim
                   :config (mod :config.plugin.conform)
                   :lazy false}
