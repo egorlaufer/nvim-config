@@ -34,10 +34,7 @@
                  (require :config.plugin.rose-pine)
                  (require :config.plugin.vim-expand-region)
                  (require :config.plugin.nui)
-                 {1 :ShinKage/idris2-nvim
-                  :requires [:neovim/nvim-lspconfig :MunifTanjim/nui.nvim]
-                  :ft [:idris2]
-                  :config (mod :config.plugin.idris2)}
+                 (require :config.plugin.idris2)
                  {1 :tpope/vim-characterize :lazy false}
                  {1 :airblade/vim-rooter :lazy false}
                  {1 :nvim-lua/plenary.nvim :lazy false}
