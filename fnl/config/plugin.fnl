@@ -20,11 +20,7 @@
                  (require :config.plugin.conform)
                  (require :config.plugin.which-key)
                  (require :config.plugin.telescope)
-                 {1 :pwntester/octo.nvim
-                  :config (mod :config.plugin.octo)
-                  :dependencies [[:nvim-tree/nvim-web-devicons]
-                                 [:nvim-lua/plenary.nvim]
-                                 [:nvim-telescope/telescope.nvim]]}
+                 (require :config.plugin.octo)
                  {1 :tpope/vim-commentary}
                  {1 :tpope/vim-fugitive}
                  {1 :tpope/vim-surround}
