@@ -35,7 +35,7 @@
                  (require :config.plugin.vim-expand-region)
                  (require :config.plugin.nui)
                  (require :config.plugin.idris2)
-                 {1 :tpope/vim-characterize :lazy false}
+                 (require :config.plugin.vim-characterize)
                  {1 :airblade/vim-rooter :lazy false}
                  {1 :nvim-lua/plenary.nvim :lazy false}
                  {1 :folke/todo-comments.nvim
