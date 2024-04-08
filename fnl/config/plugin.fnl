@@ -21,7 +21,7 @@
                  (require :config.plugin.which-key)
                  (require :config.plugin.telescope)
                  (require :config.plugin.octo)
-                 {1 :tpope/vim-commentary}
+                 (require :config.plugin.vim-commentary)
                  {1 :tpope/vim-fugitive}
                  {1 :tpope/vim-surround}
                  {1 :NMAC427/guess-indent.nvim :lazy false}
