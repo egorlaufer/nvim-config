@@ -1,5 +1,2 @@
-(fn config [plugin opts]
-  (vim.cmd "set background=dark")
-  (vim.cmd "colorscheme rose-pine-moon"))
+{1 :rose-pine/neovim :lazy false}
 
-{: config}
