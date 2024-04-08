@@ -37,7 +37,7 @@
                  (require :config.plugin.idris2)
                  (require :config.plugin.vim-characterize)
                  (require :config.plugin.vim-rooter)
-                 {1 :nvim-lua/plenary.nvim :lazy false}
+                 (require :config.plugin.plenary)
                  {1 :folke/todo-comments.nvim
                   :lazy false
                   :dependencies [[:nvim-lua/plenary.nvim]
