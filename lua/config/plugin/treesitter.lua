@@ -8,7 +8,9 @@ local function config(plugin, opts)
   ok_3f, treesitter = pcall(_1_)
   if ok_3f then
     treesitter.setup({highlight = {enabled = true, additional_vim_regex_highlighting = false}})
-    return vim.cmd("TSEnable highlight")
+    vim.cmd("TSEnable highlight")
+    vim.cmd("TSEnable indent")
+    return vim.cmd("TSEnable incremental_selection")
   else
     return nil
   end

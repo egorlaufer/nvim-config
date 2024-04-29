@@ -30,7 +30,6 @@
                  (require :config.plugin.nui)
                  (require :config.plugin.idris2)
                  (require :config.plugin.vim-characterize)
-                 (require :config.plugin.vim-rooter)
                  (require :config.plugin.plenary)
                  (require :config.plugin.todo-comments)
                  (require :config.plugin.trouble)
