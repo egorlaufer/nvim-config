@@ -1,6 +1,7 @@
 -- [nfnl] Compiled from fnl/config/plugin/nvim-lspconfig.fnl by https://github.com/Olical/nfnl, do not edit.
 local util = require("config.util")
 local mod = ...
+local lexical_bin = "start_lexical.sh"
 local function custom_attach(client, bufnr)
   util["set-normal-telescope"]("gd", "lsp_definitions", {buffer = bufnr})
   util["set-normal-telescope"]("gD", "lsp_type_definitions", {buffer = bufnr})
@@ -53,9 +54,16 @@ local function config(plugin, opts)
     end
     ok_3f1, cmp = pcall(_7_)
     local capabilities = vim.tbl_deep_extend("force", vim.lsp.protocol.make_client_capabilities(), cmp.default_capabilities())
+    if not lspconfig_configs.lexical then
+      local function _8_(fname)
+        return (lspconfig.util.root_pattern("mix.exs", ".git")(fname) or vim.loop.os_homedir())
+      end
+      lspconfig_configs["lexical"] = {default_config = {filetypes = {"elixir", "eelixr", "heex"}, cmd = {lexical_bin}, root_dir = _8_, settings = {}}}
+    else
+    end
     lspconfig.fennel_ls.setup({on_attach = custom_attach, capabilities = capabilities, settings = {["fennel-ls"] = {["extra-globals"] = "vim"}}})
     lspconfig.lua_ls.setup({on_attach = custom_attach, capabilities = capabilities})
-    lspconfig.elixirls.setup({cmd = {"elixir-ls"}, on_attach = custom_attach, capabilities = capabilities})
+    lspconfig.lexical.setup({})
     lspconfig.erlangls.setup({on_attach = custom_attach, capabilities = capabilities})
     lspconfig.rust_analyzer.setup({on_attach = custom_attach, capabilities = capabilities})
     lspconfig.tailwindcss.setup({on_attach = custom_attach, capabilities = capabilities, filetypes = {"html", "elixir", "eelixir", "heex"}, init_options = {userLanguages = {elixir = "html-eex", eelixir = "html-eex", heex = "html-eex"}}, settings = {tailwindCSS = {experimental = {classRegex = {"class[:]\\s*\"([^\"]*)\""}}}}})
@@ -64,13 +72,13 @@ local function config(plugin, opts)
     return nil
   end
 end
-local function _9_(plugin_12_auto, opts_13_auto)
+local function _11_(plugin_12_auto, opts_13_auto)
   local start_14_auto = vim.loop.hrtime()
   local fidget_3f_15_auto, fidget_16_auto = nil, nil
-  local function _10_()
+  local function _12_()
     return require("fidget")
   end
-  fidget_3f_15_auto, fidget_16_auto = pcall(_10_)
+  fidget_3f_15_auto, fidget_16_auto = pcall(_12_)
   local ok_3f_17_auto, res_18_auto = pcall(config, plugin_12_auto, opts_13_auto)
   if ok_3f_17_auto then
     if fidget_3f_15_auto then
@@ -88,4 +96,4 @@ local function _9_(plugin_12_auto, opts_13_auto)
     return false
   end
 end
-return {"neovim/nvim-lspconfig", ft = {"fennel", "lua", "erlang", "elixir", "rust", "idris2"}, config = _9_, dependencies = {{"ray-x/lsp_signature.nvim"}}, lazy = true}
+return {"neovim/nvim-lspconfig", ft = {"fennel", "lua", "erlang", "elixir", "rust", "idris2"}, config = _11_, dependencies = {{"ray-x/lsp_signature.nvim"}}, lazy = true}

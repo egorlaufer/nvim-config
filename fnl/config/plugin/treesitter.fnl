@@ -7,7 +7,9 @@
     (when ok?
       (treesitter.setup {:highlight {:enabled true
                                      :additional_vim_regex_highlighting false}})
-      (vim.cmd "TSEnable highlight"))))
+      (vim.cmd "TSEnable highlight")
+      (vim.cmd "TSEnable indent")
+      (vim.cmd "TSEnable incremental_selection"))))
 
 {1 :nvim-treesitter/nvim-treesitter
  :ft [:fennel :lua :rust :erlang :elixir :idris2]

@@ -2,6 +2,7 @@
 
 (local util (require :config.util))
 (local mod ...)
+(local lexical-bin "start_lexical.sh")
 
 (fn custom-attach [client bufnr]
   ;; https://www.chrisatmachine.com/Neovim/27-native-lsp/
@@ -51,13 +52,21 @@
             capabilities (vim.tbl_deep_extend :force
                                               (vim.lsp.protocol.make_client_capabilities)
                                               (cmp.default_capabilities))]
+        (when (not lspconfig-configs.lexical)
+          (tset lspconfig-configs :lexical
+                {:default_config
+                  {:filetypes [:elixir :eelixr :heex]
+                   :cmd [lexical-bin]
+                   :root_dir (fn [fname]
+                               (or
+                                 ((lspconfig.util.root_pattern "mix.exs" ".git") fname)
+                                 (vim.loop.os_homedir)))
+                   :settings {}}}))
         (lspconfig.fennel_ls.setup {:on_attach custom-attach
                                     : capabilities
                                     :settings {:fennel-ls {:extra-globals :vim}}})
         (lspconfig.lua_ls.setup {:on_attach custom-attach : capabilities})
-        (lspconfig.elixirls.setup {:cmd [:elixir-ls]
-                                   :on_attach custom-attach
-                                   : capabilities})
+        (lspconfig.lexical.setup {})
         (lspconfig.erlangls.setup {:on_attach custom-attach : capabilities})
         (lspconfig.rust_analyzer.setup {:on_attach custom-attach
                                         : capabilities})
