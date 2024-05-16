@@ -36,7 +36,8 @@
                  (require :config.plugin.cheatsheet)
                  (require :config.plugin.melange)
                  (require :config.plugin.nvim-treesitter-sexp)
-                 (require :config.plugin.nvlime)])))
+                 (require :config.plugin.nvlime)
+                 (require :config.plugin.dadbod)])))
 
 {}
 
