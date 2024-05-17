@@ -14,9 +14,10 @@
                                 {:name :buffer}
                                 {:name :path}
                                 {:name :rg
-                                 :keyword_length 5
+                                 :keyword_length 2
                                  :option {:debounce 1000}}
-                                {:name :nvim_lua}]
+                                {:name :nvim_lua}
+                                {:name :vim-dadbod-completion}]
                       :view {:entries :native}
                       :snippet {:expand (fn [args]
                                           (luasnip.lsp_expand args.body))}
