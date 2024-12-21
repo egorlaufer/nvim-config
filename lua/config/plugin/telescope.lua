@@ -14,9 +14,7 @@ local function config(plugin, opts)
   if ok_3f then
     telescope.setup({defaults = vim.tbl_extend("force", themes.get_ivy(), {path_display = {truncate = 2}, extensions = {file_browser = {hijack_netrw = true}}})})
     telescope.load_extension("zf-native")
-    telescope.load_extension("http")
     telescope.load_extension("undo")
-    telescope.load_extension("http")
     telescope.load_extension("file_browser")
     telescope.load_extension("tailiscope")
     telescope.load_extension("luasnip")
@@ -49,4 +47,4 @@ local function _4_(plugin_12_auto, opts_13_auto)
     return false
   end
 end
-return {"nvim-telescope/telescope.nvim", cmd = "Telescope", config = _4_, dependencies = {{"nvim-lua/popup.nvim"}, {"nvim-lua/plenary.nvim"}, {"nvim-telescope/telescope-ui-select.nvim"}, {"barrett-ruth/telescope-http.nvim"}, {"nvim-telescope/telescope-dap.nvim"}, {"nvim-treesitter/nvim-treesitter"}, {"natecraddock/telescope-zf-native.nvim"}, {"debugloop/telescope-undo.nvim"}, {"nvim-telescope/telescope-file-browser.nvim"}, {"danielvolchek/tailiscope.nvim"}, {"benfowler/telescope-luasnip.nvim"}, {"debugloop/telescope-undo.nvim"}}}
+return {"nvim-telescope/telescope.nvim", cmd = "Telescope", config = _4_, dependencies = {{"nvim-lua/popup.nvim"}, {"nvim-lua/plenary.nvim"}, {"nvim-telescope/telescope-ui-select.nvim"}, {"nvim-telescope/telescope-dap.nvim"}, {"nvim-treesitter/nvim-treesitter"}, {"natecraddock/telescope-zf-native.nvim"}, {"debugloop/telescope-undo.nvim"}, {"nvim-telescope/telescope-file-browser.nvim"}, {"danielvolchek/tailiscope.nvim"}, {"benfowler/telescope-luasnip.nvim"}, {"debugloop/telescope-undo.nvim"}, {{"rachartier/tiny-code-action.nvim", opts = {}}}}}

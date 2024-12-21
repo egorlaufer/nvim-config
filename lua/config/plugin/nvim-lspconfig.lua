@@ -16,6 +16,17 @@ local function custom_attach(client, bufnr)
   util["set-normal"]("<leader>rn", vim.lsp.buf.rename, {desc = "vim.lsp.buf.rename", buffer = bufnr})
   util["set-normal"]("<leader>cf", vim.lsp.buf.format, {desc = "vim.lsp.buf.format", buffer = bufnr})
   util["set-normal"]("<leader>ca", vim.lsp.buf.code_action, {desc = "vim.lsp.buf.code_action", buffer = bufnr})
+  do
+    local ok_3f, tca = nil, nil
+    local function _1_()
+      return require("tiny-code-action")
+    end
+    ok_3f, tca = pcall(_1_)
+    if ok_3f then
+      util["set-normal"]("<leader>ca", tca.code_action, {desc = "vim.lsp.buf.code_action", buffer = bufnr})
+    else
+    end
+  end
   vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifuc")
   if client.server_capabilities.document_formatting then
     util["set-normal"]("<leader>F", vim.lsp.buf.formatting_sync, {desc = "vim.lsp.buf.formatting_sync", buffer = bufnr})
@@ -38,27 +49,27 @@ local function custom_attach(client, bufnr)
 end
 local function config(plugin, opts)
   local ok_3f, lspconfig = nil, nil
-  local function _5_()
+  local function _7_()
     return require("lspconfig")
   end
-  ok_3f, lspconfig = pcall(_5_)
+  ok_3f, lspconfig = pcall(_7_)
   if ok_3f then
     local ok_3f0, lspconfig_configs = nil, nil
-    local function _6_()
+    local function _8_()
       return require("lspconfig.configs")
     end
-    ok_3f0, lspconfig_configs = pcall(_6_)
+    ok_3f0, lspconfig_configs = pcall(_8_)
     local ok_3f1, cmp = nil, nil
-    local function _7_()
+    local function _9_()
       return require("cmp_nvim_lsp")
     end
-    ok_3f1, cmp = pcall(_7_)
+    ok_3f1, cmp = pcall(_9_)
     local capabilities = vim.tbl_deep_extend("force", vim.lsp.protocol.make_client_capabilities(), cmp.default_capabilities())
     if not lspconfig_configs.lexical then
-      local function _8_(fname)
+      local function _10_(fname)
         return (lspconfig.util.root_pattern("mix.exs", ".git")(fname) or vim.loop.os_homedir())
       end
-      lspconfig_configs["lexical"] = {default_config = {filetypes = {"elixir", "eelixr", "heex"}, cmd = {lexical_bin}, root_dir = _8_, settings = {}}}
+      lspconfig_configs["lexical"] = {default_config = {filetypes = {"elixir", "eelixr", "heex"}, cmd = {lexical_bin}, root_dir = _10_, settings = {}}}
     else
     end
     lspconfig.fennel_ls.setup({on_attach = custom_attach, capabilities = capabilities, settings = {["fennel-ls"] = {["extra-globals"] = "vim"}}})
@@ -67,18 +78,19 @@ local function config(plugin, opts)
     lspconfig.erlangls.setup({on_attach = custom_attach, capabilities = capabilities})
     lspconfig.rust_analyzer.setup({on_attach = custom_attach, capabilities = capabilities})
     lspconfig.tailwindcss.setup({on_attach = custom_attach, capabilities = capabilities, filetypes = {"html", "elixir", "eelixir", "heex"}, init_options = {userLanguages = {elixir = "html-eex", eelixir = "html-eex", heex = "html-eex"}}, settings = {tailwindCSS = {experimental = {classRegex = {"class[:]\\s*\"([^\"]*)\""}}}}})
-    return lspconfig.ansiblels.setup({})
+    lspconfig.ansiblels.setup({})
+    return lspconfig.omnisharp.setup({cmd = {"omnisharp"}, root_dir = lspconfig.util.root_pattern("*.sln", "*.csproj"), on_attach = custom_attach, capabilities = vim.tbl_deep_extend("force", capabilities, {semanticTokensProvider = {full = vim.empty_dict(), legend = {tokenModifiers = {"static_symbol"}, tokenTypes = {"comment", "excluded_code", "identifier", "keyword", "keyword_control", "number", "operator", "operator_overloaded", "preprocessor_keyword", "string", "whitespace", "text", "static_symbol", "preprocessor_text", "punctuation", "string_verbatim", "string_escape_character", "class_name", "delegate_name", "enum_name", "interface_name", "module_name", "struct_name", "type_parameter_name", "field_name", "enum_member_name", "constant_name", "local_name", "parameter_name", "method_name", "extension_method_name", "property_name", "event_name", "namespace_name", "label_name", "xml_doc_comment_attribute_name", "xml_doc_comment_attribute_quotes", "xml_doc_comment_attribute_value", "xml_doc_comment_cdata_section", "xml_doc_comment_comment", "xml_doc_comment_delimiter", "xml_doc_comment_entity_reference", "xml_doc_comment_name", "xml_doc_comment_processing_instruction", "xml_doc_comment_text", "xml_literal_attribute_name", "xml_literal_attribute_quotes", "xml_literal_attribute_value", "xml_literal_cdata_section", "xml_literal_comment", "xml_literal_delimiter", "xml_literal_embedded_expression", "xml_literal_entity_reference", "xml_literal_name", "xml_literal_processing_instruction", "xml_literal_text", "regex_comment", "regex_character_class", "regex_anchor", "regex_quantifier", "regex_grouping", "regex_alternation", "regex_text", "regex_self_escaped_character", "regex_other_escape"}}, range = true}})})
   else
     return nil
   end
 end
-local function _11_(plugin_12_auto, opts_13_auto)
+local function _13_(plugin_12_auto, opts_13_auto)
   local start_14_auto = vim.loop.hrtime()
   local fidget_3f_15_auto, fidget_16_auto = nil, nil
-  local function _12_()
+  local function _14_()
     return require("fidget")
   end
-  fidget_3f_15_auto, fidget_16_auto = pcall(_12_)
+  fidget_3f_15_auto, fidget_16_auto = pcall(_14_)
   local ok_3f_17_auto, res_18_auto = pcall(config, plugin_12_auto, opts_13_auto)
   if ok_3f_17_auto then
     if fidget_3f_15_auto then
@@ -96,4 +108,4 @@ local function _11_(plugin_12_auto, opts_13_auto)
     return false
   end
 end
-return {"neovim/nvim-lspconfig", ft = {"fennel", "lua", "erlang", "elixir", "rust", "idris2"}, config = _11_, dependencies = {{"ray-x/lsp_signature.nvim"}}, lazy = true}
+return {"neovim/nvim-lspconfig", ft = {"fennel", "lua", "erlang", "elixir", "rust", "idris2", "csharp"}, config = _13_, dependencies = {{"ray-x/lsp_signature.nvim"}}, lazy = true}

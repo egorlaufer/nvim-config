@@ -27,6 +27,10 @@
                    {:desc :vim.lsp.buf.format :buffer bufnr})
   (util.set-normal :<leader>ca vim.lsp.buf.code_action
                    {:desc :vim.lsp.buf.code_action :buffer bufnr})
+  (let [(ok? tca) (pcall #(require :tiny-code-action))]
+    (when ok?
+      (util.set-normal :<leader>ca tca.code_action
+                       {:desc :vim.lsp.buf.code_action :buffer bufnr})))
   (vim.api.nvim_buf_set_option bufnr :omnifunc "v:lua.vim.lsp.omnifuc")
   (when client.server_capabilities.document_formatting
     (util.set-normal :<leader>F vim.lsp.buf.formatting_sync
@@ -76,11 +80,84 @@
                                                                      :eelixir :html-eex
                                                                      :heex :html-eex}}
                                       :settings {:tailwindCSS {:experimental {:classRegex ["class[:]\\s*\"([^\"]*)\""]}}}})
-        (lspconfig.ansiblels.setup {})))))
+        (lspconfig.ansiblels.setup {})
+        (lspconfig.omnisharp.setup {:cmd [:omnisharp]
+                                    :root_dir (lspconfig.util.root_pattern :*.sln
+                                                                           :*.csproj)
+                                    :on_attach custom-attach
+                                    :capabilities (vim.tbl_deep_extend :force
+                                                                       capabilities
+                                                                       {:semanticTokensProvider {:full (vim.empty_dict)
+                                                                                                 :legend {:tokenModifiers [:static_symbol]
+                                                                                                          :tokenTypes [:comment
+                                                                                                                       :excluded_code
+                                                                                                                       :identifier
+                                                                                                                       :keyword
+                                                                                                                       :keyword_control
+                                                                                                                       :number
+                                                                                                                       :operator
+                                                                                                                       :operator_overloaded
+                                                                                                                       :preprocessor_keyword
+                                                                                                                       :string
+                                                                                                                       :whitespace
+                                                                                                                       :text
+                                                                                                                       :static_symbol
+                                                                                                                       :preprocessor_text
+                                                                                                                       :punctuation
+                                                                                                                       :string_verbatim
+                                                                                                                       :string_escape_character
+                                                                                                                       :class_name
+                                                                                                                       :delegate_name
+                                                                                                                       :enum_name
+                                                                                                                       :interface_name
+                                                                                                                       :module_name
+                                                                                                                       :struct_name
+                                                                                                                       :type_parameter_name
+                                                                                                                       :field_name
+                                                                                                                       :enum_member_name
+                                                                                                                       :constant_name
+                                                                                                                       :local_name
+                                                                                                                       :parameter_name
+                                                                                                                       :method_name
+                                                                                                                       :extension_method_name
+                                                                                                                       :property_name
+                                                                                                                       :event_name
+                                                                                                                       :namespace_name
+                                                                                                                       :label_name
+                                                                                                                       :xml_doc_comment_attribute_name
+                                                                                                                       :xml_doc_comment_attribute_quotes
+                                                                                                                       :xml_doc_comment_attribute_value
+                                                                                                                       :xml_doc_comment_cdata_section
+                                                                                                                       :xml_doc_comment_comment
+                                                                                                                       :xml_doc_comment_delimiter
+                                                                                                                       :xml_doc_comment_entity_reference
+                                                                                                                       :xml_doc_comment_name
+                                                                                                                       :xml_doc_comment_processing_instruction
+                                                                                                                       :xml_doc_comment_text
+                                                                                                                       :xml_literal_attribute_name
+                                                                                                                       :xml_literal_attribute_quotes
+                                                                                                                       :xml_literal_attribute_value
+                                                                                                                       :xml_literal_cdata_section
+                                                                                                                       :xml_literal_comment
+                                                                                                                       :xml_literal_delimiter
+                                                                                                                       :xml_literal_embedded_expression
+                                                                                                                       :xml_literal_entity_reference
+                                                                                                                       :xml_literal_name
+                                                                                                                       :xml_literal_processing_instruction
+                                                                                                                       :xml_literal_text
+                                                                                                                       :regex_comment
+                                                                                                                       :regex_character_class
+                                                                                                                       :regex_anchor
+                                                                                                                       :regex_quantifier
+                                                                                                                       :regex_grouping
+                                                                                                                       :regex_alternation
+                                                                                                                       :regex_text
+                                                                                                                       :regex_self_escaped_character
+                                                                                                                       :regex_other_escape]}
+                                                                                                 :range true}})})))))
 
 {1 :neovim/nvim-lspconfig
- :ft [:fennel :lua :erlang :elixir :rust :idris2]
+ :ft [:fennel :lua :erlang :elixir :rust :idris2 :csharp]
  :config (lazy-config-fn config mod)
  :dependencies [[:ray-x/lsp_signature.nvim]]
  :lazy true}
-

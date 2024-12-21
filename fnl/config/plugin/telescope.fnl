@@ -10,9 +10,7 @@
                                                   {:path_display {:truncate 2}
                                                    :extensions {:file_browser {:hijack_netrw true}}})})
       (telescope.load_extension :zf-native)
-      (telescope.load_extension :http)
       (telescope.load_extension :undo)
-      (telescope.load_extension :http)
       (telescope.load_extension :file_browser)
       (telescope.load_extension :tailiscope)
       (telescope.load_extension :luasnip)
@@ -24,7 +22,6 @@
  :dependencies [[:nvim-lua/popup.nvim]
                 [:nvim-lua/plenary.nvim]
                 [:nvim-telescope/telescope-ui-select.nvim]
-                [:barrett-ruth/telescope-http.nvim]
                 [:nvim-telescope/telescope-dap.nvim]
                 [:nvim-treesitter/nvim-treesitter]
                 [:natecraddock/telescope-zf-native.nvim]
@@ -32,5 +29,5 @@
                 [:nvim-telescope/telescope-file-browser.nvim]
                 [:danielvolchek/tailiscope.nvim]
                 [:benfowler/telescope-luasnip.nvim]
-                [:debugloop/telescope-undo.nvim]]}
-
+                [:debugloop/telescope-undo.nvim]
+                [{1 :rachartier/tiny-code-action.nvim :opts {}}]]}
