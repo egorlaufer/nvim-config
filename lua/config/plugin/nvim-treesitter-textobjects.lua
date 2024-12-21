@@ -1,2 +1,2 @@
 -- [nfnl] Compiled from fnl/config/plugin/nvim-treesitter-textobjects.fnl by https://github.com/Olical/nfnl, do not edit.
-return {"nvim-treesitter/nvim-treesitter-textobjects", opts = {}, lazy = false}
+return {"nvim-treesitter/nvim-treesitter-textobjects", lazy = false}

@@ -1,1 +1,1 @@
-{1 :nvim-treesitter/nvim-treesitter-textobjects :lazy false :opts {}}
+{1 :nvim-treesitter/nvim-treesitter-textobjects :lazy false}
