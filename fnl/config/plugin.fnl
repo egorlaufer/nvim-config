@@ -4,6 +4,7 @@
   (when ok?
     (lazy.setup [(require :config.plugin.nfnl)
                  (require :config.plugin.fidget)
+                 (require :config.plugin.oil)
                  (require :config.plugin.conjure)
                  (require :config.plugin.leap)
                  (require :config.plugin.treesitter)
@@ -33,6 +34,7 @@
                  (require :config.plugin.cheatsheet)
                  (require :config.plugin.melange)
                  (require :config.plugin.nvim-treesitter-sexp)
+                 (require :config.plugin.nvim-treesitter-textobjects)
                  (require :config.plugin.dadbod)
                  (require :config.plugin.mason)
                  (require :config.plugin.mason-lspconfig)
