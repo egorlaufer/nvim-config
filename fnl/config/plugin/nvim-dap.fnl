@@ -1,1 +1,1 @@
-{1 :mfussenegger/nvim-dap :event :VeryLazy}
+{1 :mfussenegger/nvim-dap :version "*" :event :VeryLazy}

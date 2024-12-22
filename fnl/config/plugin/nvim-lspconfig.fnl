@@ -163,6 +163,7 @@
 {1 :neovim/nvim-lspconfig
  :ft [:fennel :lua :erlang :elixir :rust :idris2 :cs :zig]
  :config (lazy-config-fn mod config)
+ :version "*"
  :lazy true
  :dependencies [{1 :williamboman/mason-lspconfig.nvim
                  :opts {}

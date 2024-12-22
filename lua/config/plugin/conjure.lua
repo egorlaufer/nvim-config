@@ -39,4 +39,4 @@ local function _3_(plugin_12_auto, opts_13_auto)
     return false
   end
 end
-return {"Olical/conjure", ft = {"fennel"}, config = _3_}
+return {"Olical/conjure", version = "*", ft = {"fennel"}, config = _3_}
