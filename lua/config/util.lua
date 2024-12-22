@@ -1,6 +1,6 @@
 -- [nfnl] Compiled from fnl/config/util.fnl by https://github.com/Olical/nfnl, do not edit.
 local function set_key(m, k, command, opts)
-  return vim.keymap.set("n", k, command, vim.tbl_extend("force", {noremap = true, silent = true, nowait = true}, opts))
+  return _G.vim.keymap.set("n", k, command, _G.vim.tbl_extend("force", {noremap = true, silent = true, nowait = true}, opts))
 end
 local function set_normal(k, command, opts)
   return set_key("n", k, command, opts)

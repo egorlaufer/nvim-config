@@ -7,6 +7,6 @@
  :opts {}
  :config (lazy-config-fn mod
                          (fn [_plugin opts]
-                           (vim.diagnostic.config {:virtual_text false})
+                           (_G.vim.diagnostic.config {:virtual_text false})
                            (-?> (require :lsp_lines)
                                 (: :setup opts))))}
