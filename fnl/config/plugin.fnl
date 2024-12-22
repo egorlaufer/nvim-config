@@ -39,6 +39,7 @@
                  (require :config.plugin.borderline)
                  (require :config.plugin.dressing)
                  (require :config.plugin.render-markdown)
-                 (require :config.plugin.blink)])))
+                 (require :config.plugin.blink)
+                 (require :config.plugin.octo)])))
 
 {}
