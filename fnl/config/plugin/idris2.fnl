@@ -2,7 +2,7 @@
 
 (local mod ...)
 
-{1 :ShinKage/idris2-nvim
+{1 :idris-community/idris2-nvim
  :requires [:neovim/nvim-lspconfig :MunifTanjim/nui.nvim]
  :ft [:idris2]
  :config (lazy-config-fn mod

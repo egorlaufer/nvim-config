@@ -11,5 +11,6 @@
        :NvimTreeRefresh
        :NvimTreeResize
        :NvimTreeToggle]
+ :version "*"
  :event :VeryLazy
  :opts {}}

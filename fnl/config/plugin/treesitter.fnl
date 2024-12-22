@@ -12,6 +12,7 @@
       (_G.vim.cmd "TSEnable incremental_selection"))))
 
 {1 :nvim-treesitter/nvim-treesitter
+ :version "*"
  :ft [:fennel :lua :rust :erlang :elixir :idris2]
  :config (lazy-config-fn mod config)
  :lazy true}

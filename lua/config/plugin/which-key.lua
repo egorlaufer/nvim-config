@@ -36,4 +36,4 @@ local function _3_(plugin_12_auto, opts_13_auto)
     return false
   end
 end
-return {"folke/which-key.nvim", config = _3_, lazy = false}
+return {"folke/which-key.nvim", version = "*", config = _3_, lazy = false}

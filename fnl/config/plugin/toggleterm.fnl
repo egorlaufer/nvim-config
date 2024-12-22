@@ -63,6 +63,7 @@
 
 {1 :akinsho/toggleterm.nvim
  :cmd [:ToggleTerm]
+ :version "*"
  :keys [{1 :<leader><space>
          2 ":ToggleTerm<cr>"
          :mode :n

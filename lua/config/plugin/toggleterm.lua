@@ -48,4 +48,4 @@ local function _4_(plugin_12_auto, opts_13_auto)
     return false
   end
 end
-return {"akinsho/toggleterm.nvim", cmd = {"ToggleTerm"}, keys = {{"<leader><space>", ":ToggleTerm<cr>", mode = "n", silent = true, nowait = true, desc = "toggleterm"}}, config = _4_}
+return {"akinsho/toggleterm.nvim", cmd = {"ToggleTerm"}, version = "*", keys = {{"<leader><space>", ":ToggleTerm<cr>", mode = "n", silent = true, nowait = true, desc = "toggleterm"}}, config = _4_}

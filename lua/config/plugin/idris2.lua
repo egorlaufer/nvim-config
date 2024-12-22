@@ -33,4 +33,4 @@ local function _1_(plugin_12_auto, opts_13_auto)
     return false
   end
 end
-return {"ShinKage/idris2-nvim", requires = {"neovim/nvim-lspconfig", "MunifTanjim/nui.nvim"}, ft = {"idris2"}, config = _1_}
+return {"idris-community/idris2-nvim", requires = {"neovim/nvim-lspconfig", "MunifTanjim/nui.nvim"}, ft = {"idris2"}, config = _1_}

@@ -44,4 +44,4 @@ local function _1_(plugin_12_auto, opts_13_auto)
     return false
   end
 end
-return {"sphamba/smear-cursor.nvim", event = "VeryLazy", opts = {}, config = _1_}
+return {"sphamba/smear-cursor.nvim", event = "VeryLazy", version = "*", opts = {}, config = _1_}

@@ -112,4 +112,4 @@ local function _13_(plugin_12_auto, opts_13_auto)
     return false
   end
 end
-return {"neovim/nvim-lspconfig", ft = {"fennel", "lua", "erlang", "elixir", "rust", "idris2", "cs", "zig"}, config = _13_, lazy = true, dependencies = {{"williamboman/mason-lspconfig.nvim", opts = {}, dependencies = {{"williamboman/mason.nvim", cmd = {"Mason", "MasonUpdate", "MasonInstall", "MasonUninstall", "MasonUninstallAll", "MasonLog"}, opts = {}}}}, {"ray-x/lsp_signature.nvim"}}}
+return {"neovim/nvim-lspconfig", ft = {"fennel", "lua", "erlang", "elixir", "rust", "idris2", "cs", "zig"}, config = _13_, version = "*", lazy = true, dependencies = {{"williamboman/mason-lspconfig.nvim", opts = {}, dependencies = {{"williamboman/mason.nvim", cmd = {"Mason", "MasonUpdate", "MasonInstall", "MasonUninstall", "MasonUninstallAll", "MasonLog"}, opts = {}}}}, {"ray-x/lsp_signature.nvim"}}}

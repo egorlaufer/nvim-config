@@ -22,7 +22,6 @@
                  (require :config.plugin.whitespace)
                  (require :config.plugin.nvim-dap)
                  (require :config.plugin.nvim-dap-ui)
-                 (require :config.plugin.rust-tools)
                  (require :config.plugin.toggleterm)
                  (require :config.plugin.rose-pine)
                  (require :config.plugin.vim-expand-region)

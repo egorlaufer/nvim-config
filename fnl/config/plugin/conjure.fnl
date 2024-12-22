@@ -8,4 +8,7 @@
       (set _G.vim.g.conjure#filetype#fennel :conjure.client.fennel.stdio)
       (set _G.vim.g.conjure#extract#tree_sitter#enabled true))))
 
-{1 :Olical/conjure :ft [:fennel] :config (lazy-config-fn mod config)}
+{1 :Olical/conjure
+ :version "*"
+ :ft [:fennel]
+ :config (lazy-config-fn mod config)}
