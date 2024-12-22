@@ -38,6 +38,7 @@
                  (require :config.plugin.nvim-lspconfig)
                  (require :config.plugin.lsp-lines)
                  (require :config.plugin.borderline)
-                 (require :config.plugin.dressing)])))
+                 (require :config.plugin.dressing)
+                 (require :config.plugin.render-markdown)])))
 
 {}
