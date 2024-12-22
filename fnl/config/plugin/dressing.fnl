@@ -1,1 +1,1 @@
-{1 :stevearc/dressing.nvim :lazy false :opts {}}
+{1 :stevearc/dressing.nvim :event :VeryLazy :opts {}}

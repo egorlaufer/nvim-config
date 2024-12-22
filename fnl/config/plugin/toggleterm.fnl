@@ -9,5 +9,10 @@
 
 {1 :akinsho/toggleterm.nvim
  :cmd [:ToggleTerm]
- :config (lazy-config-fn config mod)}
-
+ :keys [{1 :<leader><space>
+         2 ":ToggleTerm<cr>"
+         :mode :n
+         :silent true
+         :nowait true
+         :desc :toggleterm}]
+ :config (lazy-config-fn mod config)}

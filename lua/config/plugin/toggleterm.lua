@@ -36,4 +36,4 @@ local function _3_(plugin_12_auto, opts_13_auto)
     return false
   end
 end
-return {"akinsho/toggleterm.nvim", cmd = {"ToggleTerm"}, config = _3_}
+return {"akinsho/toggleterm.nvim", cmd = {"ToggleTerm"}, keys = {{"<leader><space>", ":ToggleTerm<cr>", mode = "n", silent = true, nowait = true, desc = "toggleterm"}}, config = _3_}

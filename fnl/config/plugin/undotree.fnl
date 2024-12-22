@@ -7,7 +7,6 @@
 
 {1 :mbbill/undotree
  :cmd [:UndotreeToggle :UndotreeHide :UndotreeShow :UndotreeFocus]
- :lazy true
- :config (lazy-config-fn config mod)
+ :event :VeryLazy
+ :config (lazy-config-fn mod config)
  :opts {}}
-

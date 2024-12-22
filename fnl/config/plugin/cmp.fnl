@@ -47,8 +47,7 @@
                                           :keyword_length 5
                                           :option {:debounce 1000}}]})
           (cmp.setup.filetype :lisp
-                              {:sources [{:name :nvlime}
-                                         {:name :conjure}
+                              {:sources [{:name :conjure}
                                          {:name :nvim_lsp}
                                          {:name :buffer}
                                          {:name :path}
@@ -67,6 +66,5 @@
                 [:hrsh7th/cmp-nvim-lua]
                 [:L3MON4D3/LuaSnip]
                 [:saadparwaiz1/cmp_luasnip]]
- :config (lazy-config-fn config mod)
+ :config (lazy-config-fn mod config)
  :event :InsertEnter}
-

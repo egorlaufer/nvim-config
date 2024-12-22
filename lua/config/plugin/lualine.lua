@@ -42,4 +42,4 @@ local function _4_(plugin_12_auto, opts_13_auto)
     return false
   end
 end
-return {"nvim-lualine/lualine.nvim", config = _4_, opts = {theme_light = "melange", theme_dark = "melange"}, lazy = false}
+return {"nvim-lualine/lualine.nvim", config = _4_, opts = {theme_light = "auto", theme_dark = "auto"}, event = "VeryLazy"}

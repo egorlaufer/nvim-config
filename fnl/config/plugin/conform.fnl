@@ -9,8 +9,11 @@
                   :formatters_by_ft {:fennel [:fnlfmt]
                                      :elixir [:mix]
                                      :rust [:rustfmt]
-                                     :erlang [:rebar3_fmt]}
+                                     :erlang [:rebar3_fmt]
+                                     :zig [:zigfmt]}
                   :format_on_save {:timeout_ms 2000 :lsp_fallback false}}))))
 
-{1 :stevearc/conform.nvim :config (lazy-config-fn config mod) :lazy false}
-
+{1 :stevearc/conform.nvim
+ :version "*"
+ :config (lazy-config-fn mod config)
+ :ft [:fennel :elixir :rust :erlang :zig]}

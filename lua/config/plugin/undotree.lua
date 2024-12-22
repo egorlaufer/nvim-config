@@ -28,4 +28,4 @@ local function _1_(plugin_12_auto, opts_13_auto)
     return false
   end
 end
-return {"mbbill/undotree", cmd = {"UndotreeToggle", "UndotreeHide", "UndotreeShow", "UndotreeFocus"}, lazy = true, config = _1_, opts = {}}
+return {"mbbill/undotree", cmd = {"UndotreeToggle", "UndotreeHide", "UndotreeShow", "UndotreeFocus"}, event = "VeryLazy", config = _1_, opts = {}}

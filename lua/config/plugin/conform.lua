@@ -7,7 +7,7 @@ local function config(plugin, opts)
   end
   ok_3f, con = pcall(_1_)
   if ok_3f then
-    return con.setup({formatters = {rebar3_fmt = {command = "rebar3 fmt"}}, formatters_by_ft = {fennel = {"fnlfmt"}, elixir = {"mix"}, rust = {"rustfmt"}, erlang = {"rebar3_fmt"}}, format_on_save = {timeout_ms = 2000, lsp_fallback = false}})
+    return con.setup({formatters = {rebar3_fmt = {command = "rebar3 fmt"}}, formatters_by_ft = {fennel = {"fnlfmt"}, elixir = {"mix"}, rust = {"rustfmt"}, erlang = {"rebar3_fmt"}, zig = {"zigfmt"}}, format_on_save = {timeout_ms = 2000, lsp_fallback = false}})
   else
     return nil
   end
@@ -36,4 +36,4 @@ local function _3_(plugin_12_auto, opts_13_auto)
     return false
   end
 end
-return {"stevearc/conform.nvim", config = _3_, lazy = false}
+return {"stevearc/conform.nvim", version = "*", config = _3_, ft = {"fennel", "elixir", "rust", "erlang", "zig"}}

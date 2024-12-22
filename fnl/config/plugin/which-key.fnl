@@ -7,5 +7,4 @@
     (when ok?
       (which-key.setup opts))))
 
-{1 :folke/which-key.nvim :lazy false :config (lazy-config-fn config mod)}
-
+{1 :folke/which-key.nvim :lazy false :config (lazy-config-fn mod config)}

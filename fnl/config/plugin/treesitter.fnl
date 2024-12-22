@@ -13,6 +13,5 @@
 
 {1 :nvim-treesitter/nvim-treesitter
  :ft [:fennel :lua :rust :erlang :elixir :idris2]
- :config (lazy-config-fn config mod)
+ :config (lazy-config-fn mod config)
  :lazy true}
-

@@ -2,9 +2,9 @@
 
 (local mod ...)
 
-(fn config [plugin opts]
-  (let [(ok? leap) (pcall #(require :leap))]
-    (when ok? (leap.add_default_mappings))))
-
-{1 :ggandor/leap.nvim :config (lazy-config-fn config mod) :lazy false}
-
+{1 :ggandor/leap.nvim
+ :event [:BufReadPost :InsertEnter]
+ :config (lazy-config-fn mod
+                         (fn [_plugin opts]
+                           (-?> (require :leap)
+                                (: :setup opts))))}

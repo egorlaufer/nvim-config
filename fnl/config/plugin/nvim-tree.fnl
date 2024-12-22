@@ -11,6 +11,5 @@
        :NvimTreeRefresh
        :NvimTreeResize
        :NvimTreeToggle]
- :lazy true
+ :event :VeryLazy
  :opts {}}
-

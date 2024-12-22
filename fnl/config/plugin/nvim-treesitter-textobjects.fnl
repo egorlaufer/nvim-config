@@ -1,1 +1,1 @@
-{1 :nvim-treesitter/nvim-treesitter-textobjects :lazy false}
+{1 :nvim-treesitter/nvim-treesitter-textobjects :event :VeryLazy}

@@ -11,7 +11,6 @@
         (lualine.setup {:options {: theme}})))))
 
 {1 :nvim-lualine/lualine.nvim
- :config (lazy-config-fn config mod)
- :opts {:theme_light :melange :theme_dark :melange}
- :lazy false}
-
+ :config (lazy-config-fn mod config)
+ :opts {:theme_light :auto :theme_dark :auto}
+ :event :VeryLazy}

@@ -1,2 +1,1 @@
-{1 :MunifTanjim/nui.nvim :lazy false}
-
+{1 :MunifTanjim/nui.nvim :event :VeryLazy}

@@ -1,2 +1,1 @@
-{1 :mfussenegger/nvim-dap}
-
+{1 :mfussenegger/nvim-dap :event :VeryLazy}

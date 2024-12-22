@@ -1,2 +1,1 @@
-{1 :NMAC427/guess-indent.nvim :lazy false}
-
+{1 :NMAC427/guess-indent.nvim :event :BufReadPost}

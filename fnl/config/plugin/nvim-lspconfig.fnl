@@ -157,7 +157,17 @@
                                                                                                  :range true}})})))))
 
 {1 :neovim/nvim-lspconfig
- :ft [:fennel :lua :erlang :elixir :rust :idris2 :csharp]
- :config (lazy-config-fn config mod)
- :dependencies [[:ray-x/lsp_signature.nvim]]
- :lazy true}
+ :ft [:fennel :lua :erlang :elixir :rust :idris2 :cs]
+ :config (lazy-config-fn mod config)
+ :lazy true
+ :dependencies [{1 :williamboman/mason-lspconfig.nvim
+                 :opts {}
+                 :dependencies [{1 :williamboman/mason.nvim
+                                 :cmd [:Mason
+                                       :MasonUpdate
+                                       :MasonInstall
+                                       :MasonUninstall
+                                       :MasonUninstallAll
+                                       :MasonLog]
+                                 :opts {}}]}
+                [:ray-x/lsp_signature.nvim]]}

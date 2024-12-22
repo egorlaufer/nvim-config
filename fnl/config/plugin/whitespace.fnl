@@ -1,2 +1,1 @@
-{1 :jdhao/whitespace.nvim :lazy false}
-
+{1 :jdhao/whitespace.nvim :event :VeryLazy}

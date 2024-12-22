@@ -1,16 +1,23 @@
--- [nfnl] Compiled from fnl/config/plugin/melange.fnl by https://github.com/Olical/nfnl, do not edit.
+-- [nfnl] Compiled from fnl/config/plugin/vague.fnl by https://github.com/Olical/nfnl, do not edit.
 local mod = ...
 local function config(plugin, opts)
+  do
+    local tmp_3_auto = require("vague")
+    if (nil ~= tmp_3_auto) then
+      tmp_3_auto:setup(opts)
+    else
+    end
+  end
   vim.cmd("set background=dark")
-  return vim.cmd("colorscheme melange")
+  return vim.cmd("colorscheme vague")
 end
-local function _1_(plugin_12_auto, opts_13_auto)
+local function _2_(plugin_12_auto, opts_13_auto)
   local start_14_auto = vim.loop.hrtime()
   local fidget_3f_15_auto, fidget_16_auto = nil, nil
-  local function _2_()
+  local function _3_()
     return require("fidget")
   end
-  fidget_3f_15_auto, fidget_16_auto = pcall(_2_)
+  fidget_3f_15_auto, fidget_16_auto = pcall(_3_)
   local ok_3f_17_auto, res_18_auto = pcall(config, plugin_12_auto, opts_13_auto)
   if ok_3f_17_auto then
     if fidget_3f_15_auto then
@@ -28,4 +35,4 @@ local function _1_(plugin_12_auto, opts_13_auto)
     return false
   end
 end
-return {"savq/melange-nvim", config = _1_, lazy = false}
+return {"vague2k/vague.nvim", config = _2_, lazy = false}

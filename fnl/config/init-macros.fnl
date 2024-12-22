@@ -21,7 +21,7 @@
                    (print (.. "Failed configuring: " ,s res#)))
                false))))))
 
-(fn lazy-config-fn [f mod]
+(fn lazy-config-fn [mod f]
   `(fn [plugin# opts#]
      (let [start# (vim.loop.hrtime)
            (fidget?# fidget#) (pcall #(require :fidget))
@@ -39,4 +39,3 @@
              false)))))
 
 {: mod : lazy-config-fn}
-

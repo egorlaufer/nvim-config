@@ -34,7 +34,7 @@ local function config(plugin, opts)
       end
       cmp.setup({sources = {{name = "conjure"}, {name = "nvim_lsp"}, {name = "buffer"}, {name = "path"}, {name = "rg", keyword_length = 2, option = {debounce = 1000}}, {name = "nvim_lua"}, {name = "vim-dadbod-completion"}}, view = {entries = "native"}, snippet = {expand = _3_}, completion = {completeopt = "menu,menuone,noinsert"}, mapping = cmp.mapping.preset.insert({["<C-b>"] = cmp.mapping.scroll_docs(-4), ["<C-f>"] = cmp.mapping.scroll_docs(4), ["<C-Space>"] = cmp.mapping.complete(), ["<C-e>"] = cmp.mapping.abort(), ["<C-y>"] = cmp.mapping.confirm({select = true}), ["<C-n>"] = cmp.mapping.select_next_item(), ["<C-p>"] = cmp.mapping.select_prev_item(), ["<C-l>"] = cmp.mapping(_4_, {"i", "s"}), ["<C-h>"] = cmp.mapping(_6_, {"i", "s"})})})
       cmp.setup.filetype("gitcommit", {sources = {{name = "cmp_git"}, {name = "path"}, {name = "buffer"}, {name = "rg", keyword_length = 5, option = {debounce = 1000}}}})
-      return cmp.setup.filetype("lisp", {sources = {{name = "nvlime"}, {name = "conjure"}, {name = "nvim_lsp"}, {name = "buffer"}, {name = "path"}, {name = "rg", keyword_length = 5, option = {debounce = 1000}}, {name = "nvim_lua"}}})
+      return cmp.setup.filetype("lisp", {sources = {{name = "conjure"}, {name = "nvim_lsp"}, {name = "buffer"}, {name = "path"}, {name = "rg", keyword_length = 5, option = {debounce = 1000}}, {name = "nvim_lua"}}})
     else
       return nil
     end

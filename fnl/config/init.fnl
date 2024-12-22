@@ -5,4 +5,3 @@
 (local a (require (.. ... :.autocmd)))
 
 {:util u :global g :plugin p :keybind k :autocmd a}
-

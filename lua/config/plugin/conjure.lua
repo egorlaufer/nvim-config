@@ -1,5 +1,6 @@
 -- [nfnl] Compiled from fnl/config/plugin/conjure.fnl by https://github.com/Olical/nfnl, do not edit.
 local mod = ...
+vim.g["conjure#client#fennel#aniseed#deprecation_warning"] = false
 local function config(plugin, opts)
   local ok_3f, conjure = nil, nil
   local function _1_()
@@ -38,4 +39,4 @@ local function _3_(plugin_12_auto, opts_13_auto)
     return false
   end
 end
-return {"Olical/conjure", ft = {"fennel", "clojure", "lisp"}, config = _3_, lazy = true}
+return {"Olical/conjure", ft = {"fennel"}, config = _3_}

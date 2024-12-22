@@ -3,9 +3,10 @@
 (local mod ...)
 
 (fn config [_plugin _opts]
-  ((. (require :nvim-surround) :setup) {}))
+  (-?> (require :nvim-surround)
+       (: :setup {})))
 
 {1 :kylechui/nvim-surround
  :version "*"
- :event :VeryLazy
- :config (lazy-config-fn config mod)}
+ :event :BufEnter
+ :config (lazy-config-fn mod config)}

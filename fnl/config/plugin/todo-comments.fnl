@@ -1,5 +1,4 @@
 {1 :folke/todo-comments.nvim
- :lazy false
+ :event :VeryLazy
  :dependencies [[:nvim-lua/plenary.nvim] [:folke/trouble.nvim]]
  :opts {}}
-

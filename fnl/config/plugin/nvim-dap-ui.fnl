@@ -1,2 +1,3 @@
-{1 :rcarriga/nvim-dap-ui}
-
+{1 :rcarriga/nvim-dap-ui
+ :event :VeryLazy
+ :dependencies [[:mfussenegger/nvim-dap] [:nvim-neotest/nvim-nio]]}

@@ -23,6 +23,9 @@ local function config(plugin, opts)
     return nil
   end
 end
+local function tele_key(keys, command)
+  return {keys, (":Telescope " .. command .. "<cr>"), mode = "n", silent = true, nowait = true, desc = ("tele " .. command)}
+end
 local function _4_(plugin_12_auto, opts_13_auto)
   local start_14_auto = vim.loop.hrtime()
   local fidget_3f_15_auto, fidget_16_auto = nil, nil
@@ -47,4 +50,4 @@ local function _4_(plugin_12_auto, opts_13_auto)
     return false
   end
 end
-return {"nvim-telescope/telescope.nvim", cmd = "Telescope", config = _4_, dependencies = {{"nvim-lua/popup.nvim"}, {"nvim-lua/plenary.nvim"}, {"nvim-telescope/telescope-ui-select.nvim"}, {"nvim-telescope/telescope-dap.nvim"}, {"nvim-treesitter/nvim-treesitter"}, {"natecraddock/telescope-zf-native.nvim"}, {"debugloop/telescope-undo.nvim"}, {"nvim-telescope/telescope-file-browser.nvim"}, {"danielvolchek/tailiscope.nvim"}, {"benfowler/telescope-luasnip.nvim"}, {"debugloop/telescope-undo.nvim"}, {{"rachartier/tiny-code-action.nvim", opts = {}}}}}
+return {"nvim-telescope/telescope.nvim", cmd = "Telescope", config = _4_, dependencies = {{"nvim-lua/popup.nvim"}, {"nvim-lua/plenary.nvim"}, {"nvim-telescope/telescope-ui-select.nvim"}, {"nvim-telescope/telescope-dap.nvim"}, {"nvim-treesitter/nvim-treesitter"}, {"natecraddock/telescope-zf-native.nvim"}, {"debugloop/telescope-undo.nvim"}, {"nvim-telescope/telescope-file-browser.nvim"}, {"danielvolchek/tailiscope.nvim"}, {"benfowler/telescope-luasnip.nvim"}, {"debugloop/telescope-undo.nvim"}, {{"rachartier/tiny-code-action.nvim", opts = {}}}}, keys = {tele_key("<leader>f*", "grep_string"), tele_key("<leader>f/", "current_buffer_fuzzy_find"), tele_key("<leader>fa", "autocommands"), tele_key("<leader>fb", "buffers"), tele_key("<leader>fc", "commands"), tele_key("<leader>fch", "command_history"), tele_key("<leader>fd", "diagnostics"), tele_key("<leader>ff", "file_browser"), tele_key("<leader>fg", "git_files"), tele_key("<leader>fh", "help_tags"), tele_key("<leader>fj", "jumplist"), tele_key("<leader>fk", "keymaps"), tele_key("<leader>fl", "live_grep"), tele_key("<leader>fm", "marks"), tele_key("<leader>fn", "resume"), tele_key("<leader>fo", "oldfiles"), tele_key("<leader>fp", "builtin"), tele_key("<leader>fr", "registers"), tele_key("<leader>fs", "search_history"), tele_key("<leader>ft", "filetypes"), tele_key("<leader>fv", "vim_options"), tele_key("<leader>lb", "lsp_document_symbols"), tele_key("<leader>lci", "lsp_incoming_calls"), tele_key("<leader>lco", "lsp_outgoing_calls"), tele_key("<leader>ld", "lsp_definitions"), tele_key("<leader>li", "lsp_implementations"), tele_key("<leader>lr", "lsp_references"), tele_key("<leader>ls", "lsp_dynamic_workspace_symbols"), tele_key("<leader>lt", "lsp_type_definitions"), tele_key("<leader>lw", "lsp_workspace_symbols"), tele_key("<leader>gc", "git_commits"), tele_key("<leader>gb", "git_bcommits"), tele_key("<leader>gh", "git_branches"), tele_key("<leader>gs", "git_status"), tele_key("<leader>xu", "undo")}}
