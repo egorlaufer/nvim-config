@@ -3,12 +3,12 @@
 (local mod ...)
 
 (fn config [plugin opts]
-  (set vim.o.completeopt "menuone,noselect")
+  (set _G.vim.o.completeopt "menuone,noselect")
   (let [(ok? cmp) (pcall #(require :cmp))]
     (when ok?
       (let [(ok? luasnip) (pcall #(require :luasnip))]
         (when ok?
-          (set vim.g.nvlime_config {:cmp {:enabled true}})
+          (set _G.vim.g.nvlime_config {:cmp {:enabled true}})
           (cmp.setup {:sources [{:name :conjure}
                                 {:name :nvim_lsp}
                                 {:name :buffer}

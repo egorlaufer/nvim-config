@@ -4,7 +4,7 @@
 
 (fn config [plugin opts]
   (-?> (require :vague) (: :setup opts))
-  (vim.cmd "set background=dark")
-  (vim.cmd "colorscheme vague"))
+  (_G.vim.cmd "set background=dark")
+  (_G.vim.cmd "colorscheme vague"))
 
 {1 :vague2k/vague.nvim :lazy false :config (lazy-config-fn mod config)}

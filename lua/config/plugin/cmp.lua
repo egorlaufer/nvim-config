@@ -1,7 +1,7 @@
 -- [nfnl] Compiled from fnl/config/plugin/cmp.fnl by https://github.com/Olical/nfnl, do not edit.
 local mod = ...
 local function config(plugin, opts)
-  vim.o.completeopt = "menuone,noselect"
+  _G.vim.o.completeopt = "menuone,noselect"
   local ok_3f, cmp = nil, nil
   local function _1_()
     return require("cmp")
@@ -14,7 +14,7 @@ local function config(plugin, opts)
     end
     ok_3f0, luasnip = pcall(_2_)
     if ok_3f0 then
-      vim.g.nvlime_config = {cmp = {enabled = true}}
+      _G.vim.g.nvlime_config = {cmp = {enabled = true}}
       local function _3_(args)
         return luasnip.lsp_expand(args.body)
       end
@@ -43,7 +43,7 @@ local function config(plugin, opts)
   end
 end
 local function _10_(plugin_12_auto, opts_13_auto)
-  local start_14_auto = vim.loop.hrtime()
+  local start_14_auto = _G.vim.loop.hrtime()
   local fidget_3f_15_auto, fidget_16_auto = nil, nil
   local function _11_()
     return require("fidget")
@@ -52,7 +52,7 @@ local function _10_(plugin_12_auto, opts_13_auto)
   local ok_3f_17_auto, res_18_auto = pcall(config, plugin_12_auto, opts_13_auto)
   if ok_3f_17_auto then
     if fidget_3f_15_auto then
-      local ms_19_auto = ((vim.loop.hrtime() - start_14_auto) / 1000000)
+      local ms_19_auto = ((_G.vim.loop.hrtime() - start_14_auto) / 1000000)
       fidget_16_auto.notify((mod .. " in " .. ms_19_auto .. "ms"))
     else
     end

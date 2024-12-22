@@ -5,5 +5,4 @@
                  :lazy true}]
  :cmd [:DBUI :DBUIToggle :DBUIAddConnection :DBUIFindBuffer]
  :init (fn []
-         (set vim.g.db_ui_use_nerd_fonts 1))}
-
+         (set _G.vim.g.db_ui_use_nerd_fonts 1))}

@@ -8,7 +8,7 @@ local function config(plugin, opts)
   ok_3f, lualine = pcall(_1_)
   if ok_3f then
     local theme
-    if (0 ~= vim.fn.exists("g:neovide")) then
+    if (0 ~= _G.vim.fn.exists("g:neovide")) then
       theme = opts.theme_light
     else
       theme = opts.theme_dark
@@ -19,7 +19,7 @@ local function config(plugin, opts)
   end
 end
 local function _4_(plugin_12_auto, opts_13_auto)
-  local start_14_auto = vim.loop.hrtime()
+  local start_14_auto = _G.vim.loop.hrtime()
   local fidget_3f_15_auto, fidget_16_auto = nil, nil
   local function _5_()
     return require("fidget")
@@ -28,7 +28,7 @@ local function _4_(plugin_12_auto, opts_13_auto)
   local ok_3f_17_auto, res_18_auto = pcall(config, plugin_12_auto, opts_13_auto)
   if ok_3f_17_auto then
     if fidget_3f_15_auto then
-      local ms_19_auto = ((vim.loop.hrtime() - start_14_auto) / 1000000)
+      local ms_19_auto = ((_G.vim.loop.hrtime() - start_14_auto) / 1000000)
       fidget_16_auto.notify((mod .. " in " .. ms_19_auto .. "ms"))
     else
     end

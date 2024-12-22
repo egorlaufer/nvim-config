@@ -1,7 +1,7 @@
 -- [nfnl] Compiled from fnl/config/plugin/lsp-lines.fnl by https://github.com/Olical/nfnl, do not edit.
 local mod = ...
 local function _1_(plugin_12_auto, opts_13_auto)
-  local start_14_auto = vim.loop.hrtime()
+  local start_14_auto = _G.vim.loop.hrtime()
   local fidget_3f_15_auto, fidget_16_auto = nil, nil
   local function _2_()
     return require("fidget")
@@ -9,7 +9,7 @@ local function _1_(plugin_12_auto, opts_13_auto)
   fidget_3f_15_auto, fidget_16_auto = pcall(_2_)
   local ok_3f_17_auto, res_18_auto = nil, nil
   local function _3_(_plugin, opts)
-    vim.diagnostic.config({virtual_text = false})
+    _G.vim.diagnostic.config({virtual_text = false})
     local tmp_3_auto = require("lsp_lines")
     if (nil ~= tmp_3_auto) then
       return tmp_3_auto:setup(opts)
@@ -20,7 +20,7 @@ local function _1_(plugin_12_auto, opts_13_auto)
   ok_3f_17_auto, res_18_auto = pcall(_3_, plugin_12_auto, opts_13_auto)
   if ok_3f_17_auto then
     if fidget_3f_15_auto then
-      local ms_19_auto = ((vim.loop.hrtime() - start_14_auto) / 1000000)
+      local ms_19_auto = ((_G.vim.loop.hrtime() - start_14_auto) / 1000000)
       fidget_16_auto.notify((mod .. " in " .. ms_19_auto .. "ms"))
     else
     end
