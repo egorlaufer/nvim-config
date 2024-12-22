@@ -68,7 +68,7 @@ local function config(plugin, opts)
       local function _10_(fname)
         return (lspconfig.util.root_pattern("mix.exs", ".git")(fname) or vim.loop.os_homedir())
       end
-      lspconfig_configs["lexical"] = {default_config = {filetypes = {"elixir", "eelixr", "heex"}, cmd = {lexical_bin}, root_dir = _10_, settings = {}}}
+      lspconfig_configs.lexical = {default_config = {cmd = {lexical_bin}, filetypes = {"elixir", "eelixr", "heex"}, root_dir = _10_, settings = {}}}
     else
     end
     lspconfig.fennel_ls.setup({on_attach = custom_attach, capabilities = capabilities, settings = {["fennel-ls"] = {["extra-globals"] = "vim"}}})
