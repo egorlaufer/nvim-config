@@ -67,7 +67,7 @@ local function config(_plugin, _opts)
       return require("cmp_nvim_lsp")
     end
     ok_3f1, cmp = pcall(_9_)
-    local capabilities = _G.vim.tbl_deep_extend("force", _G.vim.lsp.protocol.make_client_capabilities(), cmp.default_capabilities())
+    local capabilities = require("blink.cmp").get_lsp_capabilities()
     if not lspconfig_configs.lexical then
       local function _10_(fname)
         return (lspconfig.util.root_pattern("mix.exs", ".git")(fname) or _G.vim.loop.os_homedir())
@@ -112,4 +112,4 @@ local function _13_(plugin_12_auto, opts_13_auto)
     return false
   end
 end
-return {"neovim/nvim-lspconfig", ft = {"fennel", "lua", "erlang", "elixir", "rust", "idris2", "cs", "zig"}, config = _13_, version = "*", lazy = true, dependencies = {{"williamboman/mason-lspconfig.nvim", opts = {}, dependencies = {{"williamboman/mason.nvim", cmd = {"Mason", "MasonUpdate", "MasonInstall", "MasonUninstall", "MasonUninstallAll", "MasonLog"}, opts = {}}}}, {"ray-x/lsp_signature.nvim"}}}
+return {"neovim/nvim-lspconfig", ft = {"fennel", "lua", "erlang", "elixir", "rust", "idris2", "cs", "zig"}, config = _13_, version = "*", lazy = true, dependencies = {require("config.plugin.blink"), {"williamboman/mason-lspconfig.nvim", opts = {}, dependencies = {{"williamboman/mason.nvim", cmd = {"Mason", "MasonUpdate", "MasonInstall", "MasonUninstall", "MasonUninstallAll", "MasonLog"}, opts = {}}}}, {"ray-x/lsp_signature.nvim"}}}

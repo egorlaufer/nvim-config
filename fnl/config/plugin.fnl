@@ -12,7 +12,6 @@
                  (require :config.plugin.nvim-treesitter-textobjects)
                  (require :config.plugin.lualine)
                  (require :config.plugin.undotree)
-                 (require :config.plugin.cmp)
                  (require :config.plugin.conform)
                  (require :config.plugin.which-key)
                  (require :config.plugin.telescope)
@@ -39,6 +38,7 @@
                  (require :config.plugin.lsp-lines)
                  (require :config.plugin.borderline)
                  (require :config.plugin.dressing)
-                 (require :config.plugin.render-markdown)])))
+                 (require :config.plugin.render-markdown)
+                 (require :config.plugin.blink)])))
 
 {}
