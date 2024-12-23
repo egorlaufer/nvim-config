@@ -9,6 +9,9 @@
 (util.set-normal :<leader>llr ":lua vim.lsp.codelens.refresh()<CR>"
                  {:desc "codelens: refresh"})
 
+(util.set-normal :<leader>d ":lua vim.diagnostic.open_float()<cr>"
+                 {:desc "open diagnostic"})
+
 (util.set-terminal :<Esc> "<C-\\><C-n>" {:desc "term escape"})
 
 {}
