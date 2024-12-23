@@ -10,7 +10,6 @@
   (util.set-normal-telescope :gD :lsp_type_definitions {:buffer bufnr})
   (util.set-normal-telescope :gr :lsp_references {:buffer bufnr})
   (util.set-normal-telescope :gI :lsp_implementations {:buffer bufnr})
-  (util.set-normal-telescope :<leader>ds :lsp_document_symbols {:buffer bufnr})
   (util.set-normal-telescope :<leader>ws :lsp_dynamic_workspace_symbols
                              {:buffer bufnr})
   (util.set-normal :K vim.lsp.buf.hover
