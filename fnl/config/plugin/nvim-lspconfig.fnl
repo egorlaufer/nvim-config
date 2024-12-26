@@ -56,14 +56,14 @@
                                               (vim.lsp.protocol.make_client_capabilities)
                                               (cmp.default_capabilities))]
         (when (not lspconfig-configs.lexical)
-          (tset lspconfig-configs :lexical
-                {:default_config {:filetypes [:elixir :eelixr :heex]
-                                  :cmd [lexical-bin]
-                                  :root_dir (fn [fname]
-                                              (or ((lspconfig.util.root_pattern :mix.exs
-                                                                                :.git) fname)
-                                                  (vim.loop.os_homedir)))
-                                  :settings {}}}))
+          (set lspconfig-configs.lexical
+               {:default_config {:cmd [lexical-bin]
+                                 :filetypes [:elixir :eelixr :heex]
+                                 :root_dir (fn [fname]
+                                             (or ((lspconfig.util.root_pattern :mix.exs
+                                                                               :.git) fname)
+                                                 (vim.loop.os_homedir)))
+                                 :settings {}}}))
         (lspconfig.fennel_ls.setup {:on_attach custom-attach
                                     : capabilities
                                     :settings {:fennel-ls {:extra-globals :vim}}})
