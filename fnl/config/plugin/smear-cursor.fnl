@@ -4,6 +4,7 @@
 
 {1 :sphamba/smear-cursor.nvim
  :event :VeryLazy
+ :version "*"
  :opts {}
  :config (lazy-config-fn mod
                          (fn [_plugin opts]

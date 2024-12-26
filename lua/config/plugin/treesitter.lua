@@ -39,4 +39,4 @@ local function _3_(plugin_12_auto, opts_13_auto)
     return false
   end
 end
-return {"nvim-treesitter/nvim-treesitter", ft = {"fennel", "lua", "rust", "erlang", "elixir", "idris2"}, config = _3_, lazy = true}
+return {"nvim-treesitter/nvim-treesitter", version = "*", ft = {"fennel", "lua", "rust", "erlang", "elixir", "idris2"}, config = _3_, lazy = true}
