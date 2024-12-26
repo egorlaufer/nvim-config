@@ -125,9 +125,7 @@
     (when ok?
       (let [(ok? lspconfig-configs) (pcall #(require :lspconfig.configs))
             (ok? cmp) (pcall #(require :cmp_nvim_lsp))
-            capabilities (_G.vim.tbl_deep_extend :force
-                                                 (_G.vim.lsp.protocol.make_client_capabilities)
-                                                 (cmp.default_capabilities))]
+            capabilities ((. (require :blink.cmp) :get_lsp_capabilities))]
         (when (not lspconfig-configs.lexical)
           (set lspconfig-configs.lexical
                {:default_config {:cmd [lexical-bin]
@@ -165,7 +163,8 @@
  :config (lazy-config-fn mod config)
  :version "*"
  :lazy true
- :dependencies [{1 :williamboman/mason-lspconfig.nvim
+ :dependencies [(require :config.plugin.blink)
+                {1 :williamboman/mason-lspconfig.nvim
                  :opts {}
                  :dependencies [{1 :williamboman/mason.nvim
                                  :cmd [:Mason
