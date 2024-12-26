@@ -40,6 +40,7 @@
                  (require :config.plugin.dressing)
                  (require :config.plugin.render-markdown)
                  (require :config.plugin.blink)
-                 (require :config.plugin.octo)])))
+                 (require :config.plugin.octo)
+                 (require :config.plugin.parrot)])))
 
 {}
