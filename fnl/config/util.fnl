@@ -1,7 +1,10 @@
 (fn set-key [m k command opts]
-  (vim.keymap.set :n k command
-                  (vim.tbl_extend :force
-                                  {:noremap true :silent true :nowait true} opts)))
+  (_G.vim.keymap.set :n k command
+                     (_G.vim.tbl_extend :force
+                                        {:noremap true
+                                         :silent true
+                                         :nowait true}
+                                        opts)))
 
 (fn set-normal [k command opts] (set-key :n k command opts))
 (fn set-terminal [k command opts] (set-key :t k command opts))
@@ -16,4 +19,3 @@
   (set-normal k (telescope command opts) {:desc (.. "tele " command)}))
 
 {: set-normal : set-terminal : set-normal-telescope}
-
